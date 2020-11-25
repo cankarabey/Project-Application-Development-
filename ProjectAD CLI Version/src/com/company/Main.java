@@ -14,7 +14,7 @@ public class Main {
                     "\n 1. Cattle" +
                     "\n 2. Deer" +
                     "\n 3. Horse" +
-                    "\n 9. Quit");
+                    "\n\n 9. Quit");
             Scanner scanner = new Scanner(System.in);
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == 1) {
@@ -38,7 +38,7 @@ public class Main {
                 System.out.println("Horse population after t time : " + Model.calcHorse(t));
 
             }else if(choice == 9){
-                break;
+                System.exit(0);
             } else {
                 System.out.println("Please enter a number between 1 and 3!");
             }
