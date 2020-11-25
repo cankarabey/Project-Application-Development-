@@ -13,21 +13,15 @@ public class Model {
     // deer r = 0,029899109 m0 2010 = 1845
 
     public static double calcDeer(int t){
-        double result;
-        result = nZeroDeer * Math.pow(Math.E , (rDeer * t));
-        return result;
+        return nZeroDeer * Math.pow(Math.E , (rDeer * t));
     }
 
     public static double calcHorse( int t){
-        double result;
-        result = nZeroHorse * Math.pow(Math.E , (rHorse * t));
-        return result;
+        return nZeroHorse * Math.pow(Math.E , (rHorse * t));
     }
 
     public static double calcCattle(int t){
-        double result;
-        result = nZeroCattle * Math.pow(Math.E , (rCattle * t));
-        return result;
+        return nZeroCattle * Math.pow(Math.E , (rCattle * t));
     }
 
 

@@ -13,7 +13,8 @@ public class Main {
             System.out.println("Please choose the type of animal : " +
                     "\n 1. Cattle" +
                     "\n 2. Deer" +
-                    "\n 3. Horse");
+                    "\n 3. Horse" +
+                    "\n 9. Quit");
             Scanner scanner = new Scanner(System.in);
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == 1) {
@@ -21,7 +22,7 @@ public class Main {
 
                 int t = Integer.parseInt(scanner.nextLine());
 
-                System.out.println("Deer population after t time : " + Model.calcCattle(t));
+                System.out.println("Cattle population after t time : " + Model.calcCattle(t));
 
             } else if (choice == 2) {
                 System.out.println("Please enter time t in months : ");
@@ -34,7 +35,10 @@ public class Main {
 
                 int t = Integer.parseInt(scanner.nextLine());
 
-                System.out.println("Deer population after t time : " + Model.calcHorse(t));
+                System.out.println("Horse population after t time : " + Model.calcHorse(t));
+
+            }else if(choice == 9){
+                break;
             } else {
                 System.out.println("Please enter a number between 1 and 3!");
             }
