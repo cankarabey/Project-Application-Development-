@@ -22,20 +22,32 @@ public class Main {
 
                 int t = Integer.parseInt(scanner.nextLine());
 
+<<<<<<< HEAD
                 System.out.println("Cattle population after " + t + " month(s): " + Model.calcCattle(t));
+=======
+                System.out.println("Cattle population after t time : " + ExpModel.calcCattle(t));
+>>>>>>> 86dcbc0dc8460af56b23a8672d6f0022385fbc3b
 
             } else if (choice == 2) {
                 System.out.println("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
 
+<<<<<<< HEAD
                 System.out.println("Deer population after "+ t + " month(s) : " + Model.calcDeer(t));
+=======
+                System.out.println("Deer population after t time : " + ExpModel.calcDeer(t));
+>>>>>>> 86dcbc0dc8460af56b23a8672d6f0022385fbc3b
             } else if (choice == 3) {
                 System.out.println("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
 
+<<<<<<< HEAD
                 System.out.println("Horse population after " + t + " month(s) : " + Model.calcHorse(t));
+=======
+                System.out.println("Horse population after t time : " + ExpModel.calcHorse(t));
+>>>>>>> 86dcbc0dc8460af56b23a8672d6f0022385fbc3b
 
             }else if(choice == 9){
                 System.exit(0);
