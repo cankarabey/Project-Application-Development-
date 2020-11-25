@@ -21,7 +21,7 @@ public class Main {
                 System.out.println("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s): "+ LogModel.calcCattle(t));
+                System.out.println("Cattle population after " + t + " month(s): " + LogModel.calcCattle(t));
 
             }
             else if (choice == 2) {
