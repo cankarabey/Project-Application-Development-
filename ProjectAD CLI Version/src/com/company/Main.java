@@ -23,20 +23,22 @@ public class Main {
                 int t = Integer.parseInt(scanner.nextLine());
                 System.out.println("Cattle population after " + t + " month(s): "+ ExpModel.calcCattle(t));
 
-            } else if (choice == 2) {
+            }
+            else if (choice == 2) {
                 System.out.println("Please enter time t in months : ");
                 int t = Integer.parseInt(scanner.nextLine());
                 System.out.println("Deer population after" + t + " time : " + ExpModel.calcDeer(t));
-            } else if (choice == 3) {
+            }
+            else if (choice == 3) {
                 System.out.println("Please enter time t in months : ");
-
                 int t = Integer.parseInt(scanner.nextLine());
-
                 System.out.println("Horse population after " + t + " month(s) : " + ExpModel.calcHorse(t));
 
-            }else if(choice == 9){
+            }
+            else if(choice == 9){
                 System.exit(0);
-            } else {
+            }
+            else {
                 System.out.println("Please enter a number between 1 and 3!");
             }
         }
