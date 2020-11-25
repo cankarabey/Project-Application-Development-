@@ -28,8 +28,12 @@ public class Main {
             else if (choice == 2) {
                 System.out.println("Please enter time t in months : ");
                 int t = Integer.parseInt(scanner.nextLine());
+<<<<<<< Updated upstream
                 System.out.println("Deer population after " + t + " time : " + LogModel.calcDeer(t));
                 System.out.println("Deer population after " + t + " time : " + ExpModel.calcDeer(t));
+=======
+                System.out.println("Deer population after" + t + " time : " + LogModel.calcDeer(t));
+>>>>>>> Stashed changes
             }
             else if (choice == 3) {
                 System.out.println("Please enter time t in months : ");
