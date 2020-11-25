@@ -26,7 +26,7 @@ public class Main {
             } else if (choice == 2) {
                 System.out.println("Please enter time t in months : ");
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Deer population after t time : " + ExpModel.calcDeer(t));
+                System.out.println("Deer population after" + t + " time : " + ExpModel.calcDeer(t));
             } else if (choice == 3) {
                 System.out.println("Please enter time t in months : ");
 
