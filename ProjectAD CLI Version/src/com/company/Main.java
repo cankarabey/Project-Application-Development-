@@ -6,9 +6,9 @@ public class Main {
 
     public static void main(String[] args){
 
-        while (true) {
+        System.out.println("cattle r = 0,001900165 n0 2010 = 293\n horse r = 0,025769117 n0 2010 = 964\n deer r = 0,029899109 n0 2010 = 1845");
 
-            System.out.println("cattle r = 0,001900165 n0 2010 = 293\n horse r = 0,025769117 n0 2010 = 964\n deer r = 0,029899109 n0 2010 = 1845");
+        while (true) {
 
             System.out.println("Please choose the type of animal : " +
                     "\n 1. Cattle" +
