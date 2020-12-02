@@ -13,16 +13,43 @@ public class LogModel {
     private static final double kDeer = -1766.52;
 
 
-    public static int calcDeer(int t){
-        return (int) (kDeer/(1 + ((kDeer - nZeroDeer)/nZeroDeer)*Math.pow(Math.E , (-rDeer * t))));
+    public static int calc(int t , int nZero , double k , double r){
+        return (int) (k/(1 + ((k - nZero)/nZero)*Math.pow(Math.E , (-r * t))));
     }
 
-    public static int calcCattle(int t){
-        return (int) (kCattle/(1 + ((kCattle - nZeroCattle)/nZeroCattle)*Math.pow(Math.E , (-rCattle * t))));
+    public static double getrCattle() {
+        return rCattle;
     }
 
-    public static int calcHorse(int t){
-        return (int) (kHorse/(1 + ((kHorse - nZeroHorse)/nZeroHorse)*Math.pow(Math.E , (-rHorse * t))));
+    public static double getrHorse() {
+        return rHorse;
     }
 
+    public static double getrDeer() {
+        return rDeer;
+    }
+
+    public static int getnZeroCattle() {
+        return nZeroCattle;
+    }
+
+    public static int getnZeroHorse() {
+        return nZeroHorse;
+    }
+
+    public static int getnZeroDeer() {
+        return nZeroDeer;
+    }
+
+    public static double getkCattle() {
+        return kCattle;
+    }
+
+    public static double getkHorse() {
+        return kHorse;
+    }
+
+    public static double getkDeer() {
+        return kDeer;
+    }
 }

@@ -22,18 +22,18 @@ public class Main {
                 System.out.println("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s): " + LogModel.calcCattle(t));
+                System.out.println("Cattle population after " + t + " month(s): " + LogModel.calc(t , LogModel.getnZeroCattle() , LogModel.getkCattle() , LogModel.getrCattle()));
 
             }
             else if (choice == 2) {
                 System.out.println("Please enter time t in months : ");
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Deer population after" + t + " time : " + LogModel.calcDeer(t));
+                System.out.println("Deer population after" + t + " time : " + LogModel.calc(t , LogModel.getnZeroDeer() , LogModel.getkDeer() , LogModel.getrDeer()));
             }
             else if (choice == 3) {
                 System.out.println("Please enter time t in months : ");
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Horse population after " + t + " month(s) : " + LogModel.calcHorse(t));
+                System.out.println("Horse population after " + t + " month(s) : " + LogModel.calc(t , LogModel.getnZeroHorse() , LogModel.getkHorse() , LogModel.getrHorse()));
 
             }
             else if(choice == 9){
