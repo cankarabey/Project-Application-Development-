@@ -6,26 +6,35 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 
 public class CSVReader {
 
-    public static void calcR() throws IOException {
+    public static double calcR(String path) throws IOException {
 
-        BufferedReader reader = Files.newBufferedReader(Paths.get("/Users/can/Downloads/CattleData.csv"));
-        CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withHeader("Year" , "Total" , "Births" , "Deaths"));
-        int[] birthsPerCapita = new int[csvParser.getRecords().size()];
+        BufferedReader reader = Files.newBufferedReader(Paths.get(path));
+        CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
+        ArrayList<Double> birthsPerCapita = new ArrayList<>();
+        ArrayList<Double> deathsPerCapita = new ArrayList<>();
+        ArrayList<Double> rValues = new ArrayList<>();
 
-        int count = 0;
         for( CSVRecord csv : csvParser){
-            birthsPerCapita[count] = Integer.parseInt(csv.get(2)) / Integer.parseInt(csv.get(1));
-            System.out.println(Integer.parseInt(csv.get(2)));
-            count++;
+            birthsPerCapita.add(Double.parseDouble(csv.get(2)) / Double.parseDouble(csv.get(1)));
+            deathsPerCapita.add(Double.parseDouble(csv.get(3)) / Double.parseDouble(csv.get(1)));
         }
 
-        for (int i : birthsPerCapita){
-            //System.out.println(i);
+        for (int i = 0; i < birthsPerCapita.size() ; i++) {
+            rValues.add(birthsPerCapita.get(i) - deathsPerCapita.get(i));
         }
+
+        double rAvg = 0;
+        for (double d : rValues){
+            rAvg += d;
+        }
+        rAvg = rAvg/rValues.size();
+
+        return rAvg;
 
     }
 }
