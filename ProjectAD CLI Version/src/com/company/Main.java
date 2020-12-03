@@ -7,6 +7,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+        System.out.println(CSVReader.calcR("/Users/can/Downloads/CattleData.csv"));
+        System.out.println(CSVReader.calcK("/Users/can/Downloads/CattleData.csv"));
+
         System.out.println("Cattle:\t r = 0,001900165 n0 2010 = 293\nHorse\t r = 0,025769117 n0 2010 = 964\nDeer:\t r = 0,029899109 n0 2010 = 1845\n");
 
         while (true) {
