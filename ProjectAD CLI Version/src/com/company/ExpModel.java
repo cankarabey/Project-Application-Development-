@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.TreeMap;
+
 public class ExpModel implements IModel {
 
     private static final double rCattle = 0.001900165;
@@ -15,6 +17,15 @@ public class ExpModel implements IModel {
     
     public static int calcExp(int t, int nZero, double r) {
     	return (int) (nZero * Math.pow(Math.E, (r * t)));
+    }
+    
+    static TreeMap<Integer, Integer> animals = new TreeMap<>();
+    
+    public static TreeMap<Integer,Integer> calcExp2(int t , int nZero, double r) {
+    	for (int i = 1; i<=t; i++) {
+    		animals.put(i, ((int) (nZero * Math.pow(Math.E, (r * i)))));
+    	}
+    	return animals;
     }
     
     public static double getrCattle() {

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.TreeMap;
+
 public class LogModel implements IModel {
 
     private static final double rCattle = 0.001900165;
@@ -13,9 +15,20 @@ public class LogModel implements IModel {
     private static final double kDeer = -1766.52;
 
 
+    
     public static int calcLog(int t , int nZero , double k , double r){
         return (int) (k/(1 + ((k - nZero)/nZero)*Math.pow(Math.E , (-r * t))));
     }
+    
+    static TreeMap<Integer, Integer> animals = new TreeMap<>();
+    
+    public static TreeMap<Integer,Integer> calcLog2(int t , int nZero, double k, double r) {
+    	for (int i = 1; i<=t; i++) {
+    		animals.put(i, ((int) (k/(1 + ((k - nZero)/nZero)*Math.pow(Math.E , (-r * i))))));
+    	}
+    	return animals;
+    }
+    
 
     public static double getrCattle() {
         return rCattle;
@@ -61,8 +74,8 @@ public class LogModel implements IModel {
 
 	@Override
 	public int calcNZero(int t) {
-		// TODO Auto-generated method stub
-		return 0;
+	int nZero = 0;
+			return nZero;
 	}
 
 	@Override

@@ -6,8 +6,6 @@ public class Main {
 
     public static void main(String[] args){
 
-    	//test for Roberts
-
         System.out.println("Cattle:\t r = 0,001900165 n0 2010 = 293\nHorse\t r = 0,025769117 n0 2010 = 964\nDeer:\t r = 0,029899109 n0 2010 = 1845\n");
 
         while (true) {
@@ -34,7 +32,23 @@ public class Main {
                 System.out.println("Cattle population after " + t + " month(s)  | " + LogModel.calcLog(t , LogModel.getnZeroCattle() , LogModel.getkCattle() , LogModel.getrCattle()));
                 System.out.println("Deer population after " + t + " month(s)    | " + LogModel.calcLog(t , LogModel.getnZeroDeer() , LogModel.getkDeer() , LogModel.getrDeer()));
                 System.out.println("Horse population after " + t + " month(s)   | " + LogModel.calcLog(t , LogModel.getnZeroHorse() , LogModel.getkHorse() , LogModel.getrHorse()) + "\n");
-	
+            
+            }else if (choice == 3) {
+                System.out.print("Please enter time t in months : ");
+
+                int t = Integer.parseInt(scanner.nextLine());
+                System.out.println("Cattle population after " + t + " month(s)  | " + ExpModel.calcExp2(t , ExpModel.getnZeroCattle(), ExpModel.getrCattle()));
+                System.out.println("Deer population after " + t + " month(s)    | " + ExpModel.calcExp2(t , LogModel.getnZeroDeer(), ExpModel.getrDeer()));
+                System.out.println("Horse population after " + t + " month(s)   | " + ExpModel.calcExp2(t , LogModel.getnZeroHorse() , ExpModel.getrHorse()) + "\n");
+
+            }else if (choice == 4) {
+                System.out.print("Please enter time t in months : ");
+
+                int t = Integer.parseInt(scanner.nextLine());
+                System.out.println("Cattle population after " + t + " month(s)  | " + LogModel.calcLog2(t , LogModel.getnZeroCattle() , LogModel.getkCattle() , LogModel.getrCattle()));
+                System.out.println("Deer population after " + t + " month(s)    | " + LogModel.calcLog2(t , LogModel.getnZeroDeer() , LogModel.getkDeer() , LogModel.getrDeer()));
+                System.out.println("Horse population after " + t + " month(s)   | " + LogModel.calcLog2(t , LogModel.getnZeroHorse() , LogModel.getkHorse() , LogModel.getrHorse()) + "\n");
+            
             }
 
             else if(choice == 9){
@@ -47,14 +61,3 @@ public class Main {
 
     }
 }
-//else if (choice == 2) {
-//System.out.println("Please enter time t in months : ");
-//int t = Integer.parseInt(scanner.nextLine());
-//System.out.println("Deer population after" + t + " time : " + LogModel.calcLog(t , LogModel.getnZeroDeer() , LogModel.getkDeer() , LogModel.getrDeer()));
-//}
-//else if (choice == 3) {
-//System.out.println("Please enter time t in months : ");
-//int t = Integer.parseInt(scanner.nextLine());
-//System.out.println("Horse population after " + t + " month(s) : " + LogModel.calcLog(t , LogModel.getnZeroHorse() , LogModel.getkHorse() , LogModel.getrHorse()));
-//
-//}
