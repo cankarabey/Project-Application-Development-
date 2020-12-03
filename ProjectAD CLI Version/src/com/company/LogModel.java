@@ -13,7 +13,7 @@ public class LogModel {
     private static final double kDeer = -1766.52;
 
 
-    public static int calc(int t , int nZero , double k , double r){
+    public static int calcLog(int t , int nZero , double k , double r){
         return (int) (k/(1 + ((k - nZero)/nZero)*Math.pow(Math.E , (-r * t))));
     }
 
