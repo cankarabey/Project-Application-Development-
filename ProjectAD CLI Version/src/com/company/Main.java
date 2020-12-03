@@ -11,38 +11,49 @@ public class Main {
 
         while (true) {
 
-            System.out.println("Please choose the type of animal : " +
-                    "\n 1. Cattle" +
-                    "\n 2. Deer" +
-                    "\n 3. Horse" +
-                    "\n\n 9. Quit");
+            System.out.print("Please choose a mathimatical model: " +
+                    "\n 1. Exponential Model" +
+                    "\n 2. Logarithmic Model" +
+                    "\n\n 9. Quit" + 
+                    "\n\n Model: ");
             Scanner scanner = new Scanner(System.in);
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == 1) {
-                System.out.println("Please enter time t in months : ");
+                System.out.print("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s): " + LogModel.calcLog(t , LogModel.getnZeroCattle() , LogModel.getkCattle() , LogModel.getrCattle()));
+                System.out.println("Cattle population after " + t + " month(s)  | " + ExpModel.calcExp(t , ExpModel.getnZeroCattle(), ExpModel.getrCattle()));
+                System.out.println("Deer population after " + t + " month(s)    | " + ExpModel.calcExp(t , LogModel.getnZeroDeer(), ExpModel.getrDeer()));
+                System.out.println("Horse population after " + t + " month(s)   | " + ExpModel.calcExp(t , LogModel.getnZeroHorse() , ExpModel.getrHorse()) + "\n");
 
-            }
-            else if (choice == 2) {
-                System.out.println("Please enter time t in months : ");
-                int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Deer population after" + t + " time : " + LogModel.calcLog(t , LogModel.getnZeroDeer() , LogModel.getkDeer() , LogModel.getrDeer()));
-            }
-            else if (choice == 3) {
-                System.out.println("Please enter time t in months : ");
-                int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Horse population after " + t + " month(s) : " + LogModel.calcLog(t , LogModel.getnZeroHorse() , LogModel.getkHorse() , LogModel.getrHorse()));
+            } else if (choice == 2) {
+                System.out.print("Please enter time t in months : ");
 
+                int t = Integer.parseInt(scanner.nextLine());
+                System.out.println("Cattle population after " + t + " month(s)  | " + LogModel.calcLog(t , LogModel.getnZeroCattle() , LogModel.getkCattle() , LogModel.getrCattle()));
+                System.out.println("Deer population after " + t + " month(s)    | " + LogModel.calcLog(t , LogModel.getnZeroDeer() , LogModel.getkDeer() , LogModel.getrDeer()));
+                System.out.println("Horse population after " + t + " month(s)   | " + LogModel.calcLog(t , LogModel.getnZeroHorse() , LogModel.getkHorse() , LogModel.getrHorse()) + "\n");
+	
             }
+
             else if(choice == 9){
                 System.exit(0);
             }
             else {
-                System.out.println("Please enter a number between 1 and 3!");
+                System.out.println("Please enter a valid numeral option.");
             }
         }
 
     }
 }
+//else if (choice == 2) {
+//System.out.println("Please enter time t in months : ");
+//int t = Integer.parseInt(scanner.nextLine());
+//System.out.println("Deer population after" + t + " time : " + LogModel.calcLog(t , LogModel.getnZeroDeer() , LogModel.getkDeer() , LogModel.getrDeer()));
+//}
+//else if (choice == 3) {
+//System.out.println("Please enter time t in months : ");
+//int t = Integer.parseInt(scanner.nextLine());
+//System.out.println("Horse population after " + t + " month(s) : " + LogModel.calcLog(t , LogModel.getnZeroHorse() , LogModel.getkHorse() , LogModel.getrHorse()));
+//
+//}

@@ -1,6 +1,6 @@
 package com.company;
 
-public class LogModel {
+public class LogModel implements IModel {
 
     private static final double rCattle = 0.001900165;
     private static final double rHorse = 0.025769117;
