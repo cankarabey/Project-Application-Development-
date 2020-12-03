@@ -14,9 +14,17 @@ public class CSVReader {
 
         BufferedReader reader = Files.newBufferedReader(Paths.get("/Users/can/Downloads/CattleData.csv"));
         CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withHeader("Year" , "Total" , "Births" , "Deaths"));
+        int[] birthsPerCapita = new int[csvParser.getRecords().size()];
 
+        int count = 0;
         for( CSVRecord csv : csvParser){
-            System.out.println(csv.get(0));
+            birthsPerCapita[count] = Integer.parseInt(csv.get(2)) / Integer.parseInt(csv.get(1));
+            System.out.println(Integer.parseInt(csv.get(2)));
+            count++;
+        }
+
+        for (int i : birthsPerCapita){
+            //System.out.println(i);
         }
 
     }
