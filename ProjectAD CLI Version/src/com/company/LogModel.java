@@ -52,4 +52,24 @@ public class LogModel implements IModel {
     public static double getkDeer() {
         return kDeer;
     }
+
+	@Override
+	public int calcR(int t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int calcNZero(int t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int calcK(int t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 }

@@ -40,6 +40,26 @@ public class ExpModel implements IModel {
     public static int getnZeroDeer() {
         return nZeroDeer;
     }
+
+	@Override
+	public int calcR(int t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int calcNZero(int t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int calcK(int t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
     
 //    public static double calcDeer(int t){
 //        return nZeroDeer * Math.pow(Math.E , (rDeer * t));
