@@ -37,5 +37,8 @@ public class LogModel implements IModel {
 		return 0;
 	}
 
-
+	@Override
+	public void calculate(int t, String path) throws IOException {
+		System.out.println( (int) (CSVReader.calcK(path)/(1 + ((CSVReader.calcK(path) - CSVReader.getN(path))/CSVReader.getN(path))*Math.pow(Math.E , (-CSVReader.calcR(path) * t)))));
+	}
 }

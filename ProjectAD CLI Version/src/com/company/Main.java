@@ -7,6 +7,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+        ExpModel exp = new ExpModel();
+        exp.calculate(12, "CattleData.csv");
+
         System.out.println("Cattle rValue = " + CSVReader.calcR("CattleData.csv") + " N0 = " + CSVReader.getN("CattleData.csv") + " \nDeer rValue = " + CSVReader.calcR("DeerData.csv") + " N0 = " + CSVReader.getN("DeerData.csv") + "\nHorse rValue = " + CSVReader.calcR("HorseData.csv") + " N0 = " + CSVReader.getN("HorseData.csv") + "\n\n");
 
         while (true) {

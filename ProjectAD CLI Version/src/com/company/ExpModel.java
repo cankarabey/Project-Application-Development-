@@ -37,7 +37,8 @@ public class ExpModel implements IModel {
 		return 0;
 	}
 
-
-
-
+	@Override
+	public void calculate(int t, String path) throws IOException {
+		System.out.println( (int) (CSVReader.getN(path) * Math.pow(Math.E, (CSVReader.calcR(path) * t))));
+	}
 }
