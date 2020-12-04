@@ -3,19 +3,23 @@ package com.company;
 import org.apache.commons.csv.*;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
 
 public class CSVReader {
 
-    private static ArrayList[] calcValues(String path) throws IOException {
+    static ArrayList[] calcValues(String path) throws IOException {
 
         ArrayList[] arrayLists = new ArrayList[4];
 
-        BufferedReader reader = Files.newBufferedReader(Paths.get(path));
+        BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
+
         CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
         ArrayList<Double> birthsPerCapita = new ArrayList<>();
         ArrayList<Double> deathsPerCapita = new ArrayList<>();
