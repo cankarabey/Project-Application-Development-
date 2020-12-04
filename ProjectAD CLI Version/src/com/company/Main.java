@@ -10,9 +10,12 @@ public class Main {
         ExpModel exp = new ExpModel();
         exp.calculate(12, "CattleData.csv");
 
+        int year = CSVReader.getYear("CattleData.csv");
+        System.out.println(year);
         System.out.println("Cattle rValue = " + CSVReader.calcR("CattleData.csv") + " N0 = " + CSVReader.getN("CattleData.csv") + " \nDeer rValue = " + CSVReader.calcR("DeerData.csv") + " N0 = " + CSVReader.getN("DeerData.csv") + "\nHorse rValue = " + CSVReader.calcR("HorseData.csv") + " N0 = " + CSVReader.getN("HorseData.csv") + "\n\n");
 
         while (true) {
+            year = CSVReader.getYear("CattleData.csv");
 
             System.out.print("Please choose a mathematical model: " +
                     "\n 1. Exponential Model" +
@@ -49,9 +52,11 @@ public class Main {
                 System.out.print("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s)  | " + LogModel.calcLog2(t , "CattleData.csv"));
-                System.out.println("Deer population after " + t + " month(s)    | " + LogModel.calcLog2(t , "DeerData.csv"));
-                System.out.println("Horse population after " + t + " month(s)   | " + LogModel.calcLog2(t , "HorseData.csv"));
+                System.out.println("Year |Cattle|Deer |Horse");
+                for (Integer key : LogModel.calcLog2(t , "CattleData.csv").keySet() ){
+                    System.out.println(year + " | " + LogModel.calcLog2(t , "CattleData.csv").get(key) + " | " +  LogModel.calcLog2(t , "DeerData.csv").get(key) + " | " + LogModel.calcLog2(t , "HorseData.csv").get(key) );
+                    year++;
+                }
             
             }
 

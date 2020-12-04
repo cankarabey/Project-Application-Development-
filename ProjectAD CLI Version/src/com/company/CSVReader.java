@@ -2,13 +2,10 @@ package com.company;
 
 import org.apache.commons.csv.*;
 
+import java.awt.print.PrinterGraphics;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 
@@ -16,7 +13,7 @@ public class CSVReader {
 
     static ArrayList[] calcValues(String path) throws IOException {
 
-        ArrayList[] arrayLists = new ArrayList[4];
+        ArrayList[] arrayLists = new ArrayList[5];
 
         BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
 
@@ -25,11 +22,13 @@ public class CSVReader {
         ArrayList<Double> deathsPerCapita = new ArrayList<>();
         ArrayList<Double> rValues = new ArrayList<>();
         ArrayList<Integer> totalNumber = new ArrayList<>();
+        ArrayList<Integer> years = new ArrayList<>();
 
         for( CSVRecord csv : csvParser){
             birthsPerCapita.add(Double.parseDouble(csv.get(2)) / Double.parseDouble(csv.get(1)));
             deathsPerCapita.add(Double.parseDouble(csv.get(3)) / Double.parseDouble(csv.get(1)));
             totalNumber.add(Integer.parseInt(csv.get(1)));
+            years.add(Integer.parseInt(csv.get(0)));
         }
 
         for (int i = 0; i < birthsPerCapita.size() ; i++) {
@@ -40,6 +39,7 @@ public class CSVReader {
         arrayLists[1] = deathsPerCapita;
         arrayLists[2] = rValues;
         arrayLists[3] = totalNumber;
+        arrayLists[4] = years;
 
         return arrayLists;
     }
@@ -89,5 +89,11 @@ public class CSVReader {
         ArrayList<Integer> totalN = arrayLists[3];
 
         return totalN.get(totalN.size() - 1);
+    }
+
+    public static int getYear(String path) throws IOException {
+        ArrayList[] arrayLists = calcValues(path);
+        ArrayList<Integer> years = arrayLists[4];
+        return years.get(years.size() - 1);
     }
 }
