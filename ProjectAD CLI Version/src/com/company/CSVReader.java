@@ -81,8 +81,10 @@ public class CSVReader {
         kAvg = kAvg/kValues.size();
 
         return kAvg;
+
     }
-    public static int getN0(String path) throws IOException {
+    
+    public static int getN(String path) throws IOException {
         ArrayList[] arrayLists = calcValues(path);
         ArrayList<Integer> totalN = arrayLists[3];
 
