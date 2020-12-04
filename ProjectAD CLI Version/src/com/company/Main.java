@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        
-        ExpModel exp = new ExpModel();
-        exp.calculate(12, "CattleData.csv");
+
+        //ExpModel exp = new ExpModel();
+        //exp.calculate(12, "CattleData.csv");
 
         int year = CSVReader.getYear("CattleData.csv");
         System.out.println(year);
@@ -28,33 +28,19 @@ public class Main {
                 System.out.print("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s)  | " + ExpModel.calcExp(t , "CattleData.csv"));
-                System.out.println("Deer population after " + t + " month(s)    | " + ExpModel.calcExp(t , "DeerData.csv"));
-                System.out.println("Horse population after " + t + " month(s)   | " + ExpModel.calcExp(t , "HorseData.csv"));
+                System.out.println("Year |Cattle|Deer |Horse");
+                for (Integer key : ExpModel.calcExp(t , "CattleData.csv").keySet() ){
+                    System.out.println(year + " | " + ExpModel.calcExp(t , "CattleData.csv").get(key) + " | " +  ExpModel.calcExp(t , "DeerData.csv").get(key) + " | " + ExpModel.calcExp(t , "HorseData.csv").get(key) );
+                    year++;
+                }
 
-            } else if (choice == 2) {
-                System.out.print("Please enter time t in months : ");
-
-                int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s)  | " + LogModel.calcLog(t , "CattleData.csv"));
-                System.out.println("Deer population after " + t + " month(s)    | " + LogModel.calcLog(t , "DeerData.csv"));
-                System.out.println("Horse population after " + t + " month(s)   | " + LogModel.calcLog(t , "HorseData.csv"));
-            
-            }else if (choice == 3) {
-                System.out.print("Please enter time t in months : ");
-
-                int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s)  | " + ExpModel.calcExp2(t , CSVReader.getN("CattleData.csv"), CSVReader.calcR("CattleData.csv")));
-                System.out.println("Deer population after " + t + " month(s)    | " + ExpModel.calcExp2(t , CSVReader.getN("DeerData.csv"), CSVReader.calcR("DeerData.csv")));
-                System.out.println("Horse population after " + t + " month(s)   | " + ExpModel.calcExp2(t , CSVReader.getN("HorseData.csv") , CSVReader.calcR("HorseData.csv")));
-
-            }else if (choice == 4) {
+            }else if (choice == 2) {
                 System.out.print("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
                 System.out.println("Year |Cattle|Deer |Horse");
-                for (Integer key : LogModel.calcLog2(t , "CattleData.csv").keySet() ){
-                    System.out.println(year + " | " + LogModel.calcLog2(t , "CattleData.csv").get(key) + " | " +  LogModel.calcLog2(t , "DeerData.csv").get(key) + " | " + LogModel.calcLog2(t , "HorseData.csv").get(key) );
+                for (Integer key : LogModel.calcLog(t , "CattleData.csv").keySet() ){
+                    System.out.println(year + " | " + LogModel.calcLog(t , "CattleData.csv").get(key) + " | " +  LogModel.calcLog(t , "DeerData.csv").get(key) + " | " + LogModel.calcLog(t , "HorseData.csv").get(key) );
                     year++;
                 }
             

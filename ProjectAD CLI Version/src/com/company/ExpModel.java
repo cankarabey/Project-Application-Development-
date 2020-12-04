@@ -5,15 +5,17 @@ import java.util.TreeMap;
 
 public class ExpModel implements IModel {
 
+	/*
     public static int calcExp(int t, String path) throws IOException {
     	return (int) (CSVReader.getN(path) * Math.pow(Math.E, (CSVReader.calcR(path) * t)));
     }
+	 */
     
     static TreeMap<Integer, Integer> animals = new TreeMap<>();
     
-    public static TreeMap<Integer,Integer> calcExp2(int t , int nZero, double r) {
+    public static TreeMap<Integer,Integer> calcExp(int t ,String path) throws IOException {
     	for (int i = 1; i<=t; i++) {
-    		animals.put(i, ((int) (nZero * Math.pow(Math.E, (r * i)))));
+    		animals.put(i, (int) (CSVReader.getN(path) * Math.pow(Math.E, (CSVReader.calcR(path) * i))));
     	}
     	return animals;
     }
