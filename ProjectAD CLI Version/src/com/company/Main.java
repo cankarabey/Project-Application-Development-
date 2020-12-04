@@ -22,9 +22,9 @@ public class Main {
                 System.out.print("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s)  | " + ExpModel.calcExp(t , CSVReader.getN("CattleData.csv"), CSVReader.calcR("CattleData.csv")));
-                System.out.println("Deer population after " + t + " month(s)    | " + ExpModel.calcExp(t , CSVReader.getN("DeerData.csv"), CSVReader.calcR("DeerData.csv")));
-                System.out.println("Horse population after " + t + " month(s)   | " + ExpModel.calcExp(t , CSVReader.getN("HorseData.csv") , CSVReader.calcR("HorseData.csv") ));
+                System.out.println("Cattle population after " + t + " month(s)  | " + ExpModel.calcExp(t , "CattleData.csv"));
+                System.out.println("Deer population after " + t + " month(s)    | " + ExpModel.calcExp(t , "DeerData.csv"));
+                System.out.println("Horse population after " + t + " month(s)   | " + ExpModel.calcExp(t , "HorseData.csv"));
 
             } else if (choice == 2) {
                 System.out.print("Please enter time t in months : ");

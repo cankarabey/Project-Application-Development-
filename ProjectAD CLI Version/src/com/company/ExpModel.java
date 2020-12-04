@@ -1,11 +1,12 @@
 package com.company;
 
+import java.io.IOException;
 import java.util.TreeMap;
 
 public class ExpModel implements IModel {
 
-    public static int calcExp(int t, int nZero, double r) {
-    	return (int) (nZero * Math.pow(Math.E, (r * t)));
+    public static int calcExp(int t, String path) throws IOException {
+    	return (int) (CSVReader.getN(path) * Math.pow(Math.E, (CSVReader.calcR(path) * t)));
     }
     
     static TreeMap<Integer, Integer> animals = new TreeMap<>();
