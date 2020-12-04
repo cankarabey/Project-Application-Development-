@@ -30,9 +30,9 @@ public class Main {
                 System.out.print("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s)  | " + LogModel.calcLog(t , CSVReader.getN("CattleData.csv") , CSVReader.calcK("CattleData.csv") , CSVReader.calcR("CattleData.csv")));
-                System.out.println("Deer population after " + t + " month(s)    | " + LogModel.calcLog(t , CSVReader.getN("DeerData.csv") , CSVReader.calcK("DeerData.csv") , CSVReader.calcR("DeerData.csv")));
-                System.out.println("Horse population after " + t + " month(s)   | " + LogModel.calcLog(t , CSVReader.getN("HorseData.csv") , CSVReader.calcK("HorseData.csv") , CSVReader.calcR("HorseData.csv") ));
+                System.out.println("Cattle population after " + t + " month(s)  | " + LogModel.calcLog(t , "CattleData.csv"));
+                System.out.println("Deer population after " + t + " month(s)    | " + LogModel.calcLog(t , "DeerData.csv"));
+                System.out.println("Horse population after " + t + " month(s)   | " + LogModel.calcLog(t , "HorseData.csv"));
             
             }else if (choice == 3) {
                 System.out.print("Please enter time t in months : ");
@@ -46,9 +46,9 @@ public class Main {
                 System.out.print("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Cattle population after " + t + " month(s)  | " + LogModel.calcLog2(t , CSVReader.getN("CattleData.csv") , CSVReader.calcK("CattleData.csv") , CSVReader.calcR("CattleData.csv")));
-                System.out.println("Deer population after " + t + " month(s)    | " + LogModel.calcLog2(t , CSVReader.getN("DeerData.csv") , CSVReader.calcK("DeerData.csv") , CSVReader.calcR("DeerData.csv")));
-                System.out.println("Horse population after " + t + " month(s)   | " + LogModel.calcLog2(t , CSVReader.getN("HorseData.csv") , CSVReader.calcK("HorseData.csv") , CSVReader.calcR("HorseData.csv")));
+                System.out.println("Cattle population after " + t + " month(s)  | " + LogModel.calcLog2(t , "CattleData.csv"));
+                System.out.println("Deer population after " + t + " month(s)    | " + LogModel.calcLog2(t , "DeerData.csv"));
+                System.out.println("Horse population after " + t + " month(s)   | " + LogModel.calcLog2(t , "HorseData.csv"));
             
             }
 
