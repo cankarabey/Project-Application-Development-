@@ -82,4 +82,10 @@ public class CSVReader {
 
         return kAvg;
     }
+    public static int getN0(String path) {
+        ArrayList[] arrayLists = calcValues(path);
+        ArrayList<Integer> totalN = arrayLists[3];
+
+        return totalN.get(totalN.size() - 1);
+    }
 }
