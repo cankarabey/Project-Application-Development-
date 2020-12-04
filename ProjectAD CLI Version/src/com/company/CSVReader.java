@@ -82,7 +82,7 @@ public class CSVReader {
 
         return kAvg;
     }
-    public static int getN0(String path) {
+    public static int getN0(String path) throws IOException {
         ArrayList[] arrayLists = calcValues(path);
         ArrayList<Integer> totalN = arrayLists[3];
 
