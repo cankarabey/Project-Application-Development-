@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-
+        
         ExpModel exp = new ExpModel();
         exp.calculate(12, "CattleData.csv");
 
