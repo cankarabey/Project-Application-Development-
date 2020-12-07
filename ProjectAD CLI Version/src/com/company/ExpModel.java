@@ -6,37 +6,16 @@ import java.util.TreeMap;
 public class ExpModel implements IModel {
 
     static TreeMap<Integer, Integer> animals = new TreeMap<>();
-    
-    public static TreeMap<Integer,Integer> calcExp(int t ,String path) throws IOException {
-    	int N0 = CSVReader.getN(path);
-    	for (int i = 1; i<=t; i++) {
-    		animals.put(i, (int) (N0 * Math.pow(Math.E, (CSVReader.calcR(path) * 1))));
-    		N0 = animals.get(i);
-    	}
-    	return animals;
-    }
-
 
 	@Override
-	public int calcR(int t) {
-		// TODO Auto-generated method stub
-		return 0;
+	public TreeMap<Integer, Integer> calc(int t, String path) throws IOException {
+		int N0 = CSVReader.getN(path);
+		for (int i = 1; i<=t; i++) {
+			animals.put(i, (int) (N0 * Math.pow(Math.E, (CSVReader.calcR(path) * 1))));
+			N0 = animals.get(i);
+		}
+		return animals;
 	}
 
-	@Override
-	public int calcNZero(int t) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	@Override
-	public int calcK(int t) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void calculate(int t, String path) throws IOException {
-		System.out.println( (int) (CSVReader.getN(path) * Math.pow(Math.E, (CSVReader.calcR(path) * t))));
-	}
 }

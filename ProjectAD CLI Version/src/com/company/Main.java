@@ -25,22 +25,23 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == 1) {
+                ExpModel expModel = new ExpModel();
                 System.out.print("Please enter time t in months : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
                 System.out.println("Year |Cattle|Deer |Horse");
-                for (Integer key : ExpModel.calcExp(t , "CattleData.csv").keySet() ){
-                    System.out.println(year + " | " + ExpModel.calcExp(t , "CattleData.csv").get(key) + " | " +  ExpModel.calcExp(t , "DeerData.csv").get(key) + " | " + ExpModel.calcExp(t , "HorseData.csv").get(key) );
+                for (Integer key : expModel.calc(t , "CattleData.csv").keySet() ){
+                    System.out.println(year + " | " + expModel.calc(t , "CattleData.csv").get(key) + " | " +  expModel.calc(t , "DeerData.csv").get(key) + " | " + expModel.calc(t , "HorseData.csv").get(key) );
                     year++;
                 }
 
             }else if (choice == 2) {
                 System.out.print("Please enter time t in months : ");
-
+                LogModel logModel = new LogModel();
                 int t = Integer.parseInt(scanner.nextLine());
                 System.out.println("Year |Cattle|Deer |Horse");
-                for (Integer key : LogModel.calcLog(t , "CattleData.csv").keySet() ){
-                    System.out.println(year + " | " + LogModel.calcLog(t , "CattleData.csv").get(key) + " | " +  LogModel.calcLog(t , "DeerData.csv").get(key) + " | " + LogModel.calcLog(t , "HorseData.csv").get(key) );
+                for (Integer key : logModel.calc(t , "CattleData.csv").keySet() ){
+                    System.out.println(year + " | " + logModel.calc(t , "CattleData.csv").get(key) + " | " +  logModel.calc(t , "DeerData.csv").get(key) + " | " + logModel.calc(t , "HorseData.csv").get(key) );
                     year++;
                 }
             
