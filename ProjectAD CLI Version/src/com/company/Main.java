@@ -6,10 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-
-        //ExpModel exp = new ExpModel();
-        //exp.calculate(12, "CattleData.csv");
-
+        
         int year = CSVReader.getYear("CattleData.csv");
         System.out.println(year);
         System.out.println("Cattle rValue = " + CSVReader.calcR("CattleData.csv") + " N0 = " + CSVReader.getN("CattleData.csv") + " \nDeer rValue = " + CSVReader.calcR("DeerData.csv") + " N0 = " + CSVReader.getN("DeerData.csv") + "\nHorse rValue = " + CSVReader.calcR("HorseData.csv") + " N0 = " + CSVReader.getN("HorseData.csv") + "\n\n");
@@ -26,7 +23,7 @@ public class Main {
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == 1) {
                 ExpModel expModel = new ExpModel();
-                System.out.print("Please enter time t in months : ");
+                System.out.print("Please enter time t in years : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
                 System.out.println("Year |Cattle|Deer |Horse");
@@ -36,7 +33,7 @@ public class Main {
                 }
 
             }else if (choice == 2) {
-                System.out.print("Please enter time t in months : ");
+                System.out.print("Please enter time t in years : ");
                 LogModel logModel = new LogModel();
                 int t = Integer.parseInt(scanner.nextLine());
                 System.out.println("Year |Cattle|Deer |Horse");
