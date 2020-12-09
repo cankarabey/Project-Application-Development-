@@ -9,7 +9,9 @@ public class Main {
         
         int year = CSVReader.getYear("CattleData.csv");
         System.out.println(year);
-        System.out.println("Cattle rValue = " + CSVReader.calcR("CattleData.csv") + " N0 = " + CSVReader.getN("CattleData.csv") + " \nDeer rValue = " + CSVReader.calcR("DeerData.csv") + " N0 = " + CSVReader.getN("DeerData.csv") + "\nHorse rValue = " + CSVReader.calcR("HorseData.csv") + " N0 = " + CSVReader.getN("HorseData.csv") + "\n\n");
+        System.out.println("Cattle:\t rValue = " + CSVReader.calcR("CattleData.csv") + "\t N0 = " + CSVReader.getN("CattleData.csv") + 
+        		"\nDeer:\t rValue = " + CSVReader.calcR("DeerData.csv") + "\t N0 = " + CSVReader.getN("DeerData.csv") + 
+        		"\nHorse:\t rValue = " + CSVReader.calcR("HorseData.csv") + "\t N0 = " + CSVReader.getN("HorseData.csv") + "\n\n");
 
         while (true) {
             year = CSVReader.getYear("CattleData.csv");
@@ -18,7 +20,7 @@ public class Main {
                     "\n 1. Exponential Model" +
                     "\n 2. Logarithmic Model" +
                     "\n\n 9. Quit" + 
-                    "\n\n Model: ");
+                    "\n\nModel: ");
             Scanner scanner = new Scanner(System.in);
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == 1) {
@@ -26,9 +28,11 @@ public class Main {
                 System.out.print("Please enter time t in years : ");
 
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Year |Cattle|Deer |Horse");
+                System.out.println("Year |\tCattle|\tDeer |\tHorse");
                 for (Integer key : expModel.calc(t , "CattleData.csv").keySet() ){
-                    System.out.println(year + " | " + expModel.calc(t , "CattleData.csv").get(key) + " | " +  expModel.calc(t , "DeerData.csv").get(key) + " | " + expModel.calc(t , "HorseData.csv").get(key) );
+                    System.out.println(year + " | \t" + expModel.calc(t , "CattleData.csv").get(key) + 
+                    		"   |\t" +  expModel.calc(t , "DeerData.csv").get(key) 
+                    		+ " | \t" + expModel.calc(t , "HorseData.csv").get(key) );
                     year++;
                 }
 
@@ -36,9 +40,11 @@ public class Main {
                 System.out.print("Please enter time t in years : ");
                 LogModel logModel = new LogModel();
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Year |Cattle|Deer |Horse");
+                System.out.println("Year |\tCattle|\tDeer |\tHorse");
                 for (Integer key : logModel.calc(t , "CattleData.csv").keySet() ){
-                    System.out.println(year + " | " + logModel.calc(t , "CattleData.csv").get(key) + " | " +  logModel.calc(t , "DeerData.csv").get(key) + " | " + logModel.calc(t , "HorseData.csv").get(key) );
+                    System.out.println(year + " | \t" + logModel.calc(t , "CattleData.csv").get(key) 
+                    		+ "   |\t" +  logModel.calc(t , "DeerData.csv").get(key) 
+                    		+ " | \t" + logModel.calc(t , "HorseData.csv").get(key) );
                     year++;
                 }
             
