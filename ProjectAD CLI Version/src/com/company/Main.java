@@ -19,6 +19,7 @@ public class Main {
             System.out.print("Please choose a mathematical model: " +
                     "\n 1. Exponential Model" +
                     "\n 2. Logarithmic Model" +
+                    "\n 3. Competition Model" +
                     "\n\n 9. Quit" + 
                     "\n\nModel: ");
             Scanner scanner = new Scanner(System.in);
@@ -48,6 +49,18 @@ public class Main {
                     year++;
                 }
             
+            }
+            else if (choice == 3){
+                System.out.println("Please enter time in t years : ");
+                CompModel compModel = new CompModel();
+                int t = Integer.parseInt(scanner.nextLine());
+                System.out.println("Year |\tCattle|\tDeer |\tHorse");
+                for (Integer key : compModel.calc(t , "CattleData.csv").keySet() ){
+                    System.out.println(year + " | \t" + compModel.calc(t , "CattleData.csv").get(key)
+                            + "   |\t" +  compModel.calc(t , "DeerData.csv").get(key)
+                            + " | \t" + compModel.calc(t , "HorseData.csv").get(key) );
+                    year++;
+                }
             }
 
             else if(choice == 9){

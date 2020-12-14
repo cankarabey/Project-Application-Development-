@@ -9,6 +9,48 @@ public class CompModel implements IModel {
 
     @Override
     public TreeMap<Integer, Integer> calc(int t, String path) throws IOException {
-        return null;
+        if (path == "CattleData.csv"){
+            double alpha = 1.5;
+            int nOne = CSVReader.getN(path);
+            int nTwo = CSVReader.getN("HorseData.csv");
+            double r1 = CSVReader.calcR(path);
+            double k1 = CSVReader.calcK(path);
+            for (int x = 0 ; x < t ; x++){
+                int prediction = (int) (nOne*(1+r1 * ( 1 - (nOne+alpha*nTwo)/k1)));
+                animals.put(x , prediction);
+                nOne = prediction;
+            }
+            return animals;
+        }
+        else if (path == "HorseData.csv"){
+            double alpha = 2;
+            int nOne = CSVReader.getN(path);
+            int nTwo = CSVReader.getN("CattleData.csv");
+            double r1 = CSVReader.calcR(path);
+            double k1 = CSVReader.calcK(path);
+            for (int x = 0 ; x < t ; x++){
+                int prediction = (int) (nOne*(1+r1 * (1 - (nOne+alpha*nTwo)/k1)));
+                animals.put(x , prediction);
+                nOne = prediction;
+            }
+            return animals;
+        }
+        else if (path == "DeerData.csv"){
+            double alpha = 3;
+            int nOne = CSVReader.getN(path);
+            int nTwo = CSVReader.getN("HorseCattleAvgData.csv");
+            double r1 = CSVReader.calcR(path);
+            double k1 = CSVReader.calcK(path);
+            for (int x = 0 ; x < t ; x++){
+                int prediction = (int) (nOne*(1+r1 * (1 - (nOne+alpha*nTwo)/k1)));
+                animals.put(x , prediction);
+                nOne = prediction;
+            }
+            return animals;
+        }
+        else{
+            System.out.println("Something is wrong :( ");
+            return null;
+        }
     }
 }
