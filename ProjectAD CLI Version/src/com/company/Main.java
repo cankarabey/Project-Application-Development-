@@ -36,6 +36,7 @@ public class Main {
                     		+ " | \t" + expModel.calc(t , "HorseData.csv").get(key) );
                     year++;
                 }
+                System.out.println("-----------------------------");
 
             }else if (choice == 2) {
                 System.out.print("Please enter time t in years : ");
@@ -48,10 +49,10 @@ public class Main {
                     		+ " | \t" + logModel.calc(t , "HorseData.csv").get(key) );
                     year++;
                 }
-            
+                System.out.println("-----------------------------");
             }
             else if (choice == 3){
-                System.out.println("Please enter time in t years : ");
+                System.out.print("Please enter time in t years : ");
                 CompModel compModel = new CompModel();
                 int t = Integer.parseInt(scanner.nextLine());
                 System.out.println("Year |\tCattle|\tDeer |\tHorse");
@@ -61,6 +62,7 @@ public class Main {
                             + " | \t" + compModel.calc(t , "HorseData.csv").get(key) );
                     year++;
                 }
+                System.out.println("-----------------------------");
             }
 
             else if(choice == 9){
