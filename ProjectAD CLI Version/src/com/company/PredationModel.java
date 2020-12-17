@@ -8,7 +8,7 @@ public class PredationModel implements IModel {
 
     @Override
     public TreeMap<Integer, Integer> calc(int t, String path) throws IOException {
-        if (path == "DeerData.csv") {
+        if (path.equals("DeerData.csv")) {
             int N0 = CSVReader.getN(path);
             // int NWolfs = CSVReader.getN("Wolfs.cvs");
             int amountOfWolfs = 1;
@@ -21,7 +21,7 @@ public class PredationModel implements IModel {
             }
             return animals;
         }
-        else if (path == "HorseData.csv"){
+        else if (path.equals("HorseData.csv")){
             int N0 = CSVReader.getN(path);
             // int NWolfs = CSVReader.getN("Wolfs.cvs");
             int amountOfWolfs = 1;
@@ -34,7 +34,7 @@ public class PredationModel implements IModel {
             }
             return animals;
         }
-        else if (path == "CattleData.csv"){
+        else if (path.equals("CattleData.csv")){
             int N0 = CSVReader.getN(path);
             // int NWolfs = CSVReader.getN("Wolfs.cvs");
             int amountOfWolfs = 1;

@@ -94,15 +94,15 @@ public class CSVReader {
     public static double getAlpha(String path) throws IOException{
         ArrayList[] arrayLists = calcValues(path);
         ArrayList<Integer> totalNumbers = arrayLists[3];
-        if (path == "CattleData.csv") {
+        if (path.equals("CattleData.csv")) {
             double deltaN = (totalNumbers.get(totalNumbers.size() - 1) - totalNumbers.get(totalNumbers.size()-6)) / 6;
             return ((calcK(path)/getN("HorseData.csv")) - (getN(path)/getN("HorseData.csv")) - ((deltaN*calcK(path))/(getN(path)*calcR(path)*getN("HorseData.csv"))));
         }
-        else if (path == "HorseData.csv"){
+        else if (path.equals("HorseData.csv")){
             double deltaN = (totalNumbers.get(totalNumbers.size() - 1) - totalNumbers.get(totalNumbers.size()-6)) / 6;
             return ((calcK(path)/getN("CattleData.csv")) - (getN(path)/getN("CattleData.csv")) - ((deltaN*calcK(path))/(getN(path)*calcR(path)*getN("CattleData.csv"))));
         }
-        else if (path == "DeerData.csv"){
+        else if (path.equals("DeerData.csv")){
             double deltaN = (totalNumbers.get(totalNumbers.size() - 1) - totalNumbers.get(totalNumbers.size()-6)) / 6;
             return ((calcK(path)/getN("HorseCattleAvgData.csv")) - (getN(path)/getN("HorseCattleAvgData.csv")) - ((deltaN*calcK(path))/(getN(path)*calcR(path)*getN("HorseCattleAvgData.csv"))));
         }

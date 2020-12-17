@@ -9,7 +9,7 @@ public class CompModel implements IModel {
 
     @Override
     public TreeMap<Integer, Integer> calc(int t, String path) throws IOException {
-        if (path == "CattleData.csv"){
+        if (path.equals("CattleData.csv")){
             double alpha = 1.5;
             int nOne = CSVReader.getN(path);
             int nTwo = CSVReader.getN("HorseData.csv");
@@ -22,7 +22,7 @@ public class CompModel implements IModel {
             }
             return animals;
         }
-        else if (path == "HorseData.csv"){
+        else if (path.equals("HorseData.csv")){
             double alpha = 0.5;
             int nOne = CSVReader.getN(path);
             int nTwo = CSVReader.getN("CattleData.csv");
@@ -35,7 +35,7 @@ public class CompModel implements IModel {
             }
             return animals;
         }
-        else if (path == "DeerData.csv"){
+        else if (path.equals("DeerData.csv")){
             double alpha = 0.3;
             int nOne = CSVReader.getN(path);
             int nTwo = CSVReader.getN("HorseCattleAvgData.csv");
