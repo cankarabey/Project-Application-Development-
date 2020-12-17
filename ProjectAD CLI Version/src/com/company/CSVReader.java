@@ -14,7 +14,7 @@ public class CSVReader {
 
     static ArrayList[] calcValues(String path) throws IOException {
 
-        ArrayList[] arrayLists = new ArrayList[5];
+        ArrayList[] arrayLists = new ArrayList[6];
 
         BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
 
@@ -24,12 +24,14 @@ public class CSVReader {
         ArrayList<Double> rValues = new ArrayList<>();
         ArrayList<Integer> totalNumber = new ArrayList<>();
         ArrayList<Integer> years = new ArrayList<>();
+        ArrayList<Integer> births = new ArrayList<>();
 
         for( CSVRecord csv : csvParser){
             birthsPerCapita.add(Double.parseDouble(csv.get(2)) / Double.parseDouble(csv.get(1)));
             deathsPerCapita.add(Double.parseDouble(csv.get(3)) / Double.parseDouble(csv.get(1)));
             totalNumber.add(Integer.parseInt(csv.get(1)));
             years.add(Integer.parseInt(csv.get(0)));
+            births.add(Integer.parseInt(csv.get(2)));
         }
 
         for (int i = 0; i < birthsPerCapita.size() ; i++) {
@@ -41,6 +43,7 @@ public class CSVReader {
         arrayLists[2] = rValues;
         arrayLists[3] = totalNumber;
         arrayLists[4] = years;
+        arrayLists[5] = births;
 
         return arrayLists;
     }
@@ -132,5 +135,11 @@ public class CSVReader {
             count++;
         }
         return values;
+    }
+
+    public static int getBirths(String path) throws IOException {
+        ArrayList[] arrayLists = calcValues(path);
+        ArrayList<Integer> births = arrayLists[5];
+        return births.get(births.size() - 2);
     }
 }
