@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.imageio.plugins.jpeg.JPEGImageWriteParam;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -20,6 +21,7 @@ public class Main {
                     "\n 1. Exponential Model" +
                     "\n 2. Logarithmic Model" +
                     "\n 3. Competition Model" +
+                    "\n 4. Predation Model" +
                     "\n\n 9. Quit" + 
                     "\n\nModel: ");
             Scanner scanner = new Scanner(System.in);
@@ -60,6 +62,20 @@ public class Main {
                     System.out.println(year + " | \t" + compModel.calc(t , "CattleData.csv").get(key)
                             + "   |\t" +  compModel.calc(t , "DeerData.csv").get(key)
                             + " | \t" + compModel.calc(t , "HorseData.csv").get(key) );
+                    year++;
+                }
+                System.out.println("-----------------------------");
+            }
+
+            else if (choice == 4){
+                System.out.print("Please enter time in t years : ");
+                PredationModel predationModel = new PredationModel();
+                int t = Integer.parseInt(scanner.nextLine());
+                System.out.println("Year |\tCattle|\tDeer |\tHorse");
+                for (Integer key : predationModel.calc(t , "CattleData.csv").keySet() ){
+                    System.out.println(year + " | \t" + predationModel.calc(t , "CattleData.csv").get(key)
+                            + "   |\t" +  predationModel.calc(t , "DeerData.csv").get(key)
+                            + " | \t" + predationModel.calc(t , "HorseData.csv").get(key) );
                     year++;
                 }
                 System.out.println("-----------------------------");

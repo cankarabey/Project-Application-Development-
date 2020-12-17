@@ -96,7 +96,6 @@ public class CSVReader {
         ArrayList<Integer> totalNumbers = arrayLists[3];
         if (path == "CattleData.csv") {
             double deltaN = (totalNumbers.get(totalNumbers.size() - 1) - totalNumbers.get(totalNumbers.size()-6)) / 6;
-            //System.out.println(nOne + " " + nTwo + " " + r1 + " " +  k1 + " " + deltaN + " " + ((k1/nTwo) - (nOne/nTwo) - ((deltaN*k1)/(nOne*r1*nTwo))));
             return ((calcK(path)/getN("HorseData.csv")) - (getN(path)/getN("HorseData.csv")) - ((deltaN*calcK(path))/(getN(path)*calcR(path)*getN("HorseData.csv"))));
         }
         else if (path == "HorseData.csv"){
