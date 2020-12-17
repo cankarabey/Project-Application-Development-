@@ -4,6 +4,7 @@ import org.apache.commons.csv.*;
 
 import java.awt.print.PrinterGraphics;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -116,5 +117,20 @@ public class CSVReader {
         ArrayList[] arrayLists = calcValues(path);
         ArrayList<Integer> years = arrayLists[4];
         return years.get(years.size() - 1);
+    }
+
+
+    public static double[][] getFandPValues(String path) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
+        CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
+        double[][] values = new double[csvParser.getRecords().size()][csvParser.getRecords().size()];
+        int count = 0;
+        for( CSVRecord csv : csvParser){
+            values[0][count] = Double.parseDouble(csv.get(1));
+            values[1][count] =  Double.parseDouble(csv.get(1)) * Double.parseDouble(csv.get(0));
+            count++;
+        }
+        return values;
     }
 }
