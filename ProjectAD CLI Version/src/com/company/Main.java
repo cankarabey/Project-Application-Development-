@@ -1,6 +1,5 @@
 package com.company;
 
-import javax.imageio.plugins.jpeg.JPEGImageWriteParam;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -71,7 +70,7 @@ public class Main {
                 System.out.print("Please enter time in t years : ");
                 PredationModel predationModel = new PredationModel();
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Year |\tCattle|\tDeer |\tHorse");
+                System.out.println("Year |\tCattle|\tDeer |\tHorse |\tWolves");
                 for (Integer key : predationModel.calc(t , "CattleData.csv").keySet() ){
                     System.out.println(year + " | \t" + predationModel.calc(t , "CattleData.csv").get(key)
                             + "   |\t" +  predationModel.calc(t , "DeerData.csv").get(key)
