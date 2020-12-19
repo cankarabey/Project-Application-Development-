@@ -24,8 +24,8 @@ public class Main {
                     "\n 1. Exponential Model" +
                     "\n 2. Logarithmic Model" +
                     "\n 3. Age Structured Model" +
-                    "\n 3. Competition Model" +
-                    "\n 4. Predation Model" +
+                    "\n 4. Competition Model" +
+                    "\n 5. Predation Model" +
                     "\n\n 9. Quit" + 
                     "\n\nModel: ");
             Scanner scanner = new Scanner(System.in);
