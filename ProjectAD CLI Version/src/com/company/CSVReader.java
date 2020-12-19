@@ -127,7 +127,7 @@ public class CSVReader {
 
         BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
         CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
-        double[][] values = new double[csvParser.getRecords().size()][csvParser.getRecords().size()];
+        double[][] values = new double[2][csvParser.getRecords().size()];
         int count = 0;
         for( CSVRecord csv : csvParser){
             values[0][count] = Double.parseDouble(csv.get(1));

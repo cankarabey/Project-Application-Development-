@@ -1,11 +1,14 @@
 package com.company;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
+        System.out.println(Arrays.deepToString(CSVReader.getFandPValues("CattleLifeTable.csv")));
         
         int year = CSVReader.getYear("CattleData.csv");
         System.out.println(year);
@@ -19,6 +22,7 @@ public class Main {
             System.out.print("Please choose a mathematical model: " +
                     "\n 1. Exponential Model" +
                     "\n 2. Logarithmic Model" +
+                    "\n 3. Age Structured Model" +
                     "\n 3. Competition Model" +
                     "\n 4. Predation Model" +
                     "\n\n 9. Quit" + 
@@ -52,7 +56,20 @@ public class Main {
                 }
                 System.out.println("-----------------------------");
             }
-            else if (choice == 3){
+            else if (choice == 3) {
+                System.out.print("Please enter time t in years : ");
+                AgeStructuredModel ageStructuredModel = new AgeStructuredModel();
+                int t = Integer.parseInt(scanner.nextLine());
+                System.out.println("Year |\tCattle|\tDeer |\tHorse");
+                for (Integer key : ageStructuredModel.calc(t , "CattleData.csv").keySet() ){
+                    System.out.println(year + " | \t" + ageStructuredModel.calc(t , "CattleData.csv").get(key)
+                            + "   |\t" +  ageStructuredModel.calc(t , "DeerData.csv").get(key)
+                            + " | \t" + ageStructuredModel.calc(t , "HorseData.csv").get(key) );
+                    year++;
+                }
+                System.out.println("-----------------------------");
+            }
+            else if (choice == 4){
                 System.out.print("Please enter time in t years : ");
                 CompModel compModel = new CompModel();
                 int t = Integer.parseInt(scanner.nextLine());
@@ -66,7 +83,7 @@ public class Main {
                 System.out.println("-----------------------------");
             }
 
-            else if (choice == 4){
+            else if (choice == 5){
                 System.out.print("Please enter time in t years : ");
                 PredationModel predationModel = new PredationModel();
                 int t = Integer.parseInt(scanner.nextLine());
