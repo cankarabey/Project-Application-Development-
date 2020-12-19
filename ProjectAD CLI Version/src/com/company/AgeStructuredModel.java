@@ -6,10 +6,12 @@ import java.util.TreeMap;
 public class AgeStructuredModel implements IModel {
 
     static TreeMap<Integer, Integer> animals = new TreeMap<>();
+    private static int[][] numbersByAgeGroup;
 
     @Override
     public TreeMap<Integer, Integer> calc(int t, String path) throws IOException {
         //double[][] values = CSVReader.getFandPValues(path);
+        numbersByAgeGroup = new int[t][4];
         int birthsLastYear = CSVReader.getBirths(path);
         double[][] values = new double[2][4];
         values[0][0] = 0.95;
@@ -32,9 +34,16 @@ public class AgeStructuredModel implements IModel {
             ageGroupOne = (int) ((values[1][0] * ageGroupOne) + (values[1][1] * ageGroupTwo) + (values[1][2] * ageGroupThree) + (values[1][3] * ageGroupFour));
             int total = ageGroupOne + ageGroupTwo + ageGroupThree + ageGroupFour;
             animals.put(i , total);
+            numbersByAgeGroup[i] = new int[]{ageGroupOne, ageGroupTwo, ageGroupThree, ageGroupFour};
         }
         return animals;
     }
+
+    public int[][] showNumbersPerAgeGroup(){
+        return numbersByAgeGroup;
+    }
+
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.xml.xpath.XPath;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -67,6 +68,30 @@ public class Main {
                             + " | \t" + ageStructuredModel.calc(t , "HorseData.csv").get(key) );
                     year++;
                 }
+                year = CSVReader.getYear("CattleData.csv");
+                System.out.println("--------------Horse--------------");
+                System.out.println("Year | Baby | Young | Adult | Old");
+                for (int i = 0 ; i < t ; i++){
+                    System.out.println(year + " | " + ageStructuredModel.showNumbersPerAgeGroup()[i][0] + "  | " + ageStructuredModel.showNumbersPerAgeGroup()[i][1] + "  | " + ageStructuredModel.showNumbersPerAgeGroup()[i][2] + "  | " + ageStructuredModel.showNumbersPerAgeGroup()[i][3]);
+                    year++;
+                }
+                ageStructuredModel.calc(t ,"CattleData.csv");
+                year = CSVReader.getYear("CattleData.csv");
+                System.out.println("--------------Cattle--------------");
+                System.out.println("Year | Baby | Young | Adult | Old");
+                for (int i = 0 ; i < t ; i++){
+                    System.out.println(year + " | " + ageStructuredModel.showNumbersPerAgeGroup()[i][0] + "   | " + ageStructuredModel.showNumbersPerAgeGroup()[i][1] + "   | " + ageStructuredModel.showNumbersPerAgeGroup()[i][2] + "    | " + ageStructuredModel.showNumbersPerAgeGroup()[i][3]);
+                    year++;
+                }
+                ageStructuredModel.calc(t,"DeerData.csv");
+                year = CSVReader.getYear("DeerData.csv");
+                System.out.println("--------------Deer--------------");
+                System.out.println("Year | Baby | Young | Adult | Old");
+                for (int i = 0 ; i < t ; i++){
+                    System.out.println(year + " | " + ageStructuredModel.showNumbersPerAgeGroup()[i][0] + "  | " + ageStructuredModel.showNumbersPerAgeGroup()[i][1] + "   | " + ageStructuredModel.showNumbersPerAgeGroup()[i][2] + "   | " + ageStructuredModel.showNumbersPerAgeGroup()[i][3]);
+                    year++;
+                }
+
                 System.out.println("-----------------------------");
             }
             else if (choice == 4){
