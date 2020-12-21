@@ -8,6 +8,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class CSVReader {
@@ -134,6 +136,27 @@ public class CSVReader {
             values[1][count] =  Double.parseDouble(csv.get(1)) * Double.parseDouble(csv.get(0));
             count++;
         }
+        return values;
+    }
+
+    public static List PandFlist(String path) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
+        CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
+        ArrayList<ArrayList<Double>> values = new ArrayList<ArrayList<Double>>();
+        //values.add(new ArrayList<Double>());
+        int count = 0;
+        Double [] a = new Double [csvParser.getRecords().size()];
+        Double [] b = new Double [csvParser.getRecords().size()];
+        for( CSVRecord csv : csvParser){
+            //a[count] = Double.parseDouble(csv.get(0));
+            //b[count] = Double.parseDouble(csv.get(count)) * Double.parseDouble(csv.get(count));
+            //values.get(0).add(0,Double.parseDouble(csv.get(count)));
+            //values.get(1).add(1,Double.parseDouble(csv.get(count)) * Double.parseDouble(csv.get(count)));
+            count++;
+        }
+        values.add(new ArrayList<Double>(Arrays.asList(1.1,2.2,1.2)));
+        //values.add(new ArrayList<Double>(Arrays.asList(b)));
         return values;
     }
 
