@@ -9,7 +9,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println(Arrays.deepToString(CSVReader.getFandPValues("CattleLifeTable.csv")));
         System.out.println(CSVReader.PandFlist("CattleLifeTable.csv"));
         
         int year = CSVReader.getYear("CattleData.csv");
