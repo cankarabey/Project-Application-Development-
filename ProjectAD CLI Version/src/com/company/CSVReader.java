@@ -145,19 +145,12 @@ public class CSVReader {
         BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
         CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
         ArrayList<ArrayList<Double>> values = new ArrayList<ArrayList<Double>>();
-        //values.add(new ArrayList<Double>());
-        int count = 0;
-        Double [] a = new Double [csvParser.getRecords().size()];
-        Double [] b = new Double [csvParser.getRecords().size()];
+        values.add(new ArrayList<Double>());
+        values.add(new ArrayList<Double>());
         for( CSVRecord csv : csvParser){
-            a[count] = Double.parseDouble(csv.get(0));
-            b[count] = Double.parseDouble(csv.get(count)) * Double.parseDouble(csv.get(count));
-            values.get(0).add(0,Double.parseDouble(csv.get(count)));
-            values.get(1).add(1,Double.parseDouble(csv.get(count)) * Double.parseDouble(csv.get(count)));
-            count++;
+            values.get(0).add(Double.parseDouble(csv.get(1)));
+            values.get(1).add(Double.parseDouble(csv.get(1)) * Double.parseDouble(csv.get(0)));
         }
-        values.add(new ArrayList<Double>(Arrays.asList(a)));
-        values.add(new ArrayList<Double>(Arrays.asList(b)));
         return values;
     }
 
