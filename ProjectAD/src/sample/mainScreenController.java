@@ -3,6 +3,8 @@ package sample;
 
 import javafx.fxml.FXML;
 
+import java.io.IOException;
+
 public class mainScreenController {
 
     private Main mainApp;
@@ -12,7 +14,7 @@ public class mainScreenController {
     }
 
     @FXML
-    public void handleImportData(){
+    public void handleImportData() {
         mainApp.showImportDataScreen();
     }
 

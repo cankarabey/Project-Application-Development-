@@ -44,8 +44,8 @@ public class Main extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("innerScreen.fxml"));
-            AnchorPane personOverview = (AnchorPane) loader.load();
-            rootLayout.setCenter(personOverview);
+            AnchorPane innerScreen = (AnchorPane) loader.load();
+            rootLayout.setCenter(innerScreen);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,7 +58,6 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("importDataScreen.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
-
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Import Data");
@@ -66,7 +65,6 @@ public class Main extends Application {
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
-
             // Set the person into the controller.
             importDataScreenController controller = loader.getController();
             controller.setDialogStage(dialogStage);
