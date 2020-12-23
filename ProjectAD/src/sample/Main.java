@@ -64,13 +64,13 @@ public class Main extends Application {
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
-            mainScreenController controller = loader.getController();
+            importDataScreenController controller = loader.getController();
             controller.setDialogStage(dialogStage);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
+            return controller.isOkClicked();
 
-            return controller.saveClicked();
         } catch (IOException e) {
             e.printStackTrace();
             return false;

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.importDataScreenController">
    <children>
       <GridPane layoutX="152.0" layoutY="130.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -41,7 +41,7 @@
                   <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="120.0" text="Cancel" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="27.0" prefWidth="120.0" text="Cancel" GridPane.rowIndex="4" />
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="1">
@@ -65,7 +65,7 @@
                   <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="120.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" onAction="#handleSave" prefHeight="27.0" prefWidth="120.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
          </children>
