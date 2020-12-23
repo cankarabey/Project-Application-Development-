@@ -15,6 +15,10 @@ public class Main extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
 
+    public Main(){
+
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;

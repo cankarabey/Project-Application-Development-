@@ -1,6 +1,7 @@
 package sample;
 
-import javafx.stage.Stage;
+
+import javafx.fxml.FXML;
 
 public class mainScreenController {
 
@@ -10,6 +11,7 @@ public class mainScreenController {
         this.mainApp = mainApp;
     }
 
+    @FXML
     public void handleImportData(){
         mainApp.showImportDataScreen();
     }
