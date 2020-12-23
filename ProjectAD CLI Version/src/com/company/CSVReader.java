@@ -124,21 +124,7 @@ public class CSVReader {
         ArrayList<Integer> years = arrayLists[4];
         return years.get(years.size() - 1);
     }
-
-
-    public static double[][] getFandPValues(String path) throws IOException {
-
-        BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
-        CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
-        double[][] values = new double[2][csvParser.getRecords().size()];
-        int count = 0;
-        for( CSVRecord csv : csvParser){
-            values[0][count] = Double.parseDouble(csv.get(1));
-            values[1][count] =  Double.parseDouble(csv.get(1)) * Double.parseDouble(csv.get(0));
-            count++;
-        }
-        return values;
-    }
+    
 
     public static List PandFlist(String path) throws IOException {
 

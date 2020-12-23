@@ -1,8 +1,6 @@
 package com.company;
 
-import javax.xml.xpath.XPath;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -10,6 +8,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         System.out.println(CSVReader.PandFlist("CattleLifeTable.csv"));
+        System.out.println(CSVReader.PandFlist("DeerLifeTable.csv"));
+        System.out.println(CSVReader.PandFlist("HorseLifeTable.csv"));
+
         
         int year = CSVReader.getYear("CattleData.csv");
         System.out.println(year);
