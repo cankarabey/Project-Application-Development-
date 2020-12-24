@@ -37,10 +37,10 @@
                   <Label text="Deer (B ,D,Total)" GridPane.rowIndex="1" />
                   <Label text="Horse(B,D,Total)" GridPane.rowIndex="2" />
                   <Label text="HorseCattleAvg" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" onAction="#handleChooseFileCD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleChooseFileDD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleChooseFileHD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#handleChooseFileCHA" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="27.0" prefWidth="120.0" text="Cancel" GridPane.rowIndex="4" />
                </children>
             </GridPane>
@@ -61,10 +61,10 @@
                   <Label text="Deer Life Table " GridPane.rowIndex="1" />
                   <Label text="Horse Life Table " GridPane.rowIndex="2" />
                   <Label text="Wolfs " GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" onAction="#handleChooseFileCLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleChooseFileDLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleChooseFileHLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#handleChooseFileWD" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Button mnemonicParsing="false" onAction="#handleSave" prefHeight="27.0" prefWidth="120.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
