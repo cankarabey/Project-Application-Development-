@@ -34,6 +34,9 @@ public class Main extends Application {
             rootLayout = (BorderPane) loader.load();
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
+            mainScreenController controller = loader.getController();
+            controller.setMainApp(this);
+
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
