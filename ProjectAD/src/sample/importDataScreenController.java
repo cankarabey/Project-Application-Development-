@@ -56,43 +56,37 @@ public class importDataScreenController {
     @FXML
     public void handleChooseFileCD() {   //CD = cattle data
         files.put("CattleData" , getFile());
-        System.out.println(files);
     }
     @FXML
     public void handleChooseFileDD() {
         files.put("DeerData" , getFile());
-        System.out.println(files);
     }
     @FXML
     public void handleChooseFileHD() {
         files.put("HorseData" , getFile());
-        System.out.println(files);
     }
     @FXML
     public void handleChooseFileCHA() {
         files.put("CattleHorseAvg" , getFile());
-        System.out.println(files);
     }
     @FXML
     public void handleChooseFileCLT() {   //cattle life table
         files.put("CattleLifeTable" , getFile());
-        System.out.println(files);
     }
     @FXML
     public void handleChooseFileDLT() {
         files.put("DeerLifeTable" , getFile());
-        System.out.println(files);
     }
     @FXML
     public void handleChooseFileHLT() {
         files.put("HorseLifeTable" , getFile());
-        System.out.println(files);
     }
     @FXML
     public void handleChooseFileWD() {
         files.put("Wolfs" , getFile());
-        System.out.println(files);
     }
 
-
+    public HashMap<String, FileReader> getFiles() {
+        return files;
+    }
 }
