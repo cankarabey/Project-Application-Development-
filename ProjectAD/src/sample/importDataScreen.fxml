@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.importDataScreenController">
    <children>
-      <GridPane layoutX="152.0" layoutY="130.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane layoutX="152.0" layoutY="130.0" prefHeight="314.0" prefWidth="580.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,18 +30,16 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Cattle (B,D,Total)" />
-                  <Label text="Deer (B ,D,Total)" GridPane.rowIndex="1" />
-                  <Label text="Horse(B,D,Total)" GridPane.rowIndex="2" />
+                  <Label text="Cattle (B, D, Total)" />
+                  <Label text="Deer (B, D, Total)" GridPane.rowIndex="1" />
+                  <Label text="Horse(B, D, Total)" GridPane.rowIndex="2" />
                   <Label text="HorseCattleAvg" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" onAction="#handleChooseFileCD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#handleChooseFileDD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#handleChooseFileHD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#handleChooseFileCHA" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="27.0" prefWidth="120.0" text="Cancel" GridPane.rowIndex="4" />
+                  <Button fx:id="cattleDataButton" mnemonicParsing="false" onAction="#handleChooseFileCD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" />
+                  <Button fx:id="deerDataButton" mnemonicParsing="false" onAction="#handleChooseFileDD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="horseDataButton" mnemonicParsing="false" onAction="#handleChooseFileHD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="cattleHorseAvgButton" mnemonicParsing="false" onAction="#handleChooseFileCHA" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="1">
@@ -54,21 +52,21 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Cattle Life Table" />
                   <Label text="Deer Life Table " GridPane.rowIndex="1" />
                   <Label text="Horse Life Table " GridPane.rowIndex="2" />
                   <Label text="Wolfs " GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" onAction="#handleChooseFileCLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#handleChooseFileDLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#handleChooseFileHLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#handleChooseFileWD" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" onAction="#handleSave" prefHeight="27.0" prefWidth="120.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Button fx:id="cattleLifeTableButton" mnemonicParsing="false" onAction="#handleChooseFileCLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" />
+                  <Button fx:id="deerLifeTableButton" mnemonicParsing="false" onAction="#handleChooseFileDLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="horseLifeTableButton" mnemonicParsing="false" onAction="#handleChooseFileHLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="wolfsDataButton" mnemonicParsing="false" onAction="#handleChooseFileWD" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
          </children>
       </GridPane>
+      <Button layoutX="313.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="125.0" text="Cancel" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="170.0" />
+      <Button layoutX="446.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleSave" prefWidth="125.0" text="Save" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="30.0" />
    </children>
 </AnchorPane>
