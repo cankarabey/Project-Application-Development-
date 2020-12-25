@@ -113,11 +113,12 @@ public class Main {
                 System.out.print("Please enter time in t years : ");
                 PredationModel predationModel = new PredationModel();
                 int t = Integer.parseInt(scanner.nextLine());
-                System.out.println("Year |\tCattle|\tDeer |\tHorse |\tWolves");
+                System.out.println("Year |\tCattle|\tDeer |\tHorse \t| Wolves");
                 for (Integer key : predationModel.calc(t , "CattleData.csv").keySet() ){
                     System.out.println(year + " | \t" + predationModel.calc(t , "CattleData.csv").get(key)
                             + "   |\t" +  predationModel.calc(t , "DeerData.csv").get(key)
-                            + " | \t" + predationModel.calc(t , "HorseData.csv").get(key) );
+                            + " | \t" + predationModel.calc(t , "HorseData.csv").get(key)
+                            + " \t| " + predationModel.amountOfWolfs);
                     year++;
                 }
                 System.out.println("-----------------------------");

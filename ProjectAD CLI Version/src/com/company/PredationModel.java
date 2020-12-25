@@ -21,7 +21,8 @@ public class PredationModel implements IModel {
             double kCattle = (1 / hCattle);
             for (int i = 1; i <= t; i++) {
                 int V = (int) (r * N0 * i - (((kCattle * (N0 ^ 2))) / ((N0 ^ 2) + (DCattle * DCattle))) * amountOfWolfs * i) ;
-                int A = N0 - V;
+                //Assuming a wolf eats 1:1:1 Deer:Horse:Cattle
+                int A = N0 - V/3;
                 animals.put(i, A);
 
             }
@@ -35,7 +36,8 @@ public class PredationModel implements IModel {
             double kDeer = (1 / hDeer);
             for (int i = 1; i <= t; i++) {
                 int V = (int) ((r * N0 * i) - ((kDeer * (N0 ^ 2)) / ((N0 ^ 2) + (DDeer * DDeer))) * amountOfWolfs * i) ;
-                int A = N0 - V;
+                //Assuming a wolf eats 1:1:1 Deer:Horse:Cattle
+                int A = N0 - V/3;
                 animals.put(i,A);
             }
             return animals;
@@ -49,7 +51,8 @@ public class PredationModel implements IModel {
             for (int i = 1; i <= t; i++) {
                 int V = (int) (r * N0 * i - (((kHorse * (N0 ^ 2))) / ((N0 ^ 2) +
                 		(DHorse * DHorse))) * amountOfWolfs * i);
-                int A = N0 - V;
+                //Assuming a wolf eats 1:1:1 Deer:Horse:Cattle
+                int A = N0 - V/3;
                 animals.put(i,A);
             }
             return animals;
