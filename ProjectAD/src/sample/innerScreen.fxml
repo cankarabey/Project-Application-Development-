@@ -16,11 +16,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.logisticTabController">
    <children>
       <TabPane layoutX="92.0" layoutY="52.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Exponential">
+          <Tab fx:id="exponential" text="Exponential">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -71,13 +71,13 @@
                                           <Insets bottom="60.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" />
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1">
+                                    <TextField fx:id="rValCattle" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="rValHorse" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1">
                                        <GridPane.margin>
                                           <Insets left="52.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1">
+                                    <TextField fx:id="rValDeer" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1">
                                        <GridPane.margin>
                                           <Insets left="105.0" />
                                        </GridPane.margin>
@@ -87,17 +87,17 @@
                                           <Insets bottom="80.0" left="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <TextField fx:id="nValDeer" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <GridPane.margin>
                                           <Insets bottom="80.0" left="105.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <TextField fx:id="nValCattle" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <GridPane.margin>
                                           <Insets bottom="80.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <TextField fx:id="nValHorse" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <GridPane.margin>
                                           <Insets bottom="80.0" left="52.0" />
                                        </GridPane.margin>
@@ -107,7 +107,7 @@
                                           <Insets left="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <TextField fx:id="timeValue" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <GridPane.margin>
                                           <Insets left="52.0" />
                                        </GridPane.margin>
@@ -153,7 +153,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Logistic">
+            <Tab fx:id="logistic" text="Logistic">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -248,13 +248,13 @@
                                           <Insets left="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <TextField fx:id="kValCattle" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="kValHorse" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                        <GridPane.margin>
                                           <Insets left="52.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <TextField maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <TextField fx:id="kValDeer" maxWidth="-Infinity" prefHeight="27.0" prefWidth="41.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                        <GridPane.margin>
                                           <Insets left="105.0" />
                                        </GridPane.margin>
@@ -300,7 +300,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Age">
+            <Tab fx:id="age" text="Age">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -337,7 +337,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Competitive">
+            <Tab fx:id="competitive" text="Competitive">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -374,7 +374,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Predation">
+            <Tab fx:id="predation" text="Predation">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

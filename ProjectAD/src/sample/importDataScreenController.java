@@ -17,22 +17,14 @@ public class importDataScreenController {
     private boolean okClicked = false;
     private Stage dialogStage;
 
-    @FXML
-    private Button cattleDataButton;
-    @FXML
-    private Button deerDataButton;
-    @FXML
-    private Button horseDataButton;
-    @FXML
-    private Button cattleLifeTableButton;
-    @FXML
-    private Button deerLifeTableButton;
-    @FXML
-    private Button horseLifeTableButton;
-    @FXML
-    private Button cattleHorseAvgButton;
-    @FXML
-    private Button wolfsDataButton;
+    @FXML private Button cattleDataButton;
+    @FXML private Button deerDataButton;
+    @FXML private Button horseDataButton;
+    @FXML private Button cattleLifeTableButton;
+    @FXML private Button deerLifeTableButton;
+    @FXML private Button horseLifeTableButton;
+    @FXML private Button cattleHorseAvgButton;
+    @FXML private Button wolfsDataButton;
 
     @FXML
     private void initialize() {
