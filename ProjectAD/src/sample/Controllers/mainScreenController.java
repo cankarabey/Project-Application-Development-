@@ -1,7 +1,8 @@
-package sample;
+package sample.Controllers;
 
 
 import javafx.fxml.FXML;
+import sample.Main;
 
 import java.io.IOException;
 

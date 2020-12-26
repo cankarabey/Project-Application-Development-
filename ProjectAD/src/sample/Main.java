@@ -7,6 +7,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import sample.Controllers.importDataScreenController;
+import sample.Controllers.mainScreenController;
 
 import java.io.IOException;
 
@@ -30,7 +32,7 @@ public class Main extends Application {
     public void initMainScreen() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("mainScreen.fxml"));
+            loader.setLocation(Main.class.getResource("FXMLs/mainScreen.fxml"));
             rootLayout = (BorderPane) loader.load();
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
@@ -46,7 +48,7 @@ public class Main extends Application {
     public void initInnerScreen(){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("innerScreen.fxml"));
+            loader.setLocation(Main.class.getResource("FXMLs/innerScreen.fxml"));
             AnchorPane innerScreen = (AnchorPane) loader.load();
             rootLayout.setCenter(innerScreen);
 
@@ -59,7 +61,7 @@ public class Main extends Application {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("importDataScreen.fxml"));
+            loader.setLocation(Main.class.getResource("FXMLs/importDataScreen.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
