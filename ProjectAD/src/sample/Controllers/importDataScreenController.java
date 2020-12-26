@@ -67,65 +67,41 @@ public class importDataScreenController {
     @FXML
     public void handleChooseFileCD() {  //CD = cattle data
         files.put("CattleData" , getFile());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Successfully imported Cattle Data");
-        alert.showAndWait();
         cattleDataButton.setText("Imported!");
     }
     @FXML
     public void handleChooseFileDD() {  //DD = Deer Data
         files.put("DeerData" , getFile());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Successfully imported Deer Data");
-        alert.showAndWait();
         deerDataButton.setText("Imported!");
     }
     @FXML
     public void handleChooseFileHD() {  //HD = Horse Data
         files.put("HorseData" , getFile());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Successfully imported Horse Data");
-        alert.showAndWait();
         horseDataButton.setText("Imported!");
     }
     @FXML
     public void handleChooseFileCHA() {
         files.put("CattleHorseAvg" , getFile());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Successfully imported Cattle Horse Avg Data");
-        alert.showAndWait();
         cattleHorseAvgButton.setText("Imported!");
     }
     @FXML
     public void handleChooseFileCLT() {   // CLT = Cattle Life Table
         files.put("CattleLifeTable" , getFile());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Successfully imported Cattle Life Table");
-        alert.showAndWait();
         cattleLifeTableButton.setText("Imported!");
     }
     @FXML
     public void handleChooseFileDLT() { // DLT = Deer Life Table
         files.put("DeerLifeTable" , getFile());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Successfully imported Deer Life Table");
-        alert.showAndWait();
         deerLifeTableButton.setText("Imported!");
     }
     @FXML
     public void handleChooseFileHLT() { // HLT = Horse Life Table
         files.put("HorseLifeTable" , getFile());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Successfully imported Horse Life Table");
-        alert.showAndWait();
         horseLifeTableButton.setText("Imported!");
     }
     @FXML
     public void handleChooseFileWD() {  // WD = Wolf Data
         files.put("Wolfs" , getFile());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Successfully imported Wolf Data");
-        alert.showAndWait();
         wolfsDataButton.setText("Imported!");
     }
 
