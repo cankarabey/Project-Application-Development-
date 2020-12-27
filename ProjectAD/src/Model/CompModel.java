@@ -1,8 +1,11 @@
 package Model;
 
+import sample.Controllers.importDataScreenController;
 import util.CSVReader;
 
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.TreeMap;
 
 public class CompModel implements IModel {
@@ -11,12 +14,13 @@ public class CompModel implements IModel {
 
     @Override
     public TreeMap<Integer, Integer> calc(int t, String path) throws IOException {
-        if (path.equals("CattleData.csv")){
+        HashMap<String, FileReader> map = importDataScreenController.getFiles();
+        if (path.equals("CattleData")){
             double alpha = 1.5;
-            int nOne = CSVReader.getN(path);
-            int nTwo = CSVReader.getN("HorseData.csv");
-            double r1 = CSVReader.calcR(path);
-            double k1 = CSVReader.calcK(path);
+            int nOne = CSVReader.getN(map.get(path));
+            int nTwo = CSVReader.getN(map.get("HorseData"));
+            double r1 = CSVReader.calcR(map.get(path));
+            double k1 = CSVReader.calcK(map.get(path));
             for (int x = 0 ; x < t ; x++){
                 int prediction = (int) (nOne*(1+r1 * ( 1 - (nOne+alpha*nTwo)/k1)));
                 animals.put(x , prediction);
@@ -24,12 +28,12 @@ public class CompModel implements IModel {
             }
             return animals;
         }
-        else if (path.equals("HorseData.csv")){
+        else if (path.equals("HorseData")){
             double alpha = 0.5;
-            int nOne = CSVReader.getN(path);
-            int nTwo = CSVReader.getN("CattleData.csv");
-            double r1 = CSVReader.calcR(path);
-            double k1 = CSVReader.calcK(path);
+            int nOne = CSVReader.getN(map.get(path));
+            int nTwo = CSVReader.getN(map.get("CattleData"));
+            double r1 = CSVReader.calcR(map.get(path));
+            double k1 = CSVReader.calcK(map.get(path));
             for (int x = 0 ; x < t ; x++){
                 int prediction = (int) (nOne*(1+r1 * (1 - (nOne+alpha*nTwo)/k1)));
                 animals.put(x , prediction);
@@ -37,12 +41,12 @@ public class CompModel implements IModel {
             }
             return animals;
         }
-        else if (path.equals("DeerData.csv")){
+        else if (path.equals("DeerData")){
             double alpha = 0.3;
-            int nOne = CSVReader.getN(path);
-            int nTwo = CSVReader.getN("HorseCattleAvgData.csv");
-            double r1 = CSVReader.calcR(path);
-            double k1 = CSVReader.calcK(path);
+            int nOne = CSVReader.getN(map.get(path));
+            int nTwo = CSVReader.getN(map.get("CattleHorseAvg"));
+            double r1 = CSVReader.calcR(map.get(path));
+            double k1 = CSVReader.calcK(map.get(path));
             for (int x = 0 ; x < t ; x++){
                 int prediction = (int) (nOne*(1+r1 * (1 - (nOne+alpha*nTwo)/k1)));
                 animals.put(x , prediction);

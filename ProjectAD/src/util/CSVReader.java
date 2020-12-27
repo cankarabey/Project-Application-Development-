@@ -2,24 +2,20 @@ package util;
 
 import org.apache.commons.csv.*;
 
-import java.awt.print.PrinterGraphics;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
 public class CSVReader {
 
-    static ArrayList[] calcValues(String path) throws IOException {
+    static ArrayList[] calcValues(FileReader file) throws IOException {
 
         ArrayList[] arrayLists = new ArrayList[6];
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
+        BufferedReader reader = new BufferedReader(file);
 
         CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
         ArrayList<Double> birthsPerCapita = new ArrayList<>();
@@ -51,9 +47,9 @@ public class CSVReader {
         return arrayLists;
     }
 
-    public static double calcR(String path) throws IOException {
+    public static double calcR(FileReader file) throws IOException {
 
-        ArrayList[] arrayLists = calcValues(path);
+        ArrayList[] arrayLists = calcValues(file);
         ArrayList<Double> rValues = arrayLists[2];
 
         double rAvg = 0;
@@ -66,9 +62,9 @@ public class CSVReader {
 
     }
 
-    public static double calcK(String path) throws IOException {
+    public static double calcK(FileReader file) throws IOException {
 
-        ArrayList[] arrayLists = calcValues(path);
+        ArrayList[] arrayLists = calcValues(file);
         ArrayList<Double> rValues = arrayLists[2];
         ArrayList<Integer> totalN = arrayLists[3];
         ArrayList<Double> kValues = new ArrayList<>();
@@ -91,78 +87,36 @@ public class CSVReader {
 
     }
 
-    public static int getN(String path) throws IOException {
-        ArrayList[] arrayLists = calcValues(path);
+    public static int getN(FileReader file) throws IOException {
+        ArrayList[] arrayLists = calcValues(file);
         ArrayList<Integer> totalN = arrayLists[3];
 
         return totalN.get(totalN.size() - 1);
     }
 
-    public static double getAlpha(String path) throws IOException{
-        ArrayList[] arrayLists = calcValues(path);
-        ArrayList<Integer> totalNumbers = arrayLists[3];
-        if (path.equals("CattleData.csv")) {
-            double deltaN = (totalNumbers.get(totalNumbers.size() - 1) - totalNumbers.get(totalNumbers.size()-6)) / 6;
-            return ((calcK(path)/getN("HorseData.csv")) - (getN(path)/getN("HorseData.csv")) - ((deltaN*calcK(path))/(getN(path)*calcR(path)*getN("HorseData.csv"))));
-        }
-        else if (path.equals("HorseData.csv")){
-            double deltaN = (totalNumbers.get(totalNumbers.size() - 1) - totalNumbers.get(totalNumbers.size()-6)) / 6;
-            return ((calcK(path)/getN("CattleData.csv")) - (getN(path)/getN("CattleData.csv")) - ((deltaN*calcK(path))/(getN(path)*calcR(path)*getN("CattleData.csv"))));
-        }
-        else if (path.equals("DeerData.csv")){
-            double deltaN = (totalNumbers.get(totalNumbers.size() - 1) - totalNumbers.get(totalNumbers.size()-6)) / 6;
-            return ((calcK(path)/getN("HorseCattleAvgData.csv")) - (getN(path)/getN("HorseCattleAvgData.csv")) - ((deltaN*calcK(path))/(getN(path)*calcR(path)*getN("HorseCattleAvgData.csv"))));
-        }
-        else {
-            System.out.println("Something went wrong.");
-            return 0;
-        }
-    }
-
-    public static int getYear(String path) throws IOException {
-        ArrayList[] arrayLists = calcValues(path);
+    public static int getYear(FileReader file) throws IOException {
+        ArrayList[] arrayLists = calcValues(file);
         ArrayList<Integer> years = arrayLists[4];
         return years.get(years.size() - 1);
     }
 
 
-    public static double[][] getFandPValues(String path) throws IOException {
+    public static List PandFlist(FileReader file) throws IOException {
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
-        CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
-        double[][] values = new double[2][csvParser.getRecords().size()];
-        int count = 0;
-        for( CSVRecord csv : csvParser){
-            values[0][count] = Double.parseDouble(csv.get(1));
-            values[1][count] =  Double.parseDouble(csv.get(1)) * Double.parseDouble(csv.get(0));
-            count++;
-        }
-        return values;
-    }
-
-    public static List PandFlist(String path) throws IOException {
-
-        BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
+        BufferedReader reader = new BufferedReader(file);
         CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
         ArrayList<ArrayList<Double>> values = new ArrayList<ArrayList<Double>>();
-        //values.add(new ArrayList<Double>());
-        int count = 0;
-        Double [] a = new Double [csvParser.getRecords().size()];
-        Double [] b = new Double [csvParser.getRecords().size()];
+        values.add(new ArrayList<Double>());
+        values.add(new ArrayList<Double>());
         for( CSVRecord csv : csvParser){
-            a[count] = Double.parseDouble(csv.get(0));
-            b[count] = Double.parseDouble(csv.get(count)) * Double.parseDouble(csv.get(count));
-            values.get(0).add(0,Double.parseDouble(csv.get(count)));
-            values.get(1).add(1,Double.parseDouble(csv.get(count)) * Double.parseDouble(csv.get(count)));
-            count++;
+            values.get(0).add(Double.parseDouble(csv.get(1)));
+            values.get(1).add(Double.parseDouble(csv.get(1)) * Double.parseDouble(csv.get(0)));
         }
-        values.add(new ArrayList<Double>(Arrays.asList(a)));
-        values.add(new ArrayList<Double>(Arrays.asList(b)));
         return values;
     }
 
-    public static int getBirths(String path) throws IOException {
-        ArrayList[] arrayLists = calcValues(path);
+    public static int getBirths(FileReader file) throws IOException {
+        ArrayList[] arrayLists = calcValues(file);
         ArrayList<Integer> births = arrayLists[5];
         return births.get(births.size() - 2);
     }

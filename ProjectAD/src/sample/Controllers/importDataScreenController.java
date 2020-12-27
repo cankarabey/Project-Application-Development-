@@ -1,19 +1,20 @@
 package sample.Controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import util.CSVReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class importDataScreenController {
 
-    private HashMap<String,FileReader> files = new HashMap<>();
+    private static HashMap<String,FileReader> files = new HashMap<>();
     private boolean okClicked = false;
     private Stage dialogStage;
 
@@ -41,6 +42,11 @@ public class importDataScreenController {
     @FXML
     public void handleSave(){
         //do stuff here
+        try {
+            System.out.println(CSVReader.calcR(files.get("CattleData")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         dialogStage.close();
     }
 
@@ -105,7 +111,7 @@ public class importDataScreenController {
         wolfsDataButton.setText("Imported!");
     }
 
-    public HashMap<String, FileReader> getFiles() {
+    public static HashMap<String, FileReader> getFiles() {
         return files;
     }
 }
