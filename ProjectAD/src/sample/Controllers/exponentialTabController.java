@@ -20,7 +20,7 @@ public class exponentialTabController {
 
     public void setText(){
         try {
-            rValCattle.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("HorseData"))));
+            rValCattle.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("CattleData"))));
             rValHorse.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("HorseData"))));
             rValDeer.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("DeerData"))));
             nValCattle.setText(String.valueOf(CSVReader.getN(importDataScreenController.getFiles().get("CattleData"))));
