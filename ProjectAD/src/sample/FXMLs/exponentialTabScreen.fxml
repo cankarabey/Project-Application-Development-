@@ -136,6 +136,7 @@
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Button>
+                  <Button mnemonicParsing="false" onAction="#setText" text="Get Parameters" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children>

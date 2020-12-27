@@ -42,11 +42,7 @@ public class importDataScreenController {
     @FXML
     public void handleSave(){
         //do stuff here
-        try {
-            System.out.println(CSVReader.calcR(files.get("CattleData")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //exponentialTabController.setText();
         dialogStage.close();
     }
 
