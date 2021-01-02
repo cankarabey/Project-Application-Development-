@@ -2,11 +2,16 @@ package sample.Controllers;
 
 import Model.ExpModel;
 import com.sun.source.tree.Tree;
+import javafx.beans.Observable;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.util.Callback;
 import util.CSVReader;
 
 import javax.print.attribute.IntegerSyntax;
@@ -29,9 +34,9 @@ public class exponentialTabController {
     @FXML private TableColumn<Integer , Integer> cattleNumber;
     @FXML private TableColumn<Integer , Integer> deerNumber;
     @FXML private TableColumn<Integer , Integer> horseNumber;
-    private static TreeMap<Integer , Integer> cattle = new TreeMap<>();
-    private static TreeMap<Integer , Integer> deer = new TreeMap<>();
-    private static TreeMap<Integer , Integer> horse = new TreeMap<>();
+    private ObservableList<Integer> cattle = FXCollections.observableArrayList();
+    private ObservableList<Integer> deer = FXCollections.observableArrayList();
+    private ObservableList<Integer> horse = FXCollections.observableArrayList();
 
 
     public void setText(){
@@ -55,14 +60,15 @@ public class exponentialTabController {
         int nDeer = Integer.parseInt(nValDeer.getText());
         int nHorse = Integer.parseInt(nValHorse.getText());
         for (int i = 1; i<=t; i++) {
-            cattle.put(i, (int) (nCattle * Math.pow(Math.E, (Double.parseDouble(rValCattle.getText()) * 1))));
-            nCattle = cattle.get(i);
-            deer.put(i , (int) (nDeer * Math.pow(Math.E, (Double.parseDouble(rValDeer.getText()) * 1))));
-            nDeer = deer.get(i);
-            horse.put(i , (int) (nHorse * Math.pow(Math.E, (Double.parseDouble(rValHorse.getText()) * 1))));
-            nHorse = horse.get(i);
+            cattle.add( (int) (nCattle * Math.pow(Math.E, (Double.parseDouble(rValCattle.getText()) * 1))));
+            nCattle = cattle.get(cattle.size()-1);
+            deer.add((int) (nDeer * Math.pow(Math.E, (Double.parseDouble(rValDeer.getText()) * 1))));
+            nDeer = deer.get(deer.size() -1 );
+            horse.add( (int) (nHorse * Math.pow(Math.E, (Double.parseDouble(rValHorse.getText()) * 1))));
+            nHorse = horse.get(horse.size() -1 );
         }
 
+        year.set
 
         System.out.print(cattle);
         System.out.println(deer);
