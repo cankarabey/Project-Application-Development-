@@ -1,11 +1,18 @@
 package sample.Controllers;
 
+import Model.ExpModel;
+import com.sun.source.tree.Tree;
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import util.CSVReader;
 
+import javax.print.attribute.IntegerSyntax;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.TreeMap;
 
 public class exponentialTabController {
 
@@ -17,6 +24,15 @@ public class exponentialTabController {
     @FXML private TextField nValHorse;
     @FXML private TextField nValDeer;
     @FXML private TextField timeValue;
+    @FXML private TableView<Integer> tableView;
+    @FXML private TableColumn<Integer , Integer> year;
+    @FXML private TableColumn<Integer , Integer> cattleNumber;
+    @FXML private TableColumn<Integer , Integer> deerNumber;
+    @FXML private TableColumn<Integer , Integer> horseNumber;
+    private static TreeMap<Integer , Integer> cattle = new TreeMap<>();
+    private static TreeMap<Integer , Integer> deer = new TreeMap<>();
+    private static TreeMap<Integer , Integer> horse = new TreeMap<>();
+
 
     public void setText(){
         try {
@@ -29,5 +45,27 @@ public class exponentialTabController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void handleShowPredictions(){
+        ExpModel expModel = new ExpModel();
+        int t = Integer.parseInt(timeValue.getText());
+
+        int nCattle = Integer.parseInt(nValCattle.getText());
+        int nDeer = Integer.parseInt(nValDeer.getText());
+        int nHorse = Integer.parseInt(nValHorse.getText());
+        for (int i = 1; i<=t; i++) {
+            cattle.put(i, (int) (nCattle * Math.pow(Math.E, (Double.parseDouble(rValCattle.getText()) * 1))));
+            nCattle = cattle.get(i);
+            deer.put(i , (int) (nDeer * Math.pow(Math.E, (Double.parseDouble(rValDeer.getText()) * 1))));
+            nDeer = deer.get(i);
+            horse.put(i , (int) (nHorse * Math.pow(Math.E, (Double.parseDouble(rValHorse.getText()) * 1))));
+            nHorse = horse.get(i);
+        }
+
+
+        System.out.print(cattle);
+        System.out.println(deer);
+        System.out.println(horse);
     }
 }

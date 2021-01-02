@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -12,12 +17,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="exponentialTabScreen" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.exponentialTabController">
+<AnchorPane fx:id="exponentialTabScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.exponentialTabController">
    <children>
       <GridPane layoutX="197.0" layoutY="127.0" prefHeight="498.0" prefWidth="797.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="441.0" minWidth="10.0" prefWidth="399.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="398.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints maxHeight="242.0" minHeight="10.0" prefHeight="172.0" vgrow="SOMETIMES" />
@@ -32,7 +37,6 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="1" />
             <Label text="Parameters" GridPane.valignment="TOP">
                <padding>
                   <Insets left="5.0" />
@@ -131,12 +135,40 @@
                         <Insets bottom="70.0" left="70.0" />
                      </GridPane.margin>
                   </CheckBox>
-                  <Button mnemonicParsing="false" text="Show Predictions" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#handleShowPredictions" text="Show Predictions" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#setText" text="Get Parameters" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn fx:id="year" minWidth="0.0" prefWidth="90.0" text="Year" />
+                <TableColumn fx:id="cattleNumber" prefWidth="92.0" text="Cattle" />
+                  <TableColumn fx:id="deerNumber" prefWidth="104.0" text="Deer" />
+                  <TableColumn fx:id="horseNumber" prefWidth="111.0" text="Horse" />
+              </columns>
+            </TableView>
+            <GridPane GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <LineChart>
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <PieChart GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
