@@ -5,10 +5,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import util.CSVReader;
 import util.Predictions;
 
@@ -31,6 +28,8 @@ public class exponentialTabController {
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
+    @FXML private CheckBox checkBoxPie;
+    @FXML private CheckBox checkBoxLine;
 
 
     public void setText(){
@@ -64,7 +63,12 @@ public class exponentialTabController {
         horseNumber.setCellValueFactory(cellData -> cellData.getValue().horseProperty().asObject());
         tableView.setItems(predictions);
 
-        lineChartController.showLineChart(predictions);
+        if (checkBoxLine.isSelected()) {
+            lineChartController.showLineChart(predictions);
+        }
+        if (checkBoxPie.isSelected()) {
+            pieChartController.showPieChart(predictions);
+        }
 
     }
 }

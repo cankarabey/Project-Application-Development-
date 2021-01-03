@@ -121,12 +121,12 @@
                         <Insets bottom="70.0" left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <CheckBox mnemonicParsing="false" text="Linear " GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <CheckBox fx:id="checkBoxLine" mnemonicParsing="false" text="Linear " GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="70.0" />
                      </GridPane.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Pie Chart" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <CheckBox fx:id="checkBoxPie" mnemonicParsing="false" text="Pie Chart" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="70.0" left="70.0" />
                      </GridPane.margin>
