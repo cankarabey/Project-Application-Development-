@@ -46,7 +46,7 @@ public class exponentialTabController {
         }
     }
 
-    public void handleShowPredictions(){
+    public void handleShowPredictions() throws IOException {
         ExpModel expModel = new ExpModel();
         int t = Integer.parseInt(timeValue.getText());
         int nCattle = Integer.parseInt(nValCattle.getText());
@@ -58,12 +58,13 @@ public class exponentialTabController {
             nHorse = (int) (nHorse * Math.pow(Math.E, (Double.parseDouble(rValHorse.getText()) * 1)));
             predictions.add(new Predictions(i , nCattle, nDeer , nHorse));
         }
-        System.out.print(predictions);
         year.setCellValueFactory(cellData -> cellData.getValue().yearProperty().asObject());
         cattleNumber.setCellValueFactory(cellData -> cellData.getValue().cattleProperty().asObject());
         deerNumber.setCellValueFactory(cellData -> cellData.getValue().deerProperty().asObject());
         horseNumber.setCellValueFactory(cellData -> cellData.getValue().horseProperty().asObject());
         tableView.setItems(predictions);
+
+        lineChartController.showLineChart(predictions);
 
     }
 }
