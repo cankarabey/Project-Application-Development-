@@ -3,6 +3,7 @@ package util;
 import org.apache.commons.csv.*;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,11 +12,11 @@ import java.util.List;
 
 public class CSVReader {
 
-    static ArrayList[] calcValues(FileReader file) throws IOException {
+    static ArrayList[] calcValues(File file) throws IOException {
 
         ArrayList[] arrayLists = new ArrayList[6];
 
-        BufferedReader reader = new BufferedReader(file);
+        BufferedReader reader = new BufferedReader(new FileReader(file));
 
         CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
         ArrayList<Double> birthsPerCapita = new ArrayList<>();
@@ -47,7 +48,7 @@ public class CSVReader {
         return arrayLists;
     }
 
-    public static double calcR(FileReader file) throws IOException {
+    public static double calcR(File file) throws IOException {
 
         ArrayList[] arrayLists = calcValues(file);
         ArrayList<Double> rValues = arrayLists[2];
@@ -62,7 +63,7 @@ public class CSVReader {
 
     }
 
-    public static double calcK(FileReader file) throws IOException {
+    public static double calcK(File file) throws IOException {
 
         ArrayList[] arrayLists = calcValues(file);
         ArrayList<Double> rValues = arrayLists[2];
@@ -87,23 +88,23 @@ public class CSVReader {
 
     }
 
-    public static int getN(FileReader file) throws IOException {
+    public static int getN(File file) throws IOException {
         ArrayList[] arrayLists = calcValues(file);
         ArrayList<Integer> totalN = arrayLists[3];
 
         return totalN.get(totalN.size() - 1);
     }
 
-    public static int getYear(FileReader file) throws IOException {
+    public static int getYear(File file) throws IOException {
         ArrayList[] arrayLists = calcValues(file);
         ArrayList<Integer> years = arrayLists[4];
         return years.get(years.size() - 1);
     }
 
 
-    public static List PandFlist(FileReader file) throws IOException {
+    public static List PandFlist(File file) throws IOException {
 
-        BufferedReader reader = new BufferedReader(file);
+        BufferedReader reader = new BufferedReader(new FileReader(file));
         CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
         ArrayList<ArrayList<Double>> values = new ArrayList<ArrayList<Double>>();
         values.add(new ArrayList<Double>());
@@ -115,7 +116,7 @@ public class CSVReader {
         return values;
     }
 
-    public static int getBirths(FileReader file) throws IOException {
+    public static int getBirths(File file) throws IOException {
         ArrayList[] arrayLists = calcValues(file);
         ArrayList<Integer> births = arrayLists[5];
         return births.get(births.size() - 2);

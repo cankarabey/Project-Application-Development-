@@ -3,6 +3,7 @@ package Model;
 import sample.Controllers.importDataScreenController;
 import util.CSVReader;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class AgeStructuredModel implements IModel {
 
     @Override
     public TreeMap<Integer, Integer> calc(int t, String path) throws IOException {
-        HashMap<String, FileReader> map = importDataScreenController.getFiles();
+        HashMap<String, File> map = importDataScreenController.getFiles();
         ArrayList<Double> pValues = (ArrayList<Double>) CSVReader.PandFlist(map.get(path)).get(0);
         ArrayList<Double> fValues = (ArrayList<Double>) CSVReader.PandFlist(map.get(path)).get(1);
         numbersByAgeGroup = new int[t][4];

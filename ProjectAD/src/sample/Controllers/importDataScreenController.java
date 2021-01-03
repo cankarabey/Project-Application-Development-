@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 public class importDataScreenController {
 
-    private static HashMap<String,FileReader> files = new HashMap<>();
+    private static HashMap<String,File> files = new HashMap<>();
     private boolean okClicked = false;
     private Stage dialogStage;
 
@@ -52,18 +52,12 @@ public class importDataScreenController {
     }
 
     @FXML
-    public FileReader getFile(){
-        try {
-            FileChooser fileChooser = new FileChooser();
-            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
-            fileChooser.getExtensionFilters().add(extFilter);
-            File file = fileChooser.showOpenDialog(dialogStage);
-            return new FileReader(file);
-        }
-        catch (FileNotFoundException e){
-            e.printStackTrace();
-            return null;
-        }
+    public File getFile(){
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showOpenDialog(dialogStage);
+        return file;
     }
 
     @FXML
@@ -107,7 +101,7 @@ public class importDataScreenController {
         wolfsDataButton.setText("Imported!");
     }
 
-    public static HashMap<String, FileReader> getFiles() {
+    public static HashMap<String, File> getFiles() {
         return files;
     }
 }

@@ -3,6 +3,7 @@ package Model;
 import sample.Controllers.importDataScreenController;
 import util.CSVReader;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -14,7 +15,7 @@ public class CompModel implements IModel {
 
     @Override
     public TreeMap<Integer, Integer> calc(int t, String path) throws IOException {
-        HashMap<String, FileReader> map = importDataScreenController.getFiles();
+        HashMap<String, File> map = importDataScreenController.getFiles();
         if (path.equals("CattleData")){
             double alpha = 1.5;
             int nOne = CSVReader.getN(map.get(path));
