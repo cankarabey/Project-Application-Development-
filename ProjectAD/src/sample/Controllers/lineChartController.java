@@ -8,12 +8,13 @@ import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.CheckBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import util.Predictions;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class lineChartController {
 
@@ -36,11 +37,18 @@ public class lineChartController {
             horse.add(new XYChart.Data(predictions.get(i).getYear() , predictions.get(i).getHorse()));
         }
 
+        ArrayList<Integer> allNumbers = new ArrayList<>();
+        for(Predictions pred : predictions){
+            allNumbers.add(pred.getCattle());
+            allNumbers.add(pred.getHorse());
+            allNumbers.add(pred.getDeer());
+        }
+
         sl.add(new XYChart.Series("Cattle", cattle));
         sl.add(new XYChart.Series("Deer", deer));
         sl.add(new XYChart.Series("Horse", horse));
         Axis x = new NumberAxis("Year", 0, predictions.size(), 1);
-        Axis y = new NumberAxis("Population Size", 0, predictions.get(predictions.size() -1).getDeer(), 50);
+        Axis y = new NumberAxis("Population Size", 0, Collections.max(allNumbers), 50);
         LineChart c = new LineChart(x, y, sl);
         c.setTitle("Population Size");
         p.getChildren().add(c);

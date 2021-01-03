@@ -1,7 +1,6 @@
 package sample.Controllers;
 
 import Model.ExpModel;
-import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import util.CSVReader;
 import util.Predictions;
 
 import java.io.IOException;
-import java.sql.SQLIntegrityConstraintViolationException;
 
 public class exponentialTabController {
 
@@ -46,7 +44,6 @@ public class exponentialTabController {
     }
 
     public void handleShowPredictions() throws IOException {
-        ExpModel expModel = new ExpModel();
         int t = Integer.parseInt(timeValue.getText());
         int nCattle = Integer.parseInt(nValCattle.getText());
         int nDeer = Integer.parseInt(nValDeer.getText());
