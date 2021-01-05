@@ -6,11 +6,11 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.innerScreenController">
    <children>
-      <TabPane layoutX="92.0" layoutY="52.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane layoutX="92.0" layoutY="52.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab fx:id="exponential" text="Exponential">
                <content>
-                  <fx:include fx:id="exponentialTabScreen" source="exponentialTabScreen.fxml" />
+                  <fx:include fx:id="exponentialTabScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" source="exponentialTabScreen.fxml" />
                </content></Tab>
             <Tab fx:id="logistic" text="Logistic">
                <content>
