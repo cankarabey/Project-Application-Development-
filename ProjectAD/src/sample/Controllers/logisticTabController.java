@@ -56,11 +56,13 @@ public class logisticTabController {
         int nCattle = Integer.parseInt(nValCattle.getText());
         int nDeer = Integer.parseInt(nValDeer.getText());
         int nHorse = Integer.parseInt(nValHorse.getText());
+        int yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
         for (int i = 1; i<=t; i++) {
             nCattle = ((int) (Double.parseDouble(kValCattle.getText())/(1 + ((Double.parseDouble(kValCattle.getText())) - nCattle)/nCattle)*Math.pow(Math.E , (-Double.parseDouble(rValCattle.getText()) * 1))));
             nDeer = ((int) (Double.parseDouble(kValDeer.getText())/(1 + ((Double.parseDouble(kValDeer.getText())) - nDeer)/nDeer)*Math.pow(Math.E , (-Double.parseDouble(rValDeer.getText()) * 1))));
             nHorse = ((int) (Double.parseDouble(kValHorse.getText())/(1 + ((Double.parseDouble(kValHorse.getText())) - nHorse)/nHorse)*Math.pow(Math.E , (-Double.parseDouble(rValHorse.getText()) * 1))));
-            predictions.add(new Predictions(i , nCattle, nDeer , nHorse));
+            predictions.add(new Predictions(yearVal , nCattle, nDeer , nHorse));
+            yearVal++;
         }
         year.setCellValueFactory(cellData -> cellData.getValue().yearProperty().asObject());
         cattleNumber.setCellValueFactory(cellData -> cellData.getValue().cattleProperty().asObject());

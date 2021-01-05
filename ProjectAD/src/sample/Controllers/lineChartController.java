@@ -47,7 +47,7 @@ public class lineChartController {
         sl.add(new XYChart.Series("Cattle", cattle));
         sl.add(new XYChart.Series("Deer", deer));
         sl.add(new XYChart.Series("Horse", horse));
-        Axis x = new NumberAxis("Year", 0, predictions.size(), 1);
+        Axis x = new NumberAxis("Year", predictions.get(0).getYear(), predictions.get(predictions.size() -1).getYear(), 1);
         Axis y = new NumberAxis("Population Size", 0, Collections.max(allNumbers), 50);
         LineChart c = new LineChart(x, y, sl);
         c.setTitle("Population Size");
