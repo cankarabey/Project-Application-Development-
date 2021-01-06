@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="exponentialTabScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.logisticTabController">
+<AnchorPane fx:id="exponentialTabScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.predationTabController">
    <children>
       <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="347.0" prefWidth="583.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -32,7 +32,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <GridPane prefHeight="108.0" prefWidth="248.0" VBox.vgrow="ALWAYS">
+                  <GridPane prefHeight="191.0" prefWidth="289.0" VBox.vgrow="ALWAYS">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -104,32 +104,32 @@
                         </TextField>
                         <Label text="h-Value:" GridPane.rowIndex="4" />
                         <Label text="d-Value" GridPane.rowIndex="5" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <TextField fx:id="hValCattle" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="10.0" right="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="4">
+                        <TextField fx:id="hValHorse" GridPane.columnIndex="2" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="10.0" right="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="4">
+                        <TextField fx:id="hValDeer" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="10.0" right="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <TextField fx:id="dValCattle" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="10.0" right="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="5">
+                        <TextField fx:id="dValHorse" GridPane.columnIndex="2" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="10.0" right="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="5">
+                        <TextField fx:id="dValDeer" GridPane.columnIndex="3" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="10.0" right="10.0" />
                            </GridPane.margin>
@@ -141,7 +141,38 @@
                   </GridPane>
                   <Region VBox.vgrow="ALWAYS" />
                   <Separator prefWidth="200.0" />
-                  <Region VBox.vgrow="ALWAYS" />
+                  <HBox prefHeight="90.0" prefWidth="291.0">
+                     <children>
+                        <Label text="population ">
+                           <HBox.margin>
+                              <Insets left="10.0" top="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Predator">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="-60.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="predatorPopulation" prefHeight="27.0" prefWidth="47.0">
+                           <HBox.margin>
+                              <Insets left="5.0" top="25.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="alpha">
+                           <HBox.margin>
+                              <Insets left="5.0" top="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="predatorAlpha" prefHeight="27.0" prefWidth="47.0">
+                           <HBox.margin>
+                              <Insets left="5.0" top="25.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
                   <Label prefHeight="27.0" prefWidth="120.0" text="Duration">
                      <padding>
                         <Insets left="5.0" />
@@ -219,6 +250,7 @@
                   <TableColumn fx:id="cattleNumber" prefWidth="75.0" text="Cattle" />
                   <TableColumn fx:id="deerNumber" prefWidth="75.0" text="Deer" />
                   <TableColumn fx:id="horseNumber" prefWidth="75.0" text="Horse" />
+                  <TableColumn prefWidth="75.0" text="Wolf" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

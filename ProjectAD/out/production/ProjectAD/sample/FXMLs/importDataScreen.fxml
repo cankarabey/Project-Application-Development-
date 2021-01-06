@@ -66,7 +66,6 @@
             </GridPane>
          </children>
       </GridPane>
-      <Button layoutX="313.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="125.0" text="Cancel" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="170.0" />
-      <Button layoutX="446.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleSave" prefWidth="125.0" text="Save" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="30.0" />
+      <Button layoutX="446.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleSave" prefWidth="125.0" text="OK" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="30.0" />
    </children>
 </AnchorPane>
