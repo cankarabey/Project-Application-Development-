@@ -27,6 +27,7 @@ public class Main {
                     "\n 3. Age Structured Model" +
                     "\n 4. Competition Model" +
                     "\n 5. Predation Model" +
+                    "\n 6. Grass annual mass" +
                     "\n\n 9. Quit" + 
                     "\n\nModel: ");
             Scanner scanner = new Scanner(System.in);
@@ -119,6 +120,18 @@ public class Main {
                             + "   |\t" +  predationModel.calc(t , "DeerData.csv").get(key)
                             + " | \t" + predationModel.calc(t , "HorseData.csv").get(key)
                             + " \t| " + predationModel.amountOfWolfs);
+                    year++;
+                }
+                System.out.println("-----------------------------");
+            }
+
+            else if (choice == 6) {
+                System.out.print("Please enter time in t years : ");
+                GrassModel grassModel = new GrassModel();
+                int t = Integer.parseInt(scanner.nextLine());
+                System.out.println("Year |\tGrass in kg");
+                for (Integer key : grassModel.getGrass(t , "GrassData.csv").keySet() ){
+                    System.out.println(year + " | \t" + grassModel.getGrass(t , "GrassData.csv").get(key));
                     year++;
                 }
                 System.out.println("-----------------------------");

@@ -145,4 +145,15 @@ public class CSVReader {
         ArrayList<Integer> births = arrayLists[5];
         return births.get(births.size() - 2);
     }
+
+    public static Double getGrowthPotential(String path) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("src/" + path));
+        CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
+        ArrayList<Double> values = new ArrayList<>();
+        for (CSVRecord csv: csvParser) {
+            values.add(Double.parseDouble(csv.get(1)));
+        }
+        double diff = (values. get(1) - values.get(values.size() - 1))/(values.size()-1);
+        return values.get(values.size()-1) - diff;
+    }
 }
