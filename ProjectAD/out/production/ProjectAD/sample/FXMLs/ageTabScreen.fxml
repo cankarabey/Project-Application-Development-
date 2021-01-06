@@ -212,6 +212,11 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+                  <CheckBox fx:id="perAgeGroup" mnemonicParsing="false" text="Show All Age Groups">
+                     <VBox.margin>
+                        <Insets left="120.0" />
+                     </VBox.margin>
+                  </CheckBox>
                   <HBox>
                      <children>
                         <Region HBox.hgrow="ALWAYS" />

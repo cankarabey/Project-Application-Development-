@@ -1,11 +1,13 @@
 package sample.Controllers;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import util.CSVReader;
 import util.Predictions;
+import util.perAgeGroupPredictions;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,6 +45,11 @@ public class ageTabController {
     @FXML private TableColumn<Predictions , Integer> horseNumber;
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
 
+    private ObservableList<perAgeGroupPredictions> predictionsCattle = FXCollections.observableArrayList();
+    private ObservableList<perAgeGroupPredictions> predictionsDeer = FXCollections.observableArrayList();
+    private ObservableList<perAgeGroupPredictions> predictionsHorse = FXCollections.observableArrayList();
+    private ObservableList<ObservableList<perAgeGroupPredictions>> ageGroups = FXCollections.observableArrayList();
+
     @FXML
     public void setText() throws IOException {
         HashMap<String, File> map = importDataScreenController.getFiles();
@@ -76,21 +83,18 @@ public class ageTabController {
 
     @FXML public void handleShowPredictions() throws IOException {
         int yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
-        int[][] numbersByAgeGroupCattle = new int[Integer.parseInt(t.getText())][4];
         int birthsLastYearCattle = CSVReader.getBirths(importDataScreenController.getFiles().get("CattleData"));
         int ageGroupOneCattle = birthsLastYearCattle;
         int ageGroupTwoCattle = (int) (birthsLastYearCattle * Double.parseDouble(g1Cattle.getText()));
         int ageGroupThreeCattle = (int) (ageGroupTwoCattle * Double.parseDouble(g2Cattle.getText()));
         int ageGroupFourCattle = (int) (ageGroupThreeCattle * Double.parseDouble(g3Cattle.getText()));
 
-        int[][] numbersByAgeGroupDeer = new int[Integer.parseInt(t.getText())][4];
         int birthsLastYearDeer = CSVReader.getBirths(importDataScreenController.getFiles().get("DeerData"));
         int ageGroupOneDeer = birthsLastYearDeer;
         int ageGroupTwoDeer = (int) (birthsLastYearCattle * Double.parseDouble(g1Deer.getText()));
         int ageGroupThreeDeer = (int) (ageGroupTwoCattle * Double.parseDouble(g2Deer.getText()));
         int ageGroupFourDeer = (int) (ageGroupThreeCattle * Double.parseDouble(g3Deer.getText()));
 
-        int[][] numbersByAgeGroupHorse = new int[Integer.parseInt(t.getText())][4];
         int birthsLastYearHorse = CSVReader.getBirths(importDataScreenController.getFiles().get("HorseData"));
         int ageGroupOneHorse = birthsLastYearHorse;
         int ageGroupTwoHorse = (int) (birthsLastYearCattle * Double.parseDouble(g1Horse.getText()));
@@ -103,25 +107,28 @@ public class ageTabController {
             ageGroupTwoCattle = (int) (ageGroupOneCattle * Double.parseDouble(g1Cattle.getText()));
             ageGroupOneCattle = (int) ((0 * ageGroupOneCattle) + (Double.parseDouble(b2Cattle.getText()) * ageGroupTwoCattle) + (Double.parseDouble(b3Cattle.getText()) * ageGroupThreeCattle) + (Double.parseDouble(b4Cattle.getText()) * ageGroupFourCattle));
             int totalCattle = ageGroupOneCattle+ ageGroupTwoCattle + ageGroupThreeCattle + ageGroupFourCattle;
-            numbersByAgeGroupCattle[i] = new int[]{ageGroupOneCattle, ageGroupTwoCattle, ageGroupThreeCattle, ageGroupFourCattle};
+            predictionsCattle.add(new perAgeGroupPredictions(ageGroupOneCattle, ageGroupTwoCattle, ageGroupThreeCattle, ageGroupFourCattle));
 
             ageGroupFourDeer = (int) (ageGroupThreeDeer * Double.parseDouble(g3Deer.getText()));
             ageGroupThreeDeer = (int) (ageGroupTwoDeer * Double.parseDouble(g2Deer.getText()));
             ageGroupTwoDeer = (int) (ageGroupOneDeer * Double.parseDouble(g1Deer.getText()));
             ageGroupOneDeer = (int) ((0 * ageGroupOneDeer) + (Double.parseDouble(b2Deer.getText()) * ageGroupTwoDeer) + (Double.parseDouble(b3Deer.getText()) * ageGroupThreeDeer) + (Double.parseDouble(b4Deer.getText()) * ageGroupFourDeer));
             int totalDeer = ageGroupOneDeer+ ageGroupTwoDeer + ageGroupThreeDeer + ageGroupFourDeer;
-            numbersByAgeGroupDeer[i] = new int[]{ageGroupOneDeer, ageGroupTwoDeer, ageGroupThreeDeer, ageGroupFourDeer};
+            predictionsDeer.add(new perAgeGroupPredictions(ageGroupOneDeer, ageGroupTwoDeer, ageGroupThreeDeer, ageGroupFourDeer));
 
             ageGroupFourHorse = (int) (ageGroupThreeHorse * Double.parseDouble(g3Horse.getText()));
             ageGroupThreeHorse = (int) (ageGroupTwoHorse * Double.parseDouble(g2Horse.getText()));
             ageGroupTwoHorse = (int) (ageGroupOneHorse * Double.parseDouble(g1Horse.getText()));
             ageGroupOneHorse = (int) ((0 * ageGroupOneHorse) + (Double.parseDouble(b2Horse.getText()) * ageGroupTwoHorse) + (Double.parseDouble(b3Horse.getText()) * ageGroupThreeHorse) + (Double.parseDouble(b4Horse.getText()) * ageGroupFourHorse));
             int totalHorse = ageGroupOneHorse+ ageGroupTwoHorse + ageGroupThreeHorse + ageGroupFourHorse;
-            numbersByAgeGroupHorse[i] = new int[]{ageGroupOneHorse, ageGroupTwoHorse, ageGroupThreeHorse, ageGroupFourHorse};
+            predictionsHorse.add(new perAgeGroupPredictions(ageGroupOneHorse, ageGroupTwoHorse, ageGroupThreeHorse, ageGroupFourHorse));
             predictions.add(new Predictions(yearVal , totalCattle , totalDeer , totalHorse));
             yearVal++;
         }
 
+        ageGroups.add(predictionsCattle);
+        ageGroups.add(predictionsDeer);
+        ageGroups.add(predictionsHorse);
         year.setCellValueFactory(cellData -> cellData.getValue().yearProperty().asObject());
         cattleNumber.setCellValueFactory(cellData -> cellData.getValue().cattleProperty().asObject());
         deerNumber.setCellValueFactory(cellData -> cellData.getValue().deerProperty().asObject());
@@ -133,6 +140,9 @@ public class ageTabController {
         }
         if (checkBoxPie.isSelected()) {
             pieChartController.showPieChart(predictions);
+        }
+        if (perAgeGroup.isSelected()){
+            perAgeGroupScreenController.showPerAgeGroup(ageGroups);
         }
     }
 
