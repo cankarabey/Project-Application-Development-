@@ -3,15 +3,23 @@ package sample.Controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import sample.Main;
 import util.Predictions;
 import util.perAgeGroupPredictions;
 
+import java.io.IOException;
+
 public class perAgeGroupScreenController {
+
+    private Stage dialogStage;
 
     @FXML private static TableView<perAgeGroupPredictions> tableViewCattle;
     @FXML private static TableColumn<perAgeGroupPredictions , Integer> newBornCattle;
@@ -31,9 +39,7 @@ public class perAgeGroupScreenController {
     @FXML private static TableColumn<perAgeGroupPredictions , Integer> adultHorse;
     @FXML private static TableColumn<perAgeGroupPredictions , Integer> oldHorse;
 
-    @FXML public static void showPerAgeGroup(ObservableList<ObservableList<perAgeGroupPredictions>> ageGroups){
-        Stage s = new Stage();
-        Pane p = new Pane();
+    @FXML public static void showPerAgeGroup(ObservableList<ObservableList<perAgeGroupPredictions>> ageGroups) throws IOException {
 
         /*
         newBornCattle.setCellValueFactory(cellData -> cellData.getValue().newBornProperty().asObject());
@@ -56,11 +62,29 @@ public class perAgeGroupScreenController {
 
          */
 
-        
-        Scene sc = new Scene(p);
-        s.setScene(sc);
-        s.show();
+        // Load the fxml file and create a new stage for the popup dialog.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("FXMLs/perAgeGroupScreen.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+        // Create the dialog Stage.
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Age Groups");
+        dialogStage.initModality(Modality.NONE);
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+        // Set the person into the controller.
+        perAgeGroupScreenController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
 
+        // Show the dialog and wait until the user closes it
+        dialogStage.show();
+
+
+
+    }
+
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
     }
 
 }
