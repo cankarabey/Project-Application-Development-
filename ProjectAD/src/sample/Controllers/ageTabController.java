@@ -1,7 +1,6 @@
 package sample.Controllers;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -84,7 +83,10 @@ public class ageTabController {
 
     @FXML public void handleShowPredictions() throws EmptyFieldException {
         try{
-            int yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
+            int yearVal =1;
+            if (!importDataScreenController.getFiles().isEmpty()) {
+                yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
+            }
             int birthsLastYearCattle = CSVReader.getBirths(importDataScreenController.getFiles().get("CattleData"));
             int ageGroupOneCattle = birthsLastYearCattle;
             int ageGroupTwoCattle = (int) (birthsLastYearCattle * Double.parseDouble(g1Cattle.getText()));

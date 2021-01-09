@@ -44,7 +44,7 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-
+    //https://www.youtube.com/watch?v=dQw4w9WgXcQ
     public void initInnerScreen(){
         try {
             FXMLLoader loader = new FXMLLoader();

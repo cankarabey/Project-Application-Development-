@@ -63,7 +63,10 @@ public class competitiveTabController {
             int nCattle = Integer.parseInt(nValCattle.getText());
             int nDeer = Integer.parseInt(nValDeer.getText());
             int nHorse = Integer.parseInt(nValHorse.getText());
-            int yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
+            int yearVal =1;
+            if (!importDataScreenController.getFiles().isEmpty()) {
+                yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
+            }
             for (int i = 1; i<=t; i++) {
                 nCattle = (int) (nCattle*(1+Double.parseDouble(rValCattle.getText()) * ( 1 - (nCattle+Double.parseDouble(alphaCattle.getText())*nHorse)/Double.parseDouble(kValCattle.getText()))));
                 nDeer = (int) (nDeer*(1+Double.parseDouble(rValDeer.getText()) * ( 1 - (nDeer+Double.parseDouble(alphaDeer.getText())*CSVReader.getN(importDataScreenController.getFiles().get("CattleHorseAvg")))/Double.parseDouble(kValDeer.getText()))));

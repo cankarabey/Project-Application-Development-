@@ -49,7 +49,10 @@ public class exponentialTabController {
             int nCattle = Integer.parseInt(nValCattle.getText());
             int nDeer = Integer.parseInt(nValDeer.getText());
             int nHorse = Integer.parseInt(nValHorse.getText());
-            int yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
+            int yearVal =1;
+            if (!importDataScreenController.getFiles().isEmpty()) {
+                yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
+            }
             for (int i = 1; i<=t; i++) {
                 nCattle = (int) (nCattle * Math.pow(Math.E, (Double.parseDouble(rValCattle.getText()) * 1)));
                 nDeer = (int) (nDeer * Math.pow(Math.E, (Double.parseDouble(rValDeer.getText()) * 1)));

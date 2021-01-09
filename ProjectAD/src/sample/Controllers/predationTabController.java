@@ -72,7 +72,10 @@ public class predationTabController {
                 int nCattle = Integer.parseInt(nValCattle.getText());
                 int nDeer = Integer.parseInt(nValDeer.getText());
                 int nHorse = Integer.parseInt(nValHorse.getText());
-                int yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
+                int yearVal =1;
+                if (!importDataScreenController.getFiles().isEmpty()) {
+                    yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
+                }
                 for (int i = 1; i<=t; i++) {
                     nCattle = nCattle - (((int) (Double.parseDouble(rValCattle.getText()) * nCattle * i - (((Double.parseDouble(kValCattle.getText()) * (nCattle ^ 2))) / ((nCattle ^ 2) + (Double.parseDouble(dValCattle.getText()) * Double.parseDouble(dValCattle.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
                     nDeer = nDeer - (((int) (Double.parseDouble(rValDeer.getText()) * nDeer * i - (((Double.parseDouble(kValDeer.getText()) * (nDeer ^ 2))) / ((nDeer ^ 2) + (Double.parseDouble(dValDeer.getText()) * Double.parseDouble(dValDeer.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
