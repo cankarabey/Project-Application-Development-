@@ -1,7 +1,9 @@
 package sample.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import util.CSVReader;
@@ -11,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Optional;
 
 public class importDataScreenController {
 
@@ -41,9 +44,45 @@ public class importDataScreenController {
 
     @FXML
     public void handleSave(){
-        //do stuff here
-        //exponentialTabController.setText();
-        dialogStage.close();
+        String text = "";
+        if(!files.containsKey("CattleData")){
+            text += "Missing Cattle Data...\n";
+        }
+        if(!files.containsKey("DeerData")){
+            text += "Missing Deer Data...\n";
+        }
+        if(!files.containsKey("HorseData")){
+            text += "Missing Horse Data...\n";
+        }
+        if(!files.containsKey("CattleHorseAvg")){
+            text += "Missing Cattle Horse Average Data...\n";
+        }
+        if(!files.containsKey("CattleLifeTable")){
+            text += "Missing Cattle Life Data...\n";
+        }
+        if(!files.containsKey("DeerLifeTable")){
+            text += "Missing Deer Life Data...\n";
+        }
+        if(!files.containsKey("HorseLifeTable")){
+            text += "Missing Horse Life Data...\n";
+        }
+        if(!files.containsKey("Wolfs")){
+            text += "Missing Wolfs Data...\n";
+        }
+        if(!text.isEmpty()){
+            Alert missingFiles = new Alert(Alert.AlertType.CONFIRMATION);
+            missingFiles.setTitle("Warning!");
+            missingFiles.setHeaderText("Missing Files");
+            missingFiles.setContentText(text + "\nThe Application requires the files above and may not work as " +
+                    "intended.\n\nDo you still wish to continue?");
+            Optional<ButtonType> result = missingFiles.showAndWait();
+            if (result.get() == ButtonType.OK){
+                dialogStage.close();
+            } else {
+                missingFiles.close();
+            }
+        }
+
     }
 
     @FXML

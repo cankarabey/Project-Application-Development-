@@ -122,7 +122,6 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </GridPane>
-                  <Region prefHeight="0.0" prefWidth="258.0" VBox.vgrow="ALWAYS" />
                   <Separator prefWidth="200.0" />
                   <Region prefHeight="0.0" prefWidth="258.0" VBox.vgrow="ALWAYS" />
                   <Label prefHeight="27.0" prefWidth="120.0" text="Duration">

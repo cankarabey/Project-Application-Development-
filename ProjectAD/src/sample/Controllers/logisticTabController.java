@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import util.CSVReader;
+import util.EmptyFieldException;
 import util.Predictions;
 
 import java.io.IOException;
@@ -51,31 +52,36 @@ public class logisticTabController {
     }
 
     @FXML
-    public void handleShowPredictions() throws IOException {
-        int t = Integer.parseInt(timeValue.getText());
-        int nCattle = Integer.parseInt(nValCattle.getText());
-        int nDeer = Integer.parseInt(nValDeer.getText());
-        int nHorse = Integer.parseInt(nValHorse.getText());
-        int yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
-        for (int i = 1; i<=t; i++) {
-            nCattle = ((int) (Double.parseDouble(kValCattle.getText())/(1 + ((Double.parseDouble(kValCattle.getText())) - nCattle)/nCattle)*Math.pow(Math.E , (-Double.parseDouble(rValCattle.getText()) * 1))));
-            nDeer = ((int) (Double.parseDouble(kValDeer.getText())/(1 + ((Double.parseDouble(kValDeer.getText())) - nDeer)/nDeer)*Math.pow(Math.E , (-Double.parseDouble(rValDeer.getText()) * 1))));
-            nHorse = ((int) (Double.parseDouble(kValHorse.getText())/(1 + ((Double.parseDouble(kValHorse.getText())) - nHorse)/nHorse)*Math.pow(Math.E , (-Double.parseDouble(rValHorse.getText()) * 1))));
-            predictions.add(new Predictions(yearVal , nCattle, nDeer , nHorse));
-            yearVal++;
-        }
-        year.setCellValueFactory(cellData -> cellData.getValue().yearProperty().asObject());
-        cattleNumber.setCellValueFactory(cellData -> cellData.getValue().cattleProperty().asObject());
-        deerNumber.setCellValueFactory(cellData -> cellData.getValue().deerProperty().asObject());
-        horseNumber.setCellValueFactory(cellData -> cellData.getValue().horseProperty().asObject());
-        tableView.setItems(predictions);
+    public void handleShowPredictions() throws EmptyFieldException {
+        try{
+            int t = Integer.parseInt(timeValue.getText());
+            int nCattle = Integer.parseInt(nValCattle.getText());
+            int nDeer = Integer.parseInt(nValDeer.getText());
+            int nHorse = Integer.parseInt(nValHorse.getText());
+            int yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
+            for (int i = 1; i<=t; i++) {
+                nCattle = ((int) (Double.parseDouble(kValCattle.getText())/(1 + ((Double.parseDouble(kValCattle.getText())) - nCattle)/nCattle)*Math.pow(Math.E , (-Double.parseDouble(rValCattle.getText()) * 1))));
+                nDeer = ((int) (Double.parseDouble(kValDeer.getText())/(1 + ((Double.parseDouble(kValDeer.getText())) - nDeer)/nDeer)*Math.pow(Math.E , (-Double.parseDouble(rValDeer.getText()) * 1))));
+                nHorse = ((int) (Double.parseDouble(kValHorse.getText())/(1 + ((Double.parseDouble(kValHorse.getText())) - nHorse)/nHorse)*Math.pow(Math.E , (-Double.parseDouble(rValHorse.getText()) * 1))));
+                predictions.add(new Predictions(yearVal , nCattle, nDeer , nHorse));
+                yearVal++;
+            }
+            year.setCellValueFactory(cellData -> cellData.getValue().yearProperty().asObject());
+            cattleNumber.setCellValueFactory(cellData -> cellData.getValue().cattleProperty().asObject());
+            deerNumber.setCellValueFactory(cellData -> cellData.getValue().deerProperty().asObject());
+            horseNumber.setCellValueFactory(cellData -> cellData.getValue().horseProperty().asObject());
+            tableView.setItems(predictions);
 
-        if (checkBoxLine.isSelected()) {
-            lineChartController.showLineChart(predictions);
+            if (checkBoxLine.isSelected()) {
+                lineChartController.showLineChart(predictions);
+            }
+            if (checkBoxPie.isSelected()) {
+                pieChartController.showPieChart(predictions);
+            }
+        } catch (IOException | NumberFormatException e){
+            throw new EmptyFieldException(e);
         }
-        if (checkBoxPie.isSelected()) {
-            pieChartController.showPieChart(predictions);
-        }
+
 
     }
 }

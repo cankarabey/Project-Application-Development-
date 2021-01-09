@@ -173,6 +173,7 @@
                         </TextField>
                      </children>
                   </HBox>
+                  <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <Label prefHeight="27.0" prefWidth="120.0" text="Duration">
                      <padding>
                         <Insets left="5.0" />

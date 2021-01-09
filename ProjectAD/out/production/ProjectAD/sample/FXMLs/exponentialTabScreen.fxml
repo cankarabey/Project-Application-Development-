@@ -45,7 +45,11 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
+                        <Label text="r-Value:" GridPane.rowIndex="1" />
                         <Label text="n-Value:" GridPane.rowIndex="2" />
+                        <Label text="Cattle" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Label text="Horse" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                        <Label text="Deer" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                         <TextField fx:id="rValCattle" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <opaqueInsets>
                               <Insets />
@@ -79,10 +83,6 @@
                               <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label text="Cattle" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <Label text="Horse" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                        <Label text="Deer" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-                        <Label text="r-Value:" GridPane.rowIndex="1" />
                      </children>
                      <VBox.margin>
                         <Insets left="10.0" />
