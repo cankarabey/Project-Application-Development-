@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import util.CSVReader;
-import util.EmptyFieldException;
+import util.IllegalFieldException;
 import util.Predictions;
 import util.perAgeGroupPredictions;
 
@@ -81,7 +81,7 @@ public class ageTabController {
 
     }
 
-    @FXML public void handleShowPredictions() throws EmptyFieldException {
+    @FXML public void handleShowPredictions() throws IllegalFieldException {
         try{
             int yearVal =1;
             if (!importDataScreenController.getFiles().isEmpty()) {
@@ -148,8 +148,8 @@ public class ageTabController {
             if (perAgeGroup.isSelected()){
                 perAgeGroupScreenController.showPerAgeGroup(ageGroups);
             }
-        } catch (IOException | NumberFormatException | NullPointerException e){
-            throw new EmptyFieldException(e);
+        } catch (IOException | NumberFormatException e){
+            throw new IllegalFieldException(e);
         }
     }
 

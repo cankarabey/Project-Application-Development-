@@ -5,7 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import util.CSVReader;
-import util.EmptyFieldException;
+import util.IllegalFieldException;
+import util.IllegalImportException;
 import util.Predictions;
 
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class predationTabController {
 
 
     @FXML
-    public void setText() throws IOException {
+    public void setText() throws IllegalImportException {
         try {
             rValCattle.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("CattleData"))));
             rValHorse.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("HorseData"))));
@@ -60,13 +61,13 @@ public class predationTabController {
             kValCattle.setText(String.valueOf(1 / Double.parseDouble(hValCattle.getText())));
             kValDeer.setText(String.valueOf(1 / Double.parseDouble(hValDeer.getText())));
             kValHorse.setText(String.valueOf(1 / Double.parseDouble(hValHorse.getText())));
-        } catch (IOException e) {
-            e.printStackTrace();
+        }catch (IOException | ArrayIndexOutOfBoundsException e){
+            throw new IllegalImportException(e);
         }
     }
 
         @FXML
-        public void handleShowPredictions() throws EmptyFieldException {
+        public void handleShowPredictions() throws IllegalFieldException {
             try{
                 int t = Integer.parseInt(timeValue.getText());
                 int nCattle = Integer.parseInt(nValCattle.getText());
@@ -96,7 +97,7 @@ public class predationTabController {
                     pieChartController.showPieChart(predictions);
                 }
             } catch (IOException | NumberFormatException e){
-                throw new EmptyFieldException(e);
+                throw new IllegalFieldException(e);
             }
 
 
