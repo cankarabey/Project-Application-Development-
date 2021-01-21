@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -131,7 +132,7 @@ public class Main {
                 int t = Integer.parseInt(scanner.nextLine());
                 System.out.println("Year |\tGrass in kg");
                 for (Integer key : grassModel.getGrass(t , "GrassData.csv").keySet() ){
-                    System.out.println(year + " | \t" + grassModel.getGrass(t , "GrassData.csv").get(key));
+                    System.out.println(year + " | \t" + grassModel.getGrass(t , "GrassData.csv").get(key) + "KG");
                     year++;
                 }
                 System.out.println("-----------------------------");
