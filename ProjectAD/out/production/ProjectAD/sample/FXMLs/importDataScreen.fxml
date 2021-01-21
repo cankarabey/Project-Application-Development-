@@ -30,6 +30,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Cattle (B, D, Total)" />
@@ -40,6 +41,8 @@
                   <Button fx:id="deerDataButton" mnemonicParsing="false" onAction="#handleChooseFileDD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button fx:id="horseDataButton" mnemonicParsing="false" onAction="#handleChooseFileHD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Button fx:id="cattleHorseAvgButton" mnemonicParsing="false" onAction="#handleChooseFileCHA" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Grass Data" GridPane.rowIndex="4" />
+                  <Button fx:id="grassDataButton" mnemonicParsing="false" onAction="#handleChooseFileGD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="1">
@@ -51,6 +54,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>

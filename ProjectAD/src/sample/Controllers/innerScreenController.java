@@ -9,6 +9,7 @@ public class innerScreenController {
     @FXML private ageTabController ageTabController;
     @FXML private competitiveTabController competitiveTabController;
     @FXML private predationTabController predationTabController;
+    @FXML private grassTabController grassTabController;
 
 
 }

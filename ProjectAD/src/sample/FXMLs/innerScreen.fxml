@@ -31,7 +31,10 @@
                   <fx:include fx:id="predationTabScreen" source="predationTabScreen.fxml" />
                </content>
             </Tab>
-            <Tab text="TEST TAB " />
+            <Tab text="Grass">
+               <content>
+                  <fx:include source="grassTabScreen.fxml" />
+               </content></Tab>
         </tabs>
       </TabPane>
    </children>

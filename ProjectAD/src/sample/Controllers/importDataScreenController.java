@@ -29,6 +29,7 @@ public class importDataScreenController {
     @FXML private Button horseLifeTableButton;
     @FXML private Button cattleHorseAvgButton;
     @FXML private Button wolfsDataButton;
+    @FXML private Button grassDataButton;
 
     @FXML
     private void initialize() {
@@ -68,6 +69,9 @@ public class importDataScreenController {
         }
         if(!files.containsKey("Wolfs")){
             text += "Missing Wolfs Data...\n";
+        }
+        if(!files.containsKey("Grass")){
+            text += "Missing Grass Data...\n";
         }
         if(!text.isEmpty()){
             Alert missingFiles = new Alert(Alert.AlertType.CONFIRMATION);
@@ -138,6 +142,11 @@ public class importDataScreenController {
     public void handleChooseFileWD() {  // WD = Wolf Data
         files.put("Wolfs" , getFile());
         wolfsDataButton.setText("Imported!");
+    }
+    @FXML
+    public void handleChooseFileGD(){   // GD = Grass Data
+        files.put("Grass", getFile());
+        grassDataButton.setText("Imported!");
     }
 
     public static HashMap<String, File> getFiles() {
