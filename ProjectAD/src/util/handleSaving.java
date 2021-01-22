@@ -18,20 +18,26 @@ public class handleSaving {
 
         ObservableList<Predictions> predictions = FXCollections.observableArrayList();
 
+        String pdfName = "";
         if (innerScreenController.isLogSelected()){
             predictions = logisticTabController.getPredictions();
+            pdfName = "Logistic";
         }
         if (innerScreenController.isExpSelected()){
             predictions = exponentialTabController.getPredictions();
+            pdfName = "Exponential";
         }
         if (innerScreenController.isAgeSelected()){
             predictions = ageTabController.getPredictions();
+            pdfName = "Age";
         }
         if (innerScreenController.isCompSelected()){
             predictions = competitiveTabController.getPredictions();
+            pdfName = "Competetive";
         }
         if (innerScreenController.isPredSelected()){
             predictions = predationTabController.getPredictions();
+            pdfName = "Predation";
         }
 
         Document document = new Document();
@@ -40,11 +46,11 @@ public class handleSaving {
             desktopPath = System.getProperty("user.home") + "\\" + "Desktop";
         }
         else{
-            desktopPath = System.getProperty("user.home") + "/" + "Desktop";
+            desktopPath = System.getProperty("user.home");
         }
         try
         {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(desktopPath + "\\Predictions.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(desktopPath + "\\" + pdfName +  "Predictions.pdf"));
             document.open();
 
             PdfPTable table = new PdfPTable(4);
