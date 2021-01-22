@@ -101,7 +101,6 @@ public class CSVReader {
         return years.get(years.size() - 1);
     }
 
-
     public static List PandFlist(File file) throws IOException {
 
         BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -120,5 +119,26 @@ public class CSVReader {
         ArrayList[] arrayLists = calcValues(file);
         ArrayList<Integer> births = arrayLists[5];
         return births.get(births.size() - 2);
+    }
+
+    public static int getGrassYear(File file) throws IOException{
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
+        ArrayList<Integer> years = new ArrayList<>();
+        for( CSVRecord csv : csvParser){
+            years.add(Integer.parseInt(csv.get(0)));
+        }
+        return years.get(years.size() - 1);
+    }
+
+    public static Double getGrowthPotential(File file) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        CSVParser csvParser = new CSVParser(reader , CSVFormat.DEFAULT.withFirstRecordAsHeader());
+        ArrayList<Double> values = new ArrayList<>();
+        for (CSVRecord csv: csvParser) {
+            values.add(Double.parseDouble(csv.get(1)));
+        }
+        double diff = (values. get(1) - values.get(values.size() - 1))/(values.size()-1);
+        return values.get(values.size()-1) - diff;
     }
 }

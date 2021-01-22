@@ -6,12 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import util.CSVReader;
-
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -29,6 +24,7 @@ public class importDataScreenController {
     @FXML private Button horseLifeTableButton;
     @FXML private Button cattleHorseAvgButton;
     @FXML private Button wolfsDataButton;
+    @FXML private Button grassDataButton;
 
     @FXML
     private void initialize() {
@@ -66,8 +62,8 @@ public class importDataScreenController {
         if(!files.containsKey("HorseLifeTable")){
             text += "Missing Horse Life Data...\n";
         }
-        if(!files.containsKey("Wolfs")){
-            text += "Missing Wolfs Data...\n";
+        if(!files.containsKey("Grass")){
+            text += "Missing Grass Data...\n";
         }
         if(!text.isEmpty()){
             Alert missingFiles = new Alert(Alert.AlertType.CONFIRMATION);
@@ -135,9 +131,9 @@ public class importDataScreenController {
         horseLifeTableButton.setText("Imported!");
     }
     @FXML
-    public void handleChooseFileWD() {  // WD = Wolf Data
-        files.put("Wolfs" , getFile());
-        wolfsDataButton.setText("Imported!");
+    public void handleChooseFileGD(){   // GD = Grass Data
+        files.put("Grass", getFile());
+        grassDataButton.setText("Imported!");
     }
 
     public static HashMap<String, File> getFiles() {

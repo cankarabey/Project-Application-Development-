@@ -57,11 +57,11 @@
                   <Label text="Cattle Life Table" />
                   <Label text="Deer Life Table " GridPane.rowIndex="1" />
                   <Label text="Horse Life Table " GridPane.rowIndex="2" />
-                  <Label text="Wolfs " GridPane.rowIndex="3" />
                   <Button fx:id="cattleLifeTableButton" mnemonicParsing="false" onAction="#handleChooseFileCLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" />
                   <Button fx:id="deerLifeTableButton" mnemonicParsing="false" onAction="#handleChooseFileDLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button fx:id="horseLifeTableButton" mnemonicParsing="false" onAction="#handleChooseFileHLT" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button fx:id="wolfsDataButton" mnemonicParsing="false" onAction="#handleChooseFileWD" prefHeight="27.0" prefWidth="125.0" text="Choose File" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="grassDataButton" mnemonicParsing="false" onAction="#handleChooseFileGD" prefHeight="27.0" prefWidth="125.0" text="Choose File " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Grass Data" GridPane.rowIndex="3" />
                </children>
             </GridPane>
          </children>
