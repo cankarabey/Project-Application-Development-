@@ -130,7 +130,6 @@
               <columns>
                 <TableColumn fx:id="year" prefWidth="75.0" text="Year" />
                   <TableColumn fx:id="weight" prefWidth="75.0" text="Weight" />
-                <TableColumn fx:id="height" prefWidth="75.0" text="Height" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

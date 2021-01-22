@@ -8,12 +8,10 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class GrassPredictions {
     private IntegerProperty year;
     private DoubleProperty weight;
-    private IntegerProperty height;
 
     public GrassPredictions(int year, double weight) {
         this.year = new SimpleIntegerProperty(year);
         this.weight = new SimpleDoubleProperty(weight);
-        //this.height = new SimpleIntegerProperty(height);
     }
 
     @Override
@@ -21,7 +19,6 @@ public class GrassPredictions {
         return "GrassPredictions{" +
                 "year=" + year +
                 ", weight=" + weight +
-                ", height=" + height +
                 '}';
     }
 
@@ -39,14 +36,6 @@ public class GrassPredictions {
 
     public DoubleProperty weightProperty() {
         return weight;
-    }
-
-    public int getHeight() {
-        return height.get();
-    }
-
-    public IntegerProperty heightProperty() {
-        return height;
     }
 
 }

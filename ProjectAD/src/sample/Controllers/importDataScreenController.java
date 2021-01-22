@@ -6,12 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import util.CSVReader;
-
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -66,9 +61,6 @@ public class importDataScreenController {
         }
         if(!files.containsKey("HorseLifeTable")){
             text += "Missing Horse Life Data...\n";
-        }
-        if(!files.containsKey("Wolfs")){
-            text += "Missing Wolfs Data...\n";
         }
         if(!files.containsKey("Grass")){
             text += "Missing Grass Data...\n";
@@ -137,11 +129,6 @@ public class importDataScreenController {
     public void handleChooseFileHLT() { // HLT = Horse Life Table
         files.put("HorseLifeTable" , getFile());
         horseLifeTableButton.setText("Imported!");
-    }
-    @FXML
-    public void handleChooseFileWD() {  // WD = Wolf Data
-        files.put("Wolfs" , getFile());
-        wolfsDataButton.setText("Imported!");
     }
     @FXML
     public void handleChooseFileGD(){   // GD = Grass Data
