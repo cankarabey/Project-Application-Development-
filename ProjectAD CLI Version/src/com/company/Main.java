@@ -123,7 +123,7 @@ public class Main {
                     System.out.println(year + " | \t" + predationModel.calc(t , "CattleData.csv").get(key)
                             + "   |\t" +  predationModel.calc(t , "DeerData.csv").get(key)
                             + " | \t" + predationModel.calc(t , "HorseData.csv").get(key)
-                            + " \t| " + predationModel.amountOfWolfs);
+                            + " \t| " + predationModel.wolfs);
                     year++;
                 }
                 System.out.println("-----------------------------");
