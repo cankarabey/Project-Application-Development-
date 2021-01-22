@@ -27,7 +27,7 @@ public class exponentialTabController {
     @FXML private TableColumn<Predictions , Integer> cattleNumber;
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
-    private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
+    private static ObservableList<Predictions> predictions = FXCollections.observableArrayList();
     @FXML private CheckBox checkBoxPie;
     @FXML private CheckBox checkBoxLine;
     @FXML private Button randomButton;
@@ -91,5 +91,9 @@ public class exponentialTabController {
             throw new IllegalFieldException(e);
         }
 
+    }
+
+    public static ObservableList<Predictions> getPredictions() {
+        return predictions;
     }
 }

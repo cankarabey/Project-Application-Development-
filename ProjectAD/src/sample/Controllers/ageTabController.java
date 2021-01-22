@@ -44,8 +44,12 @@ public class ageTabController {
     @FXML private TableColumn<Predictions , Integer> cattleNumber;
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
+<<<<<<< Updated upstream
     @FXML private Button randomButton;
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
+=======
+    private static ObservableList<Predictions> predictions = FXCollections.observableArrayList();
+>>>>>>> Stashed changes
 
     private ObservableList<perAgeGroupPredictions> predictionsCattle = FXCollections.observableArrayList();
     private ObservableList<perAgeGroupPredictions> predictionsDeer = FXCollections.observableArrayList();
@@ -178,4 +182,7 @@ public class ageTabController {
         }
     }
 
+    public static ObservableList<Predictions> getPredictions() {
+        return predictions;
+    }
 }

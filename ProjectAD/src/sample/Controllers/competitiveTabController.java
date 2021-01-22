@@ -35,8 +35,12 @@ public class competitiveTabController {
     @FXML private TableColumn<Predictions , Integer> cattleNumber;
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
+<<<<<<< Updated upstream
     @FXML private Button randomButton;
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
+=======
+    private static ObservableList<Predictions> predictions = FXCollections.observableArrayList();
+>>>>>>> Stashed changes
 
     @FXML
     public void setText() throws IllegalImportException {
@@ -113,4 +117,7 @@ public class competitiveTabController {
 
     }
 
+    public static ObservableList<Predictions> getPredictions() {
+        return predictions;
+    }
 }

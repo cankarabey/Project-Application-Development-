@@ -14,7 +14,6 @@ import java.util.Random;
 
 public class logisticTabController {
 
-    @FXML private Tab logistic;
     @FXML private TextField rValCattle;
     @FXML private TextField rValHorse;
     @FXML private TextField rValDeer;
@@ -32,11 +31,16 @@ public class logisticTabController {
     @FXML private TableColumn<Predictions , Integer> cattleNumber;
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
+<<<<<<< Updated upstream
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
     @FXML private Button randomButton;
+=======
+    private static ObservableList<Predictions> predictions = FXCollections.observableArrayList();
+>>>>>>> Stashed changes
 
     @FXML
     public void setText() throws IllegalImportException {
+        //System.out.println(innerScreenController.logSelected());
         try {
             rValCattle.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("CattleData"))));
             rValHorse.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("HorseData"))));
@@ -47,7 +51,7 @@ public class logisticTabController {
             kValCattle.setText(String.valueOf(CSVReader.calcK(importDataScreenController.getFiles().get("CattleData"))));
             kValDeer.setText(String.valueOf(CSVReader.calcK(importDataScreenController.getFiles().get("DeerData"))));
             kValHorse.setText(String.valueOf(CSVReader.calcK(importDataScreenController.getFiles().get("HorseData"))));
-        }catch (IOException | ArrayIndexOutOfBoundsException e){
+        } catch (IOException | ArrayIndexOutOfBoundsException e) {
             throw new IllegalImportException(e);
         }
 
@@ -101,6 +105,10 @@ public class logisticTabController {
             throw new IllegalFieldException(e);
         }
 
+    }
 
+
+    public static ObservableList<Predictions> getPredictions() {
+        return predictions;
     }
 }

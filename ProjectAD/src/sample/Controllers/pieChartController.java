@@ -2,12 +2,20 @@ package sample.Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import util.Predictions;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 public class pieChartController {
 
@@ -30,5 +38,17 @@ public class pieChartController {
         Scene sc = new Scene(p);
         s.setScene(sc);
         s.show();
+        saveAsPng(pieChart);
+    }
+
+    public static void saveAsPng(PieChart pieChart) {
+        WritableImage image = pieChart.snapshot(new SnapshotParameters(), null);
+        File file = new File("pieChart.png");
+
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

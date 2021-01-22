@@ -8,25 +8,25 @@
    <children>
       <TabPane layoutX="92.0" layoutY="52.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab fx:id="exponential" text="Exponential">
+          <Tab fx:id="exponential" onSelectionChanged="#expSelected" text="Exponential">
                <content>
                   <fx:include fx:id="exponentialTabScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" source="exponentialTabScreen.fxml" />
                </content></Tab>
-            <Tab fx:id="logistic" text="Logistic">
+            <Tab fx:id="logistic" onSelectionChanged="#logSelected" text="Logistic">
                <content>
                   <fx:include fx:id="logisticTabScreen" source="logisticTabScreen.fxml" />
                </content>
             </Tab>
-            <Tab fx:id="age" text="Age">
+            <Tab fx:id="age" onSelectionChanged="#ageSelected" text="Age">
                <content>
                   <fx:include fx:id="ageTabScreen" source="ageTabScreen.fxml" />
                </content>
             </Tab>
-            <Tab fx:id="competitive" text="Competitive">
+            <Tab fx:id="competitive" onSelectionChanged="#compSelected" text="Competitive">
                <content>
                   <fx:include fx:id="competitiveTabScreen" source="competitiveTabScreen.fxml" />
                </content></Tab>
-            <Tab fx:id="predation" text="Predation">
+            <Tab fx:id="predation" onSelectionChanged="#predSelected" text="Predation">
                <content>
                   <fx:include fx:id="predationTabScreen" source="predationTabScreen.fxml" />
                </content>

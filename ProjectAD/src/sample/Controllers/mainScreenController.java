@@ -3,8 +3,8 @@ package sample.Controllers;
 
 import javafx.fxml.FXML;
 import sample.Main;
+import util.handleSaving;
 
-import java.io.IOException;
 
 public class mainScreenController {
 
@@ -17,6 +17,10 @@ public class mainScreenController {
     @FXML
     public void handleImportData() {
         mainApp.showImportDataScreen();
+    }
+
+    @FXML public void handleSaveButton(){
+        handleSaving.handleSave();
     }
 
 
