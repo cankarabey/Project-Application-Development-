@@ -6,11 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import util.GrassPredictions;
+import util.Predictions;
 
 public class barChartController {
 
-    public static void showBarChart(ObservableList<GrassPredictions> predictions){
+    public static void showBarChart(ObservableList<Predictions> predictions){
         Stage stage = new Stage();
         Pane pane = new Pane();
         CategoryAxis xAxis = new CategoryAxis();

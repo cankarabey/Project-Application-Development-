@@ -15,10 +15,10 @@ public class grassTabController {
     @FXML private TextField avgTemp;
     @FXML private TextField optTemp;
     @FXML private TextField timeValue;
-    @FXML private TableView<GrassPredictions> tableView;
-    @FXML private TableColumn<GrassPredictions , Integer> year;
-    @FXML private TableColumn<GrassPredictions , Double> weight;
-    private ObservableList<GrassPredictions> predictions = FXCollections.observableArrayList();
+    @FXML private TableView<Predictions> tableView;
+    @FXML private TableColumn<Predictions , Integer> year;
+    @FXML private TableColumn<Predictions , Double> weight;
+    private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
     @FXML private CheckBox checkBoxBar;
 
     public void handleShowPredictions() throws IllegalFieldException, IllegalImportException {
@@ -35,7 +35,7 @@ public class grassTabController {
 
             for (int i = 1; i<=t; i++) {
                 double GrowthPotential = Math.pow(Math.E, -0.5 * Math.pow(((optimalTemp-averageTemp)/GP), 2)) * 60 * 5600;
-                predictions.add(new GrassPredictions(yearVal, Math.round(GrowthPotential*100.00)/100.00));
+                predictions.add(new Predictions(yearVal, Math.round(GrowthPotential*100.00)/100.00));
                 GP = GP - 0.55;
                 yearVal ++;
             }

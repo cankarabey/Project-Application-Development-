@@ -1,6 +1,8 @@
 package util;
 
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class Predictions {
@@ -9,12 +11,26 @@ public class Predictions {
     private IntegerProperty cattle;
     private IntegerProperty deer;
     private IntegerProperty horse;
+    private DoubleProperty weight;
+
+    public Predictions(int year, double weight){
+        this.year = new SimpleIntegerProperty(year);
+        this.weight = new SimpleDoubleProperty(weight);
+    }
 
     public Predictions(int year, int cattle, int deer, int horse) {
         this.year = new SimpleIntegerProperty(year);
         this.cattle = new SimpleIntegerProperty(cattle);
         this.deer = new SimpleIntegerProperty(deer);
         this.horse = new SimpleIntegerProperty(horse);
+    }
+
+    public double getWeight() {
+        return weight.get();
+    }
+
+    public DoubleProperty weightProperty() {
+        return weight;
     }
 
     @Override
