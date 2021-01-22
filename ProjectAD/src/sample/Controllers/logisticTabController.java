@@ -31,16 +31,11 @@ public class logisticTabController {
     @FXML private TableColumn<Predictions , Integer> cattleNumber;
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
-<<<<<<< Updated upstream
-    private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
     @FXML private Button randomButton;
-=======
     private static ObservableList<Predictions> predictions = FXCollections.observableArrayList();
->>>>>>> Stashed changes
 
     @FXML
     public void setText() throws IllegalImportException {
-        //System.out.println(innerScreenController.logSelected());
         try {
             rValCattle.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("CattleData"))));
             rValHorse.setText(String.valueOf(CSVReader.calcR(importDataScreenController.getFiles().get("HorseData"))));

@@ -61,7 +61,7 @@
                            <tooltip>
                               <Tooltip text="Starting animal amount">
                                  <font>
-                                    <Font name="Book Antiqua" size="16.0" />
+                                    <Font name="Arial" size="14.0" />
                                  </font>
                               </Tooltip>
                            </tooltip></Label>
