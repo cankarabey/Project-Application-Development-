@@ -35,7 +35,13 @@ public class handleSaving {
         }
 
         Document document = new Document();
-        String desktopPath =System.getProperty("user.home") + "\\"+"Desktop";
+        String desktopPath;
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            desktopPath = System.getProperty("user.home") + "\\" + "Desktop";
+        }
+        else{
+            desktopPath = System.getProperty("user.home") + "/" + "Desktop";
+        }
         try
         {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(desktopPath + "\\Predictions.pdf"));
