@@ -1,6 +1,5 @@
 package sample.Controllers;
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -8,7 +7,6 @@ import javafx.scene.chart.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import util.GrassPredictions;
-import java.io.IOException;
 
 public class barChartController {
 
@@ -27,7 +25,6 @@ public class barChartController {
         for (int i = 0; i < predictions.size() - 1; i++) {
             weight.getData().add(new XYChart.Data<>(Integer.toString(predictions.get(i).getYear()),
                     predictions.get(i).getWeight()));
-            System.out.println(predictions.get(i).getYear()+"\t"+predictions.get(i).getWeight());
         }
         answer.add(weight);
         barChart.setData(answer);
