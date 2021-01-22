@@ -78,6 +78,7 @@ public class competitiveTabController {
 
     @FXML
     public void handleShowPredictions() throws IllegalFieldException {
+        tableView.getItems().clear();
         try{
             int t = Integer.parseInt(timeValue.getText());
             int nCattle = Integer.parseInt(nValCattle.getText());

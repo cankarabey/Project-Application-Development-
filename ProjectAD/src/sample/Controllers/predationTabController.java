@@ -89,42 +89,43 @@ public class predationTabController {
         predatorAlpha.setText(String.valueOf(0.17 + 0.1 * rand.nextDouble()));
     }
 
-        @FXML
-        public void handleShowPredictions() throws IllegalFieldException {
-            try{
-                int t = Integer.parseInt(timeValue.getText());
-                int nCattle = Integer.parseInt(nValCattle.getText());
-                int nDeer = Integer.parseInt(nValDeer.getText());
-                int nHorse = Integer.parseInt(nValHorse.getText());
-                int yearVal =1;
-                if (!importDataScreenController.getFiles().isEmpty()) {
-                    yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
-                }
-                for (int i = 1; i<=t; i++) {
-                    nCattle = nCattle - (((int) (Double.parseDouble(rValCattle.getText()) * nCattle * i - (((Double.parseDouble(kValCattle.getText()) * (nCattle ^ 2))) / ((nCattle ^ 2) + (Double.parseDouble(dValCattle.getText()) * Double.parseDouble(dValCattle.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
-                    nDeer = nDeer - (((int) (Double.parseDouble(rValDeer.getText()) * nDeer * i - (((Double.parseDouble(kValDeer.getText()) * (nDeer ^ 2))) / ((nDeer ^ 2) + (Double.parseDouble(dValDeer.getText()) * Double.parseDouble(dValDeer.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
-                    nHorse = nHorse - (((int) (Double.parseDouble(rValHorse.getText()) * nHorse * i - (((Double.parseDouble(kValHorse.getText()) * (nHorse ^ 2))) / ((nHorse ^ 2) + (Double.parseDouble(dValHorse.getText()) * Double.parseDouble(dValHorse.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
-                    predictions.add(new Predictions(yearVal , nCattle, nDeer , nHorse));
-                    yearVal++;
-                }
-                year.setCellValueFactory(cellData -> cellData.getValue().yearProperty().asObject());
-                cattleNumber.setCellValueFactory(cellData -> cellData.getValue().cattleProperty().asObject());
-                deerNumber.setCellValueFactory(cellData -> cellData.getValue().deerProperty().asObject());
-                horseNumber.setCellValueFactory(cellData -> cellData.getValue().horseProperty().asObject());
-                tableView.setItems(predictions);
-
-                if (checkBoxLine.isSelected()) {
-                    lineChartController.showLineChart(predictions);
-                }
-                if (checkBoxPie.isSelected()) {
-                    pieChartController.showPieChart(predictions);
-                }
-            } catch (IOException | NumberFormatException e){
-                throw new IllegalFieldException(e);
+    @FXML
+    public void handleShowPredictions() throws IllegalFieldException {
+        tableView.getItems().clear();
+        try{
+            int t = Integer.parseInt(timeValue.getText());
+            int nCattle = Integer.parseInt(nValCattle.getText());
+            int nDeer = Integer.parseInt(nValDeer.getText());
+            int nHorse = Integer.parseInt(nValHorse.getText());
+            int yearVal =1;
+            if (!importDataScreenController.getFiles().isEmpty()) {
+                yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
             }
+            for (int i = 1; i<=t; i++) {
+                nCattle = nCattle - (((int) (Double.parseDouble(rValCattle.getText()) * nCattle * i - (((Double.parseDouble(kValCattle.getText()) * (nCattle ^ 2))) / ((nCattle ^ 2) + (Double.parseDouble(dValCattle.getText()) * Double.parseDouble(dValCattle.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
+                nDeer = nDeer - (((int) (Double.parseDouble(rValDeer.getText()) * nDeer * i - (((Double.parseDouble(kValDeer.getText()) * (nDeer ^ 2))) / ((nDeer ^ 2) + (Double.parseDouble(dValDeer.getText()) * Double.parseDouble(dValDeer.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
+                nHorse = nHorse - (((int) (Double.parseDouble(rValHorse.getText()) * nHorse * i - (((Double.parseDouble(kValHorse.getText()) * (nHorse ^ 2))) / ((nHorse ^ 2) + (Double.parseDouble(dValHorse.getText()) * Double.parseDouble(dValHorse.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
+                predictions.add(new Predictions(yearVal , nCattle, nDeer , nHorse));
+                yearVal++;
+            }
+            year.setCellValueFactory(cellData -> cellData.getValue().yearProperty().asObject());
+            cattleNumber.setCellValueFactory(cellData -> cellData.getValue().cattleProperty().asObject());
+            deerNumber.setCellValueFactory(cellData -> cellData.getValue().deerProperty().asObject());
+            horseNumber.setCellValueFactory(cellData -> cellData.getValue().horseProperty().asObject());
+            tableView.setItems(predictions);
+
+            if (checkBoxLine.isSelected()) {
+                lineChartController.showLineChart(predictions);
+            }
+            if (checkBoxPie.isSelected()) {
+                pieChartController.showPieChart(predictions);
+            }
+        } catch (IOException | NumberFormatException e){
+            throw new IllegalFieldException(e);
+        }
 
 
-    }
+}
 
     public static ObservableList<Predictions> getPredictions() {
         return predictions;

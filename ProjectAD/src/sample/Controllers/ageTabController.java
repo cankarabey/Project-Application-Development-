@@ -107,6 +107,7 @@ public class ageTabController {
     }
 
     @FXML public void handleShowPredictions() throws IllegalFieldException {
+        tableView.getItems().clear();
         try{
             int yearVal =1;
             if (!importDataScreenController.getFiles().isEmpty()) {
