@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class ageTabController {
     @FXML private Tab age;
@@ -43,6 +44,7 @@ public class ageTabController {
     @FXML private TableColumn<Predictions , Integer> cattleNumber;
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
+    @FXML private Button randomButton;
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
 
     private ObservableList<perAgeGroupPredictions> predictionsCattle = FXCollections.observableArrayList();
@@ -79,6 +81,29 @@ public class ageTabController {
         g3Deer.setText(String.valueOf(pValuesDeer.get(2)));
         g3Horse.setText(String.valueOf(pValuesHorse.get(2)));
 
+    }
+
+    @FXML
+    public void handleRandomButton() {
+        Random rand = new Random();
+        f1Cattle.setText(String.valueOf(0));
+        f1Deer.setText(String.valueOf(0));
+        f1Horse.setText(String.valueOf(0));
+        f2Cattle.setText(String.valueOf(0.7 + 0.1 * rand.nextDouble()));
+        f2Deer.setText(String.valueOf(0.5 + 0.1 * rand.nextDouble()));
+        f2Horse.setText(String.valueOf(0.5 + 0.1 * rand.nextDouble()));
+        f3Cattle.setText(String.valueOf(0.7 + 0.1 * rand.nextDouble()));
+        f3Deer.setText(String.valueOf(0.8 + 0.1 * rand.nextDouble()));
+        f3Horse.setText(String.valueOf(0.8 + 0.1 * rand.nextDouble()));
+        g1Cattle.setText(String.valueOf(0.9 + 0.1 * rand.nextDouble()));
+        g1Deer.setText(String.valueOf(0.8 + 0.1 * rand.nextDouble()));
+        g1Horse.setText(String.valueOf(0.8 + 0.1 * rand.nextDouble()));
+        g2Cattle.setText(String.valueOf(0.7 + 0.1 * rand.nextDouble()));
+        g2Deer.setText(String.valueOf(0.7 + 0.1 * rand.nextDouble()));
+        g2Horse.setText(String.valueOf(0.7 + 0.1 * rand.nextDouble()));
+        g3Cattle.setText(String.valueOf(0.7 + 0.1 * rand.nextDouble()));
+        g3Deer.setText(String.valueOf(0.6 + 0.1 * rand.nextDouble()));
+        g3Horse.setText(String.valueOf(0.6 + 0.1 * rand.nextDouble()));
     }
 
     @FXML public void handleShowPredictions() throws IllegalFieldException {

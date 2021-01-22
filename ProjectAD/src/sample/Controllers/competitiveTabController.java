@@ -10,6 +10,7 @@ import util.IllegalImportException;
 import util.Predictions;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class competitiveTabController {
     @FXML private Tab competitive;
@@ -34,6 +35,7 @@ public class competitiveTabController {
     @FXML private TableColumn<Predictions , Integer> cattleNumber;
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
+    @FXML private Button randomButton;
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
 
     @FXML
@@ -55,6 +57,23 @@ public class competitiveTabController {
             throw new IllegalImportException(e);
         }
 
+    }
+
+    @FXML
+    public void handleRandomButton() {
+        Random rand = new Random();
+        rValCattle.setText(String.valueOf(0.01 + (0.1 - 0.01) * rand.nextDouble()));
+        rValHorse.setText(String.valueOf(0.09 + (0.1) * rand.nextDouble()));
+        rValDeer.setText(String.valueOf(0.09 + (0.1) * rand.nextDouble()));
+        nValCattle.setText(String.valueOf(200 + rand.nextInt(100)));
+        nValHorse.setText(String.valueOf(1000 + rand.nextInt(300)));
+        nValDeer.setText(String.valueOf(2900 + rand.nextInt(400)));
+        kValCattle.setText(String.valueOf(375 + rand.nextInt(20)));
+        kValDeer.setText(String.valueOf(1830 + rand.nextInt(60)));
+        kValHorse.setText(String.valueOf(495 + rand.nextInt(20)));
+        alphaCattle.setText(String.valueOf(1 + 0.5 * rand.nextDouble()));
+        alphaDeer.setText(String.valueOf(0.2 + 0.1 * rand.nextDouble()));
+        alphaHorse.setText(String.valueOf(0.4 + 0.2 * rand.nextDouble()));
     }
 
     @FXML

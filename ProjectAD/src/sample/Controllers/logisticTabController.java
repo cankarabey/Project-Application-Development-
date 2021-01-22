@@ -10,6 +10,7 @@ import util.IllegalImportException;
 import util.Predictions;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class logisticTabController {
 
@@ -32,6 +33,7 @@ public class logisticTabController {
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
+    @FXML private Button randomButton;
 
     @FXML
     public void setText() throws IllegalImportException {
@@ -49,6 +51,20 @@ public class logisticTabController {
             throw new IllegalImportException(e);
         }
 
+    }
+
+    @FXML
+    public void handleRandomButton() {
+        Random rand = new Random();
+        rValCattle.setText(String.valueOf(0.01 + (0.1 - 0.01) * rand.nextDouble()));
+        rValHorse.setText(String.valueOf(0.09 + (0.1) * rand.nextDouble()));
+        rValDeer.setText(String.valueOf(0.09 + (0.1) * rand.nextDouble()));
+        nValCattle.setText(String.valueOf(200 + rand.nextInt(100)));
+        nValHorse.setText(String.valueOf(1000 + rand.nextInt(300)));
+        nValDeer.setText(String.valueOf(2900 + rand.nextInt(400)));
+        kValCattle.setText(String.valueOf(375 + rand.nextInt(20)));
+        kValDeer.setText(String.valueOf(1830 + rand.nextInt(60)));
+        kValHorse.setText(String.valueOf(495 + rand.nextInt(20)));
     }
 
     @FXML

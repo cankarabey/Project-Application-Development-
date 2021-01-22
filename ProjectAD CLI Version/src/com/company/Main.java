@@ -11,6 +11,9 @@ public class Main {
         System.out.println(CSVReader.PandFlist("CattleLifeTable.csv"));
         System.out.println(CSVReader.PandFlist("DeerLifeTable.csv"));
         System.out.println(CSVReader.PandFlist("HorseLifeTable.csv"));
+        System.out.println(CSVReader.calcK("CattleData.csv"));
+        System.out.println(CSVReader.calcK("DeerData.csv"));
+        System.out.println(CSVReader.calcK("HorseData.csv"));
 
         
         int year = CSVReader.getYear("CattleData.csv");

@@ -10,6 +10,7 @@ import util.IllegalImportException;
 import util.Predictions;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class exponentialTabController {
 
@@ -29,6 +30,7 @@ public class exponentialTabController {
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
     @FXML private CheckBox checkBoxPie;
     @FXML private CheckBox checkBoxLine;
+    @FXML private Button randomButton;
 
 
     public void setText() throws IllegalImportException{
@@ -43,6 +45,17 @@ public class exponentialTabController {
         catch (IOException | ArrayIndexOutOfBoundsException e){
                 throw new IllegalImportException(e);
             }
+    }
+
+    @FXML
+    public void handleRandomButton() {
+        Random rand = new Random();
+        rValCattle.setText(String.valueOf(0.01 + (0.1 - 0.01) * rand.nextDouble()));
+        rValHorse.setText(String.valueOf(0.09 + (0.1) * rand.nextDouble()));
+        rValDeer.setText(String.valueOf(0.09 + (0.1) * rand.nextDouble()));
+        nValCattle.setText(String.valueOf(200 + rand.nextInt(100)));
+        nValHorse.setText(String.valueOf(1000 + rand.nextInt(300)));
+        nValDeer.setText(String.valueOf(2900 + rand.nextInt(400)));
     }
 
     public void handleShowPredictions() throws IllegalFieldException {

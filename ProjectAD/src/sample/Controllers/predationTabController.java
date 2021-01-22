@@ -10,6 +10,7 @@ import util.IllegalImportException;
 import util.Predictions;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class predationTabController {
 
@@ -39,6 +40,7 @@ public class predationTabController {
     @FXML private TableColumn<Predictions , Integer> cattleNumber;
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
+    @FXML private Button randomButton;
     private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
 
 
@@ -64,6 +66,27 @@ public class predationTabController {
         }catch (IOException | ArrayIndexOutOfBoundsException e){
             throw new IllegalImportException(e);
         }
+    }
+
+    @FXML
+    public void handleRandomButton() {
+        Random rand = new Random();
+        rValCattle.setText(String.valueOf(0.01 + (0.1 - 0.01) * rand.nextDouble()));
+        rValHorse.setText(String.valueOf(0.09 + (0.1) * rand.nextDouble()));
+        rValDeer.setText(String.valueOf(0.09 + (0.1) * rand.nextDouble()));
+        nValCattle.setText(String.valueOf(200 + rand.nextInt(100)));
+        nValHorse.setText(String.valueOf(1000 + rand.nextInt(300)));
+        nValDeer.setText(String.valueOf(2900 + rand.nextInt(400)));
+        kValCattle.setText(String.valueOf(375 + rand.nextInt(20)));
+        kValDeer.setText(String.valueOf(1830 + rand.nextInt(60)));
+        kValHorse.setText(String.valueOf(495 + rand.nextInt(20)));
+        dValCattle.setText(String.valueOf(0.5 + 0.5 * rand.nextDouble()));
+        dValDeer.setText(String.valueOf(0.9 + 0.5 * rand.nextDouble()));
+        dValHorse.setText(String.valueOf(8 + 0.4 * rand.nextDouble()));
+        hValCattle.setText(String.valueOf(0.35 + 0.3* rand.nextDouble()));
+        hValDeer.setText(String.valueOf(0.02 + 0.04 * rand.nextDouble()));
+        hValHorse.setText(String.valueOf(0.2 + 0.2 * rand.nextDouble()));
+        predatorAlpha.setText(String.valueOf(0.17 + 0.1 * rand.nextDouble()));
     }
 
         @FXML
