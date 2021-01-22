@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -54,8 +55,22 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="r-Value:" GridPane.rowIndex="1" />
-                        <Label text="n-Value:" GridPane.rowIndex="2" />
+                        <Label text="r-Value:" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Growth rate">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip></Label>
+                        <Label text="n-Value:" GridPane.rowIndex="2">
+                           <tooltip>
+                              <Tooltip text="Starting animal amount">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip></Label>
                         <Label text="Cattle" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                         <Label text="Horse" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                         <Label text="Deer" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
@@ -114,6 +129,13 @@
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
+                           <tooltip>
+                              <Tooltip text="Time in years">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
                         </Label>
                         <Region HBox.hgrow="ALWAYS" />
                         <TextField fx:id="timeValue" prefHeight="27.0" prefWidth="64.0" />
