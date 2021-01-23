@@ -23,6 +23,7 @@ public class mainScreenController {
         handleSaving.handleSave();
     }
 
+    @FXML public void handleHelp() { mainApp.showHelpScreen(); }
 
 
 
