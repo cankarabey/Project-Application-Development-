@@ -23,7 +23,7 @@
    <children>
       <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="347.0" prefWidth="583.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="391.0" prefWidth="291.0" spacing="5.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="347.0" prefWidth="258.0" spacing="5.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -301,6 +301,9 @@
                <BorderPane.margin>
                   <Insets right="10.0" />
                </BorderPane.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </VBox>
          </left>
          <center>
