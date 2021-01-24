@@ -38,7 +38,7 @@ public class PredationModel implements IModel {
             double DCattle = (1 / (WolfAlfa * hCattle));
             double kCattle = (1 / hCattle);
             for (int i = 1; i<= t; i++){
-                int dvdtA = (int) (((r * N0) - ((kCattle * wolfs * (N0 ^ 2)) / ((N0 ^ 2) + (DCattle * DCattle)))) * percentileC);
+                int dvdtA = (int) (((r * N0) - ((kCattle * wolfs * (N0 * N0)) / ((N0 * N0) + (DCattle * DCattle)))) * percentileC);
                 animals.put(i, N0);
                 N0 += dvdtA;
 
@@ -57,7 +57,7 @@ public class PredationModel implements IModel {
             double DDeer = (1 / (WolfAlfa * hDeer));
             double kDeer = (1 / hDeer);
             for (int i = 1; i<= t; i++){
-                int dvdtA = (int) (((r * N0) - ((kDeer * wolfs * (N0 ^ 2)) / ((N0 ^ 2) + (DDeer * DDeer))))* percentileD);
+                int dvdtA = (int) (((r * N0) - ((kDeer * wolfs * (N0 * N0)) / ((N0 * N0) + (DDeer * DDeer))))* percentileD);
                 animals.put(i, N0);
                 N0 += dvdtA;
 
@@ -76,7 +76,7 @@ public class PredationModel implements IModel {
             double DHorse = (1 / (WolfAlfa * hHorse));
             double kHorse = (1 / hHorse);
             for (int i = 1; i<= t; i++){
-                int dvdtA = (int) (((r * N0) - ((kHorse * wolfs * (N0 ^ 2)) / ((N0 ^ 2) + (DHorse * DHorse))))* percentileH);
+                int dvdtA = (int) (((r * N0) - ((kHorse * wolfs * (N0 * N0)) / ((N0 * N0) + (DHorse * DHorse))))* percentileH);
                 animals.put(i, N0);
                 N0 += dvdtA;
 

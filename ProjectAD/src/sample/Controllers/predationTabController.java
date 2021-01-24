@@ -107,10 +107,10 @@ public class predationTabController {
                 yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
             }
             for (int i = 1; i<=t; i++) {
-                nCattle += (int) (((Double.parseDouble(rValCattle.getText()) * Integer.parseInt(nValCattle.getText())) - ((Double.parseDouble(kValCattle.getText()) * nWolf * ((Integer.parseInt(nValCattle.getText()) ^ 2))) / (((Integer.parseInt(nValCattle.getText()) ^ 2)) + (Double.parseDouble(dValCattle.getText()) * Double.parseDouble(dValCattle.getText()) )))) * percentileCattle);
-                nDeer += (int) (((Double.parseDouble(rValDeer.getText()) * Integer.parseInt(nValDeer.getText())) - ((Double.parseDouble(kValDeer.getText()) * nWolf * ((Integer.parseInt(nValDeer.getText()) ^ 2))) / (((Integer.parseInt(nValDeer.getText()) ^ 2)) + (Double.parseDouble(dValDeer.getText()) * Double.parseDouble(dValDeer.getText()) )))) * percentileDeer);
-                nHorse += (int) (((Double.parseDouble(rValHorse.getText()) * Integer.parseInt(nValHorse.getText())) - ((Double.parseDouble(kValHorse.getText()) * nWolf * ((Integer.parseInt(nValHorse.getText()) ^ 2))) / (((Integer.parseInt(nValHorse.getText()) ^ 2)) + (Double.parseDouble(dValHorse.getText()) * Double.parseDouble(dValHorse.getText()) )))) * percentileHorse);
-                nWolf = calcWolfs(Double.parseDouble(predatorAlpha.getText()) , nWolf);
+                nCattle += (int) (((Double.parseDouble(rValCattle.getText()) * Integer.parseInt(nValCattle.getText())) - ((Double.parseDouble(kValCattle.getText()) * nWolf * (Math.pow(Integer.parseInt(nValCattle.getText()) , 2))) / ((Math.pow(Integer.parseInt(nValCattle.getText()) , 2)) + (Double.parseDouble(dValCattle.getText()) * Double.parseDouble(dValCattle.getText()) )))) * percentileCattle);
+                nDeer += (int) (((Double.parseDouble(rValDeer.getText()) * Integer.parseInt(nValDeer.getText())) - ((Double.parseDouble(kValDeer.getText()) * nWolf * (Math.pow(Integer.parseInt(nValDeer.getText()) , 2))) / ((Math.pow(Integer.parseInt(nValDeer.getText()) , 2)) + (Double.parseDouble(dValDeer.getText()) * Double.parseDouble(dValDeer.getText()) )))) * percentileDeer);
+                nHorse += (int) (((Double.parseDouble(rValHorse.getText()) * Integer.parseInt(nValHorse.getText())) - ((Double.parseDouble(kValHorse.getText()) * nWolf * (Math.pow(Integer.parseInt(nValHorse.getText()) , 2))) / ((Math.pow(Integer.parseInt(nValHorse.getText()) , 2)) + (Double.parseDouble(dValHorse.getText()) * Double.parseDouble(dValHorse.getText()) )))) * percentileHorse);
+                nWolf = calcWolfs(0.5 , (nCattle + nDeer + nWolf)/3);
                 predictions.add(new Predictions(yearVal , nCattle, nDeer , nHorse , nWolf));
                 yearVal++;
             }
@@ -128,13 +128,11 @@ public class predationTabController {
                 pieChartController.showPieChart(predictions);
             }
         } catch (IOException | NumberFormatException e){
-            //throw new IllegalFieldException(e);
-            e.printStackTrace();
+            throw new IllegalFieldException(e);
         }
 
 
 }
-
     public int calcWolfs(double alfa, int pop){
         int amountOfWolfs = Integer.parseInt(predatorPopulation.getText());
         int dvdtW = (int)  (alfa * pop * amountOfWolfs - (0.2 * amountOfWolfs * amountOfWolfs));
