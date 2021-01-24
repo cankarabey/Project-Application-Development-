@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import util.CSVReader;
-import util.IllegalFieldException;
-import util.Predictions;
-import util.perAgeGroupPredictions;
+import util.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,20 +13,16 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class ageTabController {
-    @FXML private Tab age;
-    @FXML private TextField f1Cattle;
     @FXML private TextField f2Cattle;
     @FXML private TextField f3Cattle;
     @FXML private TextField g1Cattle;
     @FXML private TextField g2Cattle;
     @FXML private TextField g3Cattle;
-    @FXML private TextField f1Deer;
     @FXML private TextField f2Deer;
     @FXML private TextField f3Deer;
     @FXML private TextField g1Deer;
     @FXML private TextField g2Deer;
     @FXML private TextField g3Deer;
-    @FXML private TextField f1Horse;
     @FXML private TextField f2Horse;
     @FXML private TextField f3Horse;
     @FXML private TextField g1Horse;
@@ -53,31 +46,35 @@ public class ageTabController {
     private ObservableList<ObservableList<perAgeGroupPredictions>> ageGroups = FXCollections.observableArrayList();
 
     @FXML
-    public void setText() throws IOException {
-        HashMap<String, File> map = importDataScreenController.getFiles();
-        ArrayList<Double> pValuesCattle = (ArrayList<Double>) CSVReader.PandFlist(map.get("CattleLifeTable")).get(0);
-        ArrayList<Double> fValuesCattle = (ArrayList<Double>) CSVReader.PandFlist(map.get("CattleLifeTable")).get(1);
-        ArrayList<Double> pValuesDeer = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(0);
-        ArrayList<Double> fValuesDeer = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(1);
-        ArrayList<Double> pValuesHorse = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(0);
-        ArrayList<Double> fValuesHorse = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(1);
+    public void setText() throws IllegalImportException {
+        try {
+            HashMap<String, File> map = importDataScreenController.getFiles();
+            ArrayList<Double> pValuesCattle = (ArrayList<Double>) CSVReader.PandFlist(map.get("CattleLifeTable")).get(0);
+            ArrayList<Double> fValuesCattle = (ArrayList<Double>) CSVReader.PandFlist(map.get("CattleLifeTable")).get(1);
+            ArrayList<Double> pValuesDeer = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(0);
+            ArrayList<Double> fValuesDeer = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(1);
+            ArrayList<Double> pValuesHorse = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(0);
+            ArrayList<Double> fValuesHorse = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(1);
 
-        f2Cattle.setText(String.valueOf(fValuesCattle.get(1)));
-        f2Deer.setText(String.valueOf(fValuesDeer.get(1)));
-        f2Horse.setText(String.valueOf(fValuesHorse.get(1)));
-        f3Cattle.setText(String.valueOf(fValuesCattle.get(2)));
-        f3Deer.setText(String.valueOf(fValuesDeer.get(2)));
-        f3Horse.setText(String.valueOf(fValuesHorse.get(2)));
-        g1Cattle.setText(String.valueOf(pValuesCattle.get(0)));
-        g1Deer.setText(String.valueOf(pValuesDeer.get(0)));
-        g1Horse.setText(String.valueOf(pValuesHorse.get(0)));
-        g2Cattle.setText(String.valueOf(pValuesCattle.get(1)));
-        g2Deer.setText(String.valueOf(pValuesDeer.get(1)));
-        g2Horse.setText(String.valueOf(pValuesHorse.get(1)));
-        g3Cattle.setText(String.valueOf(pValuesCattle.get(2)));
-        g3Deer.setText(String.valueOf(pValuesDeer.get(2)));
-        g3Horse.setText(String.valueOf(pValuesHorse.get(2)));
+            f2Cattle.setText(String.valueOf(fValuesCattle.get(1)));
+            f2Deer.setText(String.valueOf(fValuesDeer.get(1)));
+            f2Horse.setText(String.valueOf(fValuesHorse.get(1)));
+            f3Cattle.setText(String.valueOf(fValuesCattle.get(2)));
+            f3Deer.setText(String.valueOf(fValuesDeer.get(2)));
+            f3Horse.setText(String.valueOf(fValuesHorse.get(2)));
+            g1Cattle.setText(String.valueOf(pValuesCattle.get(0)));
+            g1Deer.setText(String.valueOf(pValuesDeer.get(0)));
+            g1Horse.setText(String.valueOf(pValuesHorse.get(0)));
+            g2Cattle.setText(String.valueOf(pValuesCattle.get(1)));
+            g2Deer.setText(String.valueOf(pValuesDeer.get(1)));
+            g2Horse.setText(String.valueOf(pValuesHorse.get(1)));
+            g3Cattle.setText(String.valueOf(pValuesCattle.get(2)));
+            g3Deer.setText(String.valueOf(pValuesDeer.get(2)));
+            g3Horse.setText(String.valueOf(pValuesHorse.get(2)));
 
+        } catch(IOException e) {
+            throw new IllegalImportException(e);
+        }
     }
 
     @FXML
@@ -100,10 +97,10 @@ public class ageTabController {
         g3Horse.setText(String.valueOf(0.6 + 0.1 * rand.nextDouble()));
     }
 
-    @FXML public void handleShowPredictions() throws IllegalFieldException {
+    @FXML public void handleShowPredictions() throws IllegalFieldException, MissingImportException {
         tableView.getItems().clear();
-        try{
-            int yearVal =1;
+        try {
+            int yearVal = 1;
             if (!importDataScreenController.getFiles().isEmpty()) {
                 yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
             }
@@ -125,28 +122,28 @@ public class ageTabController {
             int ageGroupThreeHorse = (int) (ageGroupTwoCattle * Double.parseDouble(g2Horse.getText()));
             int ageGroupFourHorse = (int) (ageGroupThreeCattle * Double.parseDouble(g3Horse.getText()));
 
-            for (int i = 0 ; i < Integer.parseInt(t.getText()) ; i++) {
+            for (int i = 0; i < Integer.parseInt(t.getText()); i++) {
                 ageGroupFourCattle = (int) (ageGroupThreeCattle * Double.parseDouble(g3Cattle.getText()));
                 ageGroupThreeCattle = (int) (ageGroupTwoCattle * Double.parseDouble(g2Cattle.getText()));
                 ageGroupTwoCattle = (int) (ageGroupOneCattle * Double.parseDouble(g1Cattle.getText()));
                 ageGroupOneCattle = (int) ((0 * ageGroupOneCattle) + (Double.parseDouble(f2Cattle.getText()) * ageGroupTwoCattle) + (Double.parseDouble(f3Cattle.getText()) * ageGroupThreeCattle) + (0 * ageGroupFourCattle));
-                int totalCattle = ageGroupOneCattle+ ageGroupTwoCattle + ageGroupThreeCattle + ageGroupFourCattle;
+                int totalCattle = ageGroupOneCattle + ageGroupTwoCattle + ageGroupThreeCattle + ageGroupFourCattle;
                 predictionsCattle.add(new perAgeGroupPredictions(ageGroupOneCattle, ageGroupTwoCattle, ageGroupThreeCattle, ageGroupFourCattle));
 
                 ageGroupFourDeer = (int) (ageGroupThreeDeer * Double.parseDouble(g3Deer.getText()));
                 ageGroupThreeDeer = (int) (ageGroupTwoDeer * Double.parseDouble(g2Deer.getText()));
                 ageGroupTwoDeer = (int) (ageGroupOneDeer * Double.parseDouble(g1Deer.getText()));
                 ageGroupOneDeer = (int) ((0 * ageGroupOneDeer) + (Double.parseDouble(f2Deer.getText()) * ageGroupTwoDeer) + (Double.parseDouble(f3Deer.getText()) * ageGroupThreeDeer) + (0 * ageGroupFourDeer));
-                int totalDeer = ageGroupOneDeer+ ageGroupTwoDeer + ageGroupThreeDeer + ageGroupFourDeer;
+                int totalDeer = ageGroupOneDeer + ageGroupTwoDeer + ageGroupThreeDeer + ageGroupFourDeer;
                 predictionsDeer.add(new perAgeGroupPredictions(ageGroupOneDeer, ageGroupTwoDeer, ageGroupThreeDeer, ageGroupFourDeer));
 
                 ageGroupFourHorse = (int) (ageGroupThreeHorse * Double.parseDouble(g3Horse.getText()));
                 ageGroupThreeHorse = (int) (ageGroupTwoHorse * Double.parseDouble(g2Horse.getText()));
                 ageGroupTwoHorse = (int) (ageGroupOneHorse * Double.parseDouble(g1Horse.getText()));
                 ageGroupOneHorse = (int) ((0 * ageGroupOneHorse) + (Double.parseDouble(f2Horse.getText()) * ageGroupTwoHorse) + (Double.parseDouble(f3Horse.getText()) * ageGroupThreeHorse) + (0 * ageGroupFourHorse));
-                int totalHorse = ageGroupOneHorse+ ageGroupTwoHorse + ageGroupThreeHorse + ageGroupFourHorse;
+                int totalHorse = ageGroupOneHorse + ageGroupTwoHorse + ageGroupThreeHorse + ageGroupFourHorse;
                 predictionsHorse.add(new perAgeGroupPredictions(ageGroupOneHorse, ageGroupTwoHorse, ageGroupThreeHorse, ageGroupFourHorse));
-                predictions.add(new Predictions(yearVal , totalCattle , totalDeer , totalHorse));
+                predictions.add(new Predictions(yearVal, totalCattle, totalDeer, totalHorse));
                 yearVal++;
             }
 
@@ -165,9 +162,11 @@ public class ageTabController {
             if (checkBoxPie.isSelected()) {
                 pieChartController.showPieChart(predictions);
             }
-            if (perAgeGroup.isSelected()){
+            if (perAgeGroup.isSelected()) {
                 perAgeGroupScreenController.showPerAgeGroup(ageGroups);
             }
+        } catch (NullPointerException e){
+            throw new MissingImportException(e);
         } catch (IOException | NumberFormatException e){
             throw new IllegalFieldException(e);
         }

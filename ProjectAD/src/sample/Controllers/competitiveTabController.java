@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import util.CSVReader;
-import util.IllegalFieldException;
-import util.IllegalImportException;
-import util.Predictions;
+import util.*;
 
 import java.io.IOException;
 import java.util.Random;
@@ -56,7 +53,6 @@ public class competitiveTabController {
         } catch (IOException | ArrayIndexOutOfBoundsException e){
             throw new IllegalImportException(e);
         }
-
     }
 
     @FXML
@@ -77,22 +73,22 @@ public class competitiveTabController {
     }
 
     @FXML
-    public void handleShowPredictions() throws IllegalFieldException {
+    public void handleShowPredictions() throws IllegalFieldException, MissingImportException {
         tableView.getItems().clear();
-        try{
+        try {
             int t = Integer.parseInt(timeValue.getText());
             int nCattle = Integer.parseInt(nValCattle.getText());
             int nDeer = Integer.parseInt(nValDeer.getText());
             int nHorse = Integer.parseInt(nValHorse.getText());
-            int yearVal =1;
+            int yearVal = 1;
             if (!importDataScreenController.getFiles().isEmpty()) {
                 yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
             }
-            for (int i = 1; i<=t; i++) {
-                nCattle = (int) (nCattle*(1+Double.parseDouble(rValCattle.getText()) * ( 1 - (nCattle+Double.parseDouble(alphaCattle.getText())*nHorse)/Double.parseDouble(kValCattle.getText()))));
-                nDeer = (int) (nDeer*(1+Double.parseDouble(rValDeer.getText()) * ( 1 - (nDeer+Double.parseDouble(alphaDeer.getText())*CSVReader.getN(importDataScreenController.getFiles().get("CattleHorseAvg")))/Double.parseDouble(kValDeer.getText()))));
-                nHorse = (int) (nHorse*(1+Double.parseDouble(rValHorse.getText()) * ( 1 - (nHorse+Double.parseDouble(alphaHorse.getText())*nCattle)/Double.parseDouble(kValHorse.getText()))));
-                predictions.add(new Predictions(yearVal , nCattle, nDeer , nHorse));
+            for (int i = 1; i <= t; i++) {
+                nCattle = (int) (nCattle * (1 + Double.parseDouble(rValCattle.getText()) * (1 - (nCattle + Double.parseDouble(alphaCattle.getText()) * nHorse) / Double.parseDouble(kValCattle.getText()))));
+                nDeer = (int) (nDeer * (1 + Double.parseDouble(rValDeer.getText()) * (1 - (nDeer + Double.parseDouble(alphaDeer.getText()) * CSVReader.getN(importDataScreenController.getFiles().get("CattleHorseAvg"))) / Double.parseDouble(kValDeer.getText()))));
+                nHorse = (int) (nHorse * (1 + Double.parseDouble(rValHorse.getText()) * (1 - (nHorse + Double.parseDouble(alphaHorse.getText()) * nCattle) / Double.parseDouble(kValHorse.getText()))));
+                predictions.add(new Predictions(yearVal, nCattle, nDeer, nHorse));
                 yearVal++;
             }
             year.setCellValueFactory(cellData -> cellData.getValue().yearProperty().asObject());
@@ -107,8 +103,10 @@ public class competitiveTabController {
             if (checkBoxPie.isSelected()) {
                 pieChartController.showPieChart(predictions);
             }
+        } catch (NullPointerException e){
+            throw new MissingImportException(e);
         } catch (IOException | NumberFormatException e){
-        throw new IllegalFieldException(e);
+            throw new IllegalFieldException(e);
     }
 
 

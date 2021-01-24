@@ -18,7 +18,7 @@ public class helpScreenController {
 
     public void openManual() {
         try{
-            File file = new File("src"+File.separator+"Data/UserManualApplicationDevelopment.pdf");
+            File file = new File("src" + File.separator + "Data"+File.separator + "UserManualApplicationDevelopment.pdf");
             Desktop.getDesktop().open(file);
         } catch (IOException e){
             e.printStackTrace();

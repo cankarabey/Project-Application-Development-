@@ -8,7 +8,8 @@ public class IllegalImportException extends Exception{
         Alert emptyField = new Alert(Alert.AlertType.ERROR);
         emptyField.setTitle("Error");
         emptyField.setHeaderText("Illegal Import");
-        emptyField.setContentText("The data imported is not in the correct format.\nPlease use a different .csv file.");
+        emptyField.setContentText("The data imported is in the incorrect format.\nPlease use a different " +
+                ".csv file.");
         emptyField.showAndWait();
         cause.printStackTrace();
     }

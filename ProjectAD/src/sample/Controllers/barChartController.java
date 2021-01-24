@@ -32,6 +32,7 @@ public class barChartController {
             weight.getData().add(new XYChart.Data<>(Integer.toString(predictions.get(i).getYear()),
                     predictions.get(i).getWeight()));
         }
+
         answer.add(weight);
         barChart.setData(answer);
         barChart.setTitle("Weight of Grass");
@@ -45,10 +46,12 @@ public class barChartController {
     public static void saveAsPng(BarChart<String, Double> barChart) {
         WritableImage image = barChart.snapshot(new SnapshotParameters(), null);
         File file = new File("barChart.png");
+
         try {
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
