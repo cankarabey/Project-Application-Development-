@@ -40,6 +40,7 @@ public class predationTabController {
     @FXML private TableColumn<Predictions , Integer> cattleNumber;
     @FXML private TableColumn<Predictions , Integer> deerNumber;
     @FXML private TableColumn<Predictions , Integer> horseNumber;
+    @FXML private TableColumn<Predictions , Integer> wolfs;
     @FXML private Button randomButton;
     private static ObservableList<Predictions> predictions = FXCollections.observableArrayList();
 
@@ -98,20 +99,23 @@ public class predationTabController {
             int nDeer = Integer.parseInt(nValDeer.getText());
             int nHorse = Integer.parseInt(nValHorse.getText());
             int yearVal =1;
+            int nWolf = Integer.parseInt(predatorPopulation.getText());
             if (!importDataScreenController.getFiles().isEmpty()) {
                 yearVal = CSVReader.getYear(importDataScreenController.getFiles().get("CattleData"));
             }
             for (int i = 1; i<=t; i++) {
-                nCattle = nCattle - (((int) (Double.parseDouble(rValCattle.getText()) * nCattle * i - (((Double.parseDouble(kValCattle.getText()) * (nCattle ^ 2))) / ((nCattle ^ 2) + (Double.parseDouble(dValCattle.getText()) * Double.parseDouble(dValCattle.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
-                nDeer = nDeer - (((int) (Double.parseDouble(rValDeer.getText()) * nDeer * i - (((Double.parseDouble(kValDeer.getText()) * (nDeer ^ 2))) / ((nDeer ^ 2) + (Double.parseDouble(dValDeer.getText()) * Double.parseDouble(dValDeer.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
-                nHorse = nHorse - (((int) (Double.parseDouble(rValHorse.getText()) * nHorse * i - (((Double.parseDouble(kValHorse.getText()) * (nHorse ^ 2))) / ((nHorse ^ 2) + (Double.parseDouble(dValHorse.getText()) * Double.parseDouble(dValHorse.getText())))) * Integer.parseInt(predatorPopulation.getText()) * i))/3);
-                predictions.add(new Predictions(yearVal , nCattle, nDeer , nHorse));
+                nCattle = nCattle - (((int) (Double.parseDouble(rValCattle.getText()) * nCattle * i - (((Double.parseDouble(kValCattle.getText()) * (nCattle ^ 2))) / ((nCattle ^ 2) + (Double.parseDouble(dValCattle.getText()) * Double.parseDouble(dValCattle.getText())))) * nWolf * i))/3);
+                nDeer = nDeer - (((int) (Double.parseDouble(rValDeer.getText()) * nDeer * i - (((Double.parseDouble(kValDeer.getText()) * (nDeer ^ 2))) / ((nDeer ^ 2) + (Double.parseDouble(dValDeer.getText()) * Double.parseDouble(dValDeer.getText())))) * nWolf * i))/3);
+                nHorse = nHorse - (((int) (Double.parseDouble(rValHorse.getText()) * nHorse * i - (((Double.parseDouble(kValHorse.getText()) * (nHorse ^ 2))) / ((nHorse ^ 2) + (Double.parseDouble(dValHorse.getText()) * Double.parseDouble(dValHorse.getText())))) * nWolf * i))/3);
+                nWolf = calcWolfs(Double.parseDouble(predatorAlpha.getText()) , nWolf);
+                predictions.add(new Predictions(yearVal , nCattle, nDeer , nHorse , nWolf));
                 yearVal++;
             }
             year.setCellValueFactory(cellData -> cellData.getValue().yearProperty().asObject());
             cattleNumber.setCellValueFactory(cellData -> cellData.getValue().cattleProperty().asObject());
             deerNumber.setCellValueFactory(cellData -> cellData.getValue().deerProperty().asObject());
             horseNumber.setCellValueFactory(cellData -> cellData.getValue().horseProperty().asObject());
+            wolfs.setCellValueFactory(cellData -> cellData.getValue().wolfsProperty().asObject());
             tableView.setItems(predictions);
 
             if (checkBoxLine.isSelected()) {
@@ -126,6 +130,21 @@ public class predationTabController {
 
 
 }
+
+    public int calcWolfs(double alfa, int pop){
+        int amountOfWolfs = Integer.parseInt(predatorPopulation.getText());
+        int dvdtW = (int)  (alfa * pop * amountOfWolfs - (0.2 * amountOfWolfs * amountOfWolfs));
+        if(dvdtW <= -50) {
+            dvdtW = -50;
+            amountOfWolfs += dvdtW/3;
+        }if (dvdtW >= 20){
+            dvdtW =20;
+            amountOfWolfs += dvdtW/3;
+        }else{
+            amountOfWolfs += dvdtW/3;
+        }
+        return amountOfWolfs;
+    }
 
     public static ObservableList<Predictions> getPredictions() {
         return predictions;

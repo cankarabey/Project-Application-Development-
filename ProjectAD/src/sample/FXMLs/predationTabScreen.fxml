@@ -313,7 +313,7 @@
                   <TableColumn fx:id="cattleNumber" prefWidth="75.0" text="Cattle" />
                   <TableColumn fx:id="deerNumber" prefWidth="75.0" text="Deer" />
                   <TableColumn fx:id="horseNumber" prefWidth="75.0" text="Horse" />
-                  <TableColumn prefWidth="75.0" text="Wolf" />
+                  <TableColumn fx:id="wolfs" prefWidth="75.0" text="Wolf" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

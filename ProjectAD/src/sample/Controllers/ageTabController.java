@@ -62,9 +62,6 @@ public class ageTabController {
         ArrayList<Double> pValuesHorse = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(0);
         ArrayList<Double> fValuesHorse = (ArrayList<Double>) CSVReader.PandFlist(map.get("DeerLifeTable")).get(1);
 
-        f1Cattle.setText(String.valueOf(fValuesCattle.get(0)));
-        f1Deer.setText(String.valueOf(fValuesDeer.get(0)));
-        f1Horse.setText(String.valueOf(fValuesHorse.get(0)));
         f2Cattle.setText(String.valueOf(fValuesCattle.get(1)));
         f2Deer.setText(String.valueOf(fValuesDeer.get(1)));
         f2Horse.setText(String.valueOf(fValuesHorse.get(1)));
@@ -86,9 +83,6 @@ public class ageTabController {
     @FXML
     public void handleRandomButton() {
         Random rand = new Random();
-        f1Cattle.setText(String.valueOf(0));
-        f1Deer.setText(String.valueOf(0));
-        f1Horse.setText(String.valueOf(0));
         f2Cattle.setText(String.valueOf(0.7 + 0.1 * rand.nextDouble()));
         f2Deer.setText(String.valueOf(0.5 + 0.1 * rand.nextDouble()));
         f2Horse.setText(String.valueOf(0.5 + 0.1 * rand.nextDouble()));
@@ -135,21 +129,21 @@ public class ageTabController {
                 ageGroupFourCattle = (int) (ageGroupThreeCattle * Double.parseDouble(g3Cattle.getText()));
                 ageGroupThreeCattle = (int) (ageGroupTwoCattle * Double.parseDouble(g2Cattle.getText()));
                 ageGroupTwoCattle = (int) (ageGroupOneCattle * Double.parseDouble(g1Cattle.getText()));
-                ageGroupOneCattle = (int) ((Double.parseDouble(f1Cattle.getText()) * ageGroupOneCattle) + (Double.parseDouble(f2Cattle.getText()) * ageGroupTwoCattle) + (Double.parseDouble(f3Cattle.getText()) * ageGroupThreeCattle) + (0 * ageGroupFourCattle));
+                ageGroupOneCattle = (int) ((0 * ageGroupOneCattle) + (Double.parseDouble(f2Cattle.getText()) * ageGroupTwoCattle) + (Double.parseDouble(f3Cattle.getText()) * ageGroupThreeCattle) + (0 * ageGroupFourCattle));
                 int totalCattle = ageGroupOneCattle+ ageGroupTwoCattle + ageGroupThreeCattle + ageGroupFourCattle;
                 predictionsCattle.add(new perAgeGroupPredictions(ageGroupOneCattle, ageGroupTwoCattle, ageGroupThreeCattle, ageGroupFourCattle));
 
                 ageGroupFourDeer = (int) (ageGroupThreeDeer * Double.parseDouble(g3Deer.getText()));
                 ageGroupThreeDeer = (int) (ageGroupTwoDeer * Double.parseDouble(g2Deer.getText()));
                 ageGroupTwoDeer = (int) (ageGroupOneDeer * Double.parseDouble(g1Deer.getText()));
-                ageGroupOneDeer = (int) ((Double.parseDouble(f1Deer.getText()) * ageGroupOneDeer) + (Double.parseDouble(f2Deer.getText()) * ageGroupTwoDeer) + (Double.parseDouble(f3Deer.getText()) * ageGroupThreeDeer) + (0 * ageGroupFourDeer));
+                ageGroupOneDeer = (int) ((0 * ageGroupOneDeer) + (Double.parseDouble(f2Deer.getText()) * ageGroupTwoDeer) + (Double.parseDouble(f3Deer.getText()) * ageGroupThreeDeer) + (0 * ageGroupFourDeer));
                 int totalDeer = ageGroupOneDeer+ ageGroupTwoDeer + ageGroupThreeDeer + ageGroupFourDeer;
                 predictionsDeer.add(new perAgeGroupPredictions(ageGroupOneDeer, ageGroupTwoDeer, ageGroupThreeDeer, ageGroupFourDeer));
 
                 ageGroupFourHorse = (int) (ageGroupThreeHorse * Double.parseDouble(g3Horse.getText()));
                 ageGroupThreeHorse = (int) (ageGroupTwoHorse * Double.parseDouble(g2Horse.getText()));
                 ageGroupTwoHorse = (int) (ageGroupOneHorse * Double.parseDouble(g1Horse.getText()));
-                ageGroupOneHorse = (int) ((Double.parseDouble(f1Horse.getText()) * ageGroupOneHorse) + (Double.parseDouble(f2Horse.getText()) * ageGroupTwoHorse) + (Double.parseDouble(f3Horse.getText()) * ageGroupThreeHorse) + (0 * ageGroupFourHorse));
+                ageGroupOneHorse = (int) ((0 * ageGroupOneHorse) + (Double.parseDouble(f2Horse.getText()) * ageGroupTwoHorse) + (Double.parseDouble(f3Horse.getText()) * ageGroupThreeHorse) + (0 * ageGroupFourHorse));
                 int totalHorse = ageGroupOneHorse+ ageGroupTwoHorse + ageGroupThreeHorse + ageGroupFourHorse;
                 predictionsHorse.add(new perAgeGroupPredictions(ageGroupOneHorse, ageGroupTwoHorse, ageGroupThreeHorse, ageGroupFourHorse));
                 predictions.add(new Predictions(yearVal , totalCattle , totalDeer , totalHorse));

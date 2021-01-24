@@ -11,6 +11,7 @@ public class Predictions {
     private IntegerProperty cattle;
     private IntegerProperty deer;
     private IntegerProperty horse;
+    private IntegerProperty wolfs;
     private DoubleProperty weight;
 
     public Predictions(int year, double weight){
@@ -23,6 +24,14 @@ public class Predictions {
         this.cattle = new SimpleIntegerProperty(cattle);
         this.deer = new SimpleIntegerProperty(deer);
         this.horse = new SimpleIntegerProperty(horse);
+    }
+
+    public Predictions(int year, int cattle, int deer, int horse, int wolfs) {
+        this.year = new SimpleIntegerProperty(year);
+        this.cattle = new SimpleIntegerProperty(cattle);
+        this.deer = new SimpleIntegerProperty(deer);
+        this.horse = new SimpleIntegerProperty(horse);
+        this.wolfs = new SimpleIntegerProperty(wolfs);
     }
 
     public double getWeight() {
@@ -74,5 +83,13 @@ public class Predictions {
 
     public IntegerProperty horseProperty() {
         return horse;
+    }
+
+    public int getWolfs() {
+        return wolfs.get();
+    }
+
+    public IntegerProperty wolfsProperty() {
+        return wolfs;
     }
 }
