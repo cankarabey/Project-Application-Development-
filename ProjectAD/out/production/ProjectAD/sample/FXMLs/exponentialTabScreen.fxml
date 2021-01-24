@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="exponentialTabScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.exponentialTabController">
+<AnchorPane fx:id="exponentialTabScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.exponentialTabController">
    <children>
       <BorderPane prefHeight="347.0" prefWidth="583.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -112,9 +112,9 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </GridPane>
-                  <Region VBox.vgrow="ALWAYS" />
+                  <Region prefHeight="0.0" prefWidth="307.0" VBox.vgrow="ALWAYS" />
                   <Separator prefWidth="200.0" />
-                  <Region VBox.vgrow="ALWAYS" />
+                  <Region prefHeight="0.0" prefWidth="307.0" VBox.vgrow="ALWAYS" />
                   <Label prefHeight="27.0" prefWidth="120.0" text="Duration">
                      <padding>
                         <Insets left="5.0" />

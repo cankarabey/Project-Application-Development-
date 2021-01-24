@@ -2,6 +2,15 @@
     -fx-background-color: #228b22;
 }
 
+.tab-pane{
+    -fx-background-color: #9acd32;
+}
+
+ul.tabs li.selected a, ul.tabs li.selected a:hover{
+ -fx-background-color: #9acd32;
+}
+
+
 .label {
     -fx-font-size: 11pt;
     -fx-font-family: "Segoe UI Semibold";
@@ -26,7 +35,7 @@
 .table-view {
     -fx-base: #1d1d1d;
     -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #6495ed;
+    -fx-background-color: #4169e1;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
     -fx-padding: 5;
@@ -153,9 +162,9 @@
 .tab {
   -fx-font-family: Arial;
   -fx-font-size: 18;
-  -fx-background-color:#1d1d1d ;
+  -fx-background-color: #87ceeb;
 }
 
 .tab:selected {
-    -fx-background-color:#1d1d1d ;
+    -fx-background-color: #ffd700;
 }
