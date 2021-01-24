@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="364.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.helpScreenController">
    <children>
-      <TextArea layoutX="16.0" layoutY="14.0" prefHeight="373.0" prefWidth="443.0" text="For any questions regarding the use of the application please look &#10;though the user manual via this link:&#10;&#10;https://inholland-my.sharepoint.com/:b:/g/personal/648599_student_inholland_nl/EXnXRqNKpt5MkvyI21UXBfIBS_aC-fNFbJdUlBrJrdhe0w?e=Ztq8Wz&#10;&#10;If after reading the user manual, you still have questions please feel &#10;free to contact the developers.&#10;&#10;Contacts:&#10;The developers of this applications are:&#10;Can Karabey – 639754@student.inholland.nl&#10;Yasin Sheikh – 644022@student.inholland.nl&#10;Lamija Spahić – 648599@student.inholland.nl&#10;Ivo Snijder – 653875@student.inholland.nl&#10;Roberts Gode – 653508@student.inholland.nl&#10;&#10;This application is made though the guidance of Inholland teachers:&#10;Harald Drillenburg – Harald.Drillenburg@inholland.nl&#10;Samia El Abodi - Samia.elAbodi@inholland.nl" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TextArea editable="false" layoutX="16.0" layoutY="14.0" prefHeight="373.0" prefWidth="443.0" text="For any questions regarding the use of the application please look &#10;though the user manual via this link:&#10;&#10;&#10;&#10;If after reading the user manual, you still have questions please feel &#10;free to contact the developers.&#10;&#10;Contacts:&#10;The developers of this applications are:&#10;Can Karabey – 639754@student.inholland.nl&#10;Yasin Sheikh – 644022@student.inholland.nl&#10;Lamija Spahić – 648599@student.inholland.nl&#10;Ivo Snijder – 653875@student.inholland.nl&#10;Roberts Gode – 653508@student.inholland.nl&#10;&#10;This application is made though the guidance of Inholland teachers:&#10;Harald Drillenburg – Harald.Drillenburg@inholland.nl&#10;Samia El Abodi - Samia.elAbodi@inholland.nl" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Hyperlink fx:id="userManual" layoutX="6.0" layoutY="50.0" onAction="#openManual" text="User Manual" />
    </children>
 </AnchorPane>
