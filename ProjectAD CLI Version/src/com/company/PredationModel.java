@@ -9,8 +9,8 @@ public class PredationModel implements IModel {
     // int amountOfWolfs = PopulationWolf;
     // int NWolfs = CSVReader.getN("Wolfs.cvs");
     // int PopulationWolf = CSVReader.getN("Wolf.csv") * ((beta * (CSVReader.getN("DeerData.csv")) - CSVReader.getDeathRate("DeerData.csv")) * t;
-    int amountOfWolfs = 1;
-    int wolfs = 1;
+    int amountOfWolfs = 5;
+    int wolfs = 5;
 
 
 
