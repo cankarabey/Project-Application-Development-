@@ -3,7 +3,6 @@ package sample.Controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.Axis;
@@ -22,9 +21,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class lineChartController {
-
-    @FXML static LineChart<Integer , Integer> lineChart;
-
 
     public static void showLineChart(ObservableList<Predictions> predictions) {
 

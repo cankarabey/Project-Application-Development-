@@ -3,24 +3,18 @@ package sample.Controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import util.Predictions;
-
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
 public class pieChartController {
-
-    @FXML
-    static PieChart pieChart;
 
     public static void showPieChart(ObservableList<Predictions> predictions){
 

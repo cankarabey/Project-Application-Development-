@@ -40,6 +40,7 @@ public class Predictions {
                 ", cattle=" + cattle +
                 ", deer=" + deer +
                 ", horse=" + horse +
+                ", weight=" + weight +
                 '}';
     }
 

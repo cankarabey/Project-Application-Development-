@@ -23,7 +23,6 @@ public class importDataScreenController {
     @FXML private Button deerLifeTableButton;
     @FXML private Button horseLifeTableButton;
     @FXML private Button cattleHorseAvgButton;
-    @FXML private Button wolfsDataButton;
     @FXML private Button grassDataButton;
 
     @FXML
@@ -78,7 +77,6 @@ public class importDataScreenController {
                 missingFiles.close();
             }
         }
-
     }
 
     @FXML
@@ -96,42 +94,42 @@ public class importDataScreenController {
     }
 
     @FXML
-    public void handleChooseFileCD() {  //CD = cattle data
+    public void handleChooseFileCD() {      // CD = Cattle Data
         files.put("CattleData" , getFile());
         cattleDataButton.setText("Imported!");
     }
     @FXML
-    public void handleChooseFileDD() {  //DD = Deer Data
+    public void handleChooseFileDD() {      // DD = Deer Data
         files.put("DeerData" , getFile());
         deerDataButton.setText("Imported!");
     }
     @FXML
-    public void handleChooseFileHD() {  //HD = Horse Data
+    public void handleChooseFileHD() {      //  HD = Horse Data
         files.put("HorseData" , getFile());
         horseDataButton.setText("Imported!");
     }
     @FXML
-    public void handleChooseFileCHA() {
+    public void handleChooseFileCHA() {     // CHA = Cattle & Horse Average
         files.put("CattleHorseAvg" , getFile());
         cattleHorseAvgButton.setText("Imported!");
     }
     @FXML
-    public void handleChooseFileCLT() {   // CLT = Cattle Life Table
+    public void handleChooseFileCLT() {     // CLT = Cattle Life Table
         files.put("CattleLifeTable" , getFile());
         cattleLifeTableButton.setText("Imported!");
     }
     @FXML
-    public void handleChooseFileDLT() { // DLT = Deer Life Table
+    public void handleChooseFileDLT() {     // DLT = Deer Life Table
         files.put("DeerLifeTable" , getFile());
         deerLifeTableButton.setText("Imported!");
     }
     @FXML
-    public void handleChooseFileHLT() { // HLT = Horse Life Table
+    public void handleChooseFileHLT() {     // HLT = Horse Life Table
         files.put("HorseLifeTable" , getFile());
         horseLifeTableButton.setText("Imported!");
     }
     @FXML
-    public void handleChooseFileGD(){   // GD = Grass Data
+    public void handleChooseFileGD(){       // GD = Grass Data
         files.put("Grass", getFile());
         grassDataButton.setText("Imported!");
     }

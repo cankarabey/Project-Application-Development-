@@ -31,7 +31,7 @@
                   <fx:include fx:id="predationTabScreen" source="predationTabScreen.fxml" />
                </content>
             </Tab>
-            <Tab text="Grass">
+            <Tab onSelectionChanged="#grassSelected" text="Grass">
                <content>
                   <fx:include source="grassTabScreen.fxml" />
                </content></Tab>

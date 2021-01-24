@@ -17,7 +17,19 @@ public class innerScreenController {
     private static boolean ageSelected = false;
     private static boolean compSelected = false;
     private static boolean predSelected = false;
+    private static boolean grassSelected = false;
 
+    public void grassSelected(Event event){
+        if(!grassSelected){
+            grassSelected = true;
+        }else{
+            grassSelected = false;
+        }
+    }
+
+    public static boolean isGrassSelected(){
+        return grassSelected;
+    }
 
     public void logSelected(Event event) {
         if(!logSelected){

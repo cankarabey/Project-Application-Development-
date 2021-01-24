@@ -18,7 +18,7 @@ public class grassTabController {
     @FXML private TableView<Predictions> tableView;
     @FXML private TableColumn<Predictions , Integer> year;
     @FXML private TableColumn<Predictions , Double> weight;
-    private ObservableList<Predictions> predictions = FXCollections.observableArrayList();
+    private static ObservableList<Predictions> predictions = FXCollections.observableArrayList();
     @FXML private CheckBox checkBoxBar;
 
     public void handleShowPredictions() throws IllegalFieldException, IllegalImportException {
@@ -52,5 +52,8 @@ public class grassTabController {
             throw new IllegalFieldException(e);
         }
 
+    }
+    public static ObservableList<Predictions> getPredictions() {
+        return predictions;
     }
 }

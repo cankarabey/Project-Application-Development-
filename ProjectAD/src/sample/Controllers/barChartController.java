@@ -2,11 +2,17 @@ package sample.Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.*;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import util.Predictions;
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 public class barChartController {
 
@@ -33,5 +39,16 @@ public class barChartController {
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.show();
+        saveAsPng(barChart);
+    }
+
+    public static void saveAsPng(BarChart<String, Double> barChart) {
+        WritableImage image = barChart.snapshot(new SnapshotParameters(), null);
+        File file = new File("barChart.png");
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

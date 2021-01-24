@@ -1,10 +1,8 @@
 package sample.Controllers;
 
-
 import javafx.fxml.FXML;
 import sample.Main;
 import util.handleSaving;
-
 
 public class mainScreenController {
 
